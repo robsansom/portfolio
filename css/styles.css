@@ -289,7 +289,7 @@ section {
 
 .hero .container {
     width: 100%;
-    padding-bottom: 40px; /* Space for thumbnails to peek */
+    padding-bottom: 20px; /* Reduced from 40px */
 }
 
 .now-booking {
@@ -320,6 +320,7 @@ section {
     margin-right: auto;
     line-height: 1.05;
     white-space: nowrap;
+    text-align: center;
 }
 
 .hero-title-dark {
@@ -363,7 +364,7 @@ section {
 /* Portfolio Section */
 .portfolio {
     padding: 0 !important;
-    margin-top: -20px; /* Makes thumbnails peek just at the fold */
+    margin-top: -10px; /* Reduced from -20px */
     position: relative;
     z-index: 2;
     background-color: var(--background-light);
@@ -771,7 +772,7 @@ section.portfolio,
     }
     
     .hero .container {
-        padding-bottom: 30px;
+        padding-bottom: 15px; /* Reduced from 30px */
     }
     
     .now-booking {
@@ -783,7 +784,7 @@ section.portfolio,
     }
     
     .portfolio {
-        margin-top: -15px;
+        margin-top: -8px; /* Reduced from -15px */
     }
 }
 
@@ -850,7 +851,7 @@ section.portfolio,
     }
     
     .hero .container {
-        padding-bottom: 25px;
+        padding-bottom: 12px; /* Reduced from 25px */
     }
     
     .now-booking {
@@ -927,7 +928,7 @@ section.portfolio,
     }
     
     .portfolio {
-        margin-top: -12px;
+        margin-top: -6px; /* Reduced from -12px */
     }
 }
 
@@ -1011,11 +1012,11 @@ section.portfolio,
     }
     
     .hero .container {
-        padding-bottom: 20px;
+        padding-bottom: 10px; /* Reduced from 20px */
     }
     
     .portfolio {
-        margin-top: -10px;
+        margin-top: -5px; /* Reduced from -10px */
     }
 }
 
