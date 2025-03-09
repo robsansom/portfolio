@@ -279,7 +279,7 @@ section {
 
 /* Hero Section */
 .hero {
-    padding: 80px 0 140px;
+    padding: 220px 0 210px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -758,7 +758,7 @@ section.portfolio,
     }
     
     .hero {
-        padding: 60px 0 100px;
+        padding: 180px 0 170px;
     }
     
     .now-booking {
@@ -829,7 +829,7 @@ section.portfolio,
     }
     
     .hero {
-        padding: 50px 0 80px;
+        padding: 140px 0 130px;
     }
     
     .now-booking {
@@ -979,6 +979,10 @@ section.portfolio,
     .portfolio-item {
         width: 100%;
         max-width: 100%;
+    }
+    
+    .hero {
+        padding: 120px 0 110px;
     }
 }
 
