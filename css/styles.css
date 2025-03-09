@@ -279,11 +279,17 @@ section {
 
 /* Hero Section */
 .hero {
-    padding: 220px 0 210px;
-    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
     position: relative;
     overflow: hidden;
     background-color: var(--background-light);
+}
+
+.hero .container {
+    width: 100%;
+    padding-bottom: 40px; /* Space for thumbnails to peek */
 }
 
 .now-booking {
@@ -356,7 +362,10 @@ section {
 
 /* Portfolio Section */
 .portfolio {
-    padding: 0px 0 !important;
+    padding: 0 !important;
+    margin-top: -20px; /* Makes thumbnails peek just at the fold */
+    position: relative;
+    z-index: 2;
     background-color: var(--background-light);
 }
 
@@ -758,7 +767,11 @@ section.portfolio,
     }
     
     .hero {
-        padding: 180px 0 170px;
+        min-height: 100vh;
+    }
+    
+    .hero .container {
+        padding-bottom: 30px;
     }
     
     .now-booking {
@@ -767,6 +780,10 @@ section.portfolio,
     
     .hero-buttons {
         margin-top: 60px;
+    }
+    
+    .portfolio {
+        margin-top: -15px;
     }
 }
 
@@ -829,7 +846,11 @@ section.portfolio,
     }
     
     .hero {
-        padding: 140px 0 130px;
+        min-height: 100vh;
+    }
+    
+    .hero .container {
+        padding-bottom: 25px;
     }
     
     .now-booking {
@@ -903,6 +924,10 @@ section.portfolio,
         font-size: 24px !important;
         margin-bottom: 20px !important;
         padding-bottom: 15px !important;
+    }
+    
+    .portfolio {
+        margin-top: -12px;
     }
 }
 
@@ -982,7 +1007,15 @@ section.portfolio,
     }
     
     .hero {
-        padding: 120px 0 110px;
+        min-height: 100vh;
+    }
+    
+    .hero .container {
+        padding-bottom: 20px;
+    }
+    
+    .portfolio {
+        margin-top: -10px;
     }
 }
 
