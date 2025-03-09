@@ -318,7 +318,7 @@ section {
 
 .hero-title-dark {
     color: var(--primary-color);
-    font-weight: 600;
+    font-weight: 500;
     font-size: 4rem;
     display: block;
     margin-bottom: 5px;
@@ -738,6 +738,10 @@ section.portfolio,
         font-size: 3.5rem;
     }
     
+    .hero-title-dark {
+        font-weight: 500;
+    }
+    
     .container {
         padding: 0 30px;
     }
@@ -747,6 +751,10 @@ section.portfolio,
     .hero-title-dark,
     .hero-title-light {
         font-size: 3rem;
+    }
+    
+    .hero-title-dark {
+        font-weight: 500;
     }
     
     .hero {
@@ -766,9 +774,12 @@ section.portfolio,
     .hero-title-dark,
     .hero-title-light {
         font-size: 2.6rem;
+        white-space: normal;
+        line-height: 1.1;
     }
     
     .hero-title-dark {
+        font-weight: 500;
         margin-right: 0;
         margin-bottom: 5px;
     }
