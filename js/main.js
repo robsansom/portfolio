@@ -297,9 +297,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Project descriptions
         const projectDescriptions = {
-            'ditto': `Ditto is a mission-critical technology company enabling seamless, real-time data synchronization across industries like travel, hospitality, quick-service restaurants, military, and industrial sectors. With a focus on reliability and resiliency, Ditto needed a refined brand and website that would instill confidence in enterprise clients while resonating with product leaders and decision-makers.
+            'lseg': `LSEG (London Stock Exchange Group) is a leading global financial markets infrastructure and data provider. They deliver information, analytics, and technology solutions to customers around the world. LSEG needed a refined digital presence that would reflect their position as a trusted partner in the financial industry.
 
-We partnered with Ditto to elevate their brand identity, ensuring it reflects the premium, enduring nature of their technology. This included a strategic shift in design to balance approachability with the seriousness required for their target audiences. The new brand and site provide clear positioning, third-party validation, and compelling calls to action to drive lead capture and portal signups. Additionally, we developed investor decks and marketing assets to support their continued growth.`,
+We partnered with LSEG to create a modern, professional digital experience that communicates their core values of integrity, innovation, and excellence. The design emphasizes clarity and accessibility, making complex financial information easy to navigate for their diverse user base of investors, financial professionals, and corporate clients.`,
             'utility': `Utility is a modern fintech platform that helps businesses streamline their financial operations through an intuitive dashboard and powerful API integrations. The company needed a brand identity and website that conveyed trust, innovation, and simplicity to appeal to both technical and non-technical decision-makers.
 
 Our team created a comprehensive brand strategy and visual identity system that positioned Utility as a forward-thinking yet reliable financial partner. The website design focuses on clear communication of complex features through interactive demonstrations and simplified explanations. We also developed a component library for their marketing team to ensure brand consistency across all digital touchpoints.`,
@@ -453,7 +453,7 @@ Our approach focused on creating a sophisticated yet approachable brand identity
         // Map of project names to placeholder image URLs
         // Using unsplash for high-quality placeholder images that match the project theme
         const placeholderImages = {
-            'ditto': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop',
+            'lseg': 'images/LSEG.png',
             'utility': 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=2000&auto=format&fit=crop',
             'closetnow': 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=2000&auto=format&fit=crop',
             'coast': 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000&auto=format&fit=crop',
