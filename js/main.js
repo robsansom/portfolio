@@ -454,7 +454,7 @@ Our approach focused on creating a sophisticated yet approachable brand identity
         // Using unsplash for high-quality placeholder images that match the project theme
         const placeholderImages = {
             'lseg': 'images/LSEG.png',
-            'utility': 'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=2000&auto=format&fit=crop',
+            'utility': 'images/TCS.png',
             'closetnow': 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=2000&auto=format&fit=crop',
             'coast': 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000&auto=format&fit=crop',
             'flex': 'https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=2000&auto=format&fit=crop',
