@@ -450,9 +450,9 @@ section.portfolio,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0;
     margin-top: 16px;
     background: transparent;
+    padding: 0 8px;
 }
 
 .portfolio-title {
@@ -460,6 +460,7 @@ section.portfolio,
     font-weight: 500;
     margin: 0;
     color: var(--primary-color);
+    font-family: var(--font-display);
 }
 
 .view-project {
