@@ -1241,11 +1241,11 @@ body.modal-open {
 
 .modal-project-text p {
     font-size: 1.2rem !important;
-    line-height: 1.7;
+    line-height: 1.8 !important;
     color: var(--dark-gray);
     margin-bottom: 20px;
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.04em;
 }
 
 /* Metadata styling */
@@ -1486,9 +1486,9 @@ To use this approach:
 .modal-project-text p,
 .modal-container .modal-project-text p {
     font-size: 1.2rem !important;
-    line-height: 1.7;
+    line-height: 1.8 !important;
     color: var(--dark-gray);
     margin-bottom: 20px;
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.04em;
 }
