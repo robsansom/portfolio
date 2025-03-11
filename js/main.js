@@ -314,7 +314,19 @@ Our team delivered a sophisticated brand identity that evokes the calm reliabili
 We created a dynamic, adaptable brand system that reflects the flexibility their product offers. The website design emphasizes user testimonials and interactive product tours to build credibility and demonstrate functionality. Our work included developing a comprehensive marketing strategy with content pillars and campaign frameworks to support their launch and ongoing growth.`,
             'midfunnel': `MidFunnel is a B2B marketing automation platform specializing in nurturing leads through the middle of the sales funnel with personalized content and engagement strategies. They needed a brand refresh and website that would position them as thought leaders in their niche.
 
-Our approach focused on creating a sophisticated yet approachable brand identity that appeals to marketing directors and CMOs. The website architecture prioritizes educational content and clear demonstration of ROI, with case studies prominently featured. We also developed a content strategy and visual system for their resource library, webinars, and thought leadership materials.`
+Our approach focused on creating a sophisticated yet approachable brand identity that appeals to marketing directors and CMOs. The website architecture prioritizes educational content and clear demonstration of ROI, with case studies prominently featured. We also developed a content strategy and visual system for their resource library, webinars, and thought leadership materials.`,
+            'ditto': `Ditto is a mission-critical technology company enabling seamless, real-time data synchronization across industries like travel, hospitality, quick-service restaurants, military, and industrial sectors. With a focus on reliability and resiliency, Ditto needed a refined brand and website that would instill confidence in enterprise clients while resonating with product leaders and decision-makers.
+
+We partnered with Ditto to elevate their brand identity, ensuring it reflects the premium, enduring nature of their technology. This included a strategic shift in design to balance approachability with the seriousness required for their target audiences. The new brand and site provide clear positioning, third-party validation, and compelling calls to action to drive lead capture and portal signups.`,
+            'fintech': `Our FinTech client is a leading provider of innovative payment solutions and financial infrastructure. They required a complete digital transformation to better serve their global customer base and maintain their competitive edge in the rapidly evolving financial technology sector.
+
+We delivered a comprehensive redesign of their digital presence, focusing on security, scalability, and user experience. The new platform features real-time transaction monitoring, advanced analytics dashboards, and seamless integration capabilities. Our work helped strengthen their market position and accelerate customer acquisition.`,
+            'healthtech': `This HealthTech platform revolutionizes patient care coordination and medical data management. The client needed a HIPAA-compliant solution that would streamline workflows for healthcare providers while improving patient engagement and outcomes.
+
+Our team created an intuitive, secure platform that simplifies complex medical processes. The solution includes features like automated appointment scheduling, secure messaging, and comprehensive patient portals. We also implemented robust data encryption and audit trails to ensure regulatory compliance.`,
+            'edtech': `Our EdTech client is transforming online learning through an adaptive learning platform that personalizes education for each student. They needed a scalable, engaging solution that would serve both institutional and individual learners.
+
+We developed a modern, accessible learning management system that adapts to individual learning styles and pace. The platform incorporates gamification elements, progress tracking, and collaborative features to enhance engagement. Our design emphasizes clear navigation and mobile responsiveness to support learning anywhere.`
         };
         
         // Get project description or use a default
@@ -458,7 +470,11 @@ Our approach focused on creating a sophisticated yet approachable brand identity
             'closetnow': 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=2000&auto=format&fit=crop',
             'coast': 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000&auto=format&fit=crop',
             'flex': 'https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=2000&auto=format&fit=crop',
-            'midfunnel': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop'
+            'midfunnel': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop',
+            'ditto': 'images/ditto.png',
+            'fintech': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop',
+            'healthtech': 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2000&auto=format&fit=crop',
+            'edtech': 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2000&auto=format&fit=crop'
         };
         
         // Return the image URL for the project, or a default if not found
