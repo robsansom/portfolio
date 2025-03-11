@@ -1245,7 +1245,7 @@ body.modal-open {
     color: var(--dark-gray);
     margin-bottom: 20px;
     font-family: var(--font-display);
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
 }
 
 /* Metadata styling */
@@ -1490,5 +1490,5 @@ To use this approach:
     color: var(--dark-gray);
     margin-bottom: 20px;
     font-family: var(--font-display);
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
 }
