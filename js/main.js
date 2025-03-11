@@ -517,4 +517,21 @@ We developed a modern, accessible learning management system that adapts to indi
             closeModal();
         }
     });
+
+    // Text reveal animation
+    const words = document.querySelectorAll('.reveal-text .word');
+    let observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 1.0,
+        rootMargin: '-10% 0px -10% 0px'
+    });
+
+    words.forEach(word => {
+        observer.observe(word);
+    });
 });

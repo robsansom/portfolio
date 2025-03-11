@@ -1217,3 +1217,32 @@ body.modal-open {
     object-fit: cover;
     border-radius: 12px;
 }
+
+/* Text Reveal Section */
+.text-reveal {
+    padding: 120px 0;
+    background-color: var(--background-light);
+}
+
+.text-reveal-content {
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+
+.reveal-text {
+    margin-bottom: 2rem;
+}
+
+.reveal-text .word {
+    display: inline-block;
+    color: #d1d1d1;
+    transition: color 0.5s ease;
+}
+
+.reveal-text .word.visible {
+    color: var(--primary-color);
+}
