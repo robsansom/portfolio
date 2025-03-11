@@ -867,9 +867,9 @@ section.portfolio,
     }
     
     .btn {
-        padding: 14px 24px;
-        min-width: 160px;
-        font-size: 0.85rem;
+        padding: 16px 32px;
+        min-width: 180px;
+        font-size: 0.95rem;
     }
     
     .container {
@@ -881,7 +881,7 @@ section.portfolio,
     }
     
     .hero .container {
-        padding-bottom: 12px; /* Reduced from 25px */
+        padding-bottom: 12px;
     }
     
     .now-booking {
@@ -890,16 +890,21 @@ section.portfolio,
     
     .hero-buttons {
         flex-direction: column;
-        gap: 15px;
+        gap: 16px;
         margin-top: 50px;
-        width: 75%;
+        width: 100%;
+        max-width: 280px;
         margin-left: auto;
         margin-right: auto;
     }
     
     .menu-cta, .pricing-buttons {
         flex-direction: column;
-        gap: 15px;
+        gap: 16px;
+        width: 100%;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .portfolio-grid {
