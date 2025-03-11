@@ -314,7 +314,19 @@ Our team delivered a sophisticated brand identity that evokes the calm reliabili
 We created a dynamic, adaptable brand system that reflects the flexibility their product offers. The website design emphasizes user testimonials and interactive product tours to build credibility and demonstrate functionality. Our work included developing a comprehensive marketing strategy with content pillars and campaign frameworks to support their launch and ongoing growth.`,
             'midfunnel': `MidFunnel is a B2B marketing automation platform specializing in nurturing leads through the middle of the sales funnel with personalized content and engagement strategies. They needed a brand refresh and website that would position them as thought leaders in their niche.
 
-Our approach focused on creating a sophisticated yet approachable brand identity that appeals to marketing directors and CMOs. The website architecture prioritizes educational content and clear demonstration of ROI, with case studies prominently featured. We also developed a content strategy and visual system for their resource library, webinars, and thought leadership materials.`
+Our approach focused on creating a sophisticated yet approachable brand identity that appeals to marketing directors and CMOs. The website architecture prioritizes educational content and clear demonstration of ROI, with case studies prominently featured. We also developed a content strategy and visual system for their resource library, webinars, and thought leadership materials.`,
+            'corehr': `CoreHR is a leading provider of innovative HR technology solutions that streamline and modernize human resource management for organizations of all sizes. Their comprehensive platform needed a sophisticated digital presence that would showcase their cutting-edge capabilities while maintaining accessibility for HR professionals.
+
+We collaborated with CoreHR to develop a refined brand identity and website that emphasizes their commitment to smarter HR technology. The design focuses on clear communication of complex features, intuitive navigation, and compelling demonstrations of their platform's capabilities. Our work helped position CoreHR as a trusted partner in HR digital transformation.`,
+            'bcg': `BCG DV is the corporate innovation and digital business building arm of Boston Consulting Group. They partner with the world's most influential companies to build and scale groundbreaking businesses that deliver uncommon impact.
+
+We worked closely with BCG DV to create a sophisticated and dynamic digital experience that showcases their unique approach to venture building and innovation. The design emphasizes their global reach, technological expertise, and commitment to transformative innovation.`,
+            'monitise': `Monitise is a pioneering fintech company that revolutionizes mobile banking, payments, and commerce solutions. As a global leader in digital financial technology, they needed a sophisticated digital presence that would reflect their innovative approach and establish trust with financial institutions and end-users alike.
+
+We collaborated with Monitise to create a refined and professional digital experience that emphasizes their technological leadership and security-first approach. The design showcases their comprehensive suite of mobile financial solutions while maintaining a clear, user-friendly interface. Our work helped strengthen their position as a trusted partner in digital financial services.`,
+            'edtech': `Our EdTech client is transforming online learning through an adaptive learning platform that personalizes education for each student. They needed a scalable, engaging solution that would serve both institutional and individual learners.
+
+We developed a modern, accessible learning management system that adapts to individual learning styles and pace. The platform incorporates gamification elements, progress tracking, and collaborative features to enhance engagement. Our design emphasizes clear navigation and mobile responsiveness to support learning anywhere.`
         };
         
         // Get project description or use a default
@@ -458,7 +470,11 @@ Our approach focused on creating a sophisticated yet approachable brand identity
             'closetnow': 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=2000&auto=format&fit=crop',
             'coast': 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000&auto=format&fit=crop',
             'flex': 'https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=2000&auto=format&fit=crop',
-            'midfunnel': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop'
+            'midfunnel': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop',
+            'corehr': 'images/CoreHR.png',
+            'bcg': 'images/BCG.png',
+            'monitise': 'images/Monitise.png',
+            'edtech': 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2000&auto=format&fit=crop'
         };
         
         // Return the image URL for the project, or a default if not found
@@ -500,5 +516,22 @@ Our approach focused on creating a sophisticated yet approachable brand identity
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeModal();
         }
+    });
+
+    // Text reveal animation
+    const words = document.querySelectorAll('.reveal-text .word');
+    let observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 1.0,
+        rootMargin: '-10% 0px -10% 0px'
+    });
+
+    words.forEach(word => {
+        observer.observe(word);
     });
 });
