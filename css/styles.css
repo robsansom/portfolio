@@ -481,6 +481,12 @@ section.portfolio,
     font-family: var(--font-display);
 }
 
+.view-project img {
+    margin-left: 4px;
+    width: 24px;
+    height: 24px;
+}
+
 .view-project svg {
     margin-left: 8px;
     width: 20px;
