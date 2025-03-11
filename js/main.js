@@ -292,6 +292,12 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.classList.add('active');
         document.body.classList.add('modal-open');
         
+        // Reset scroll indicator visibility
+        const scrollIndicator = modal.querySelector('.scroll-indicator');
+        if (scrollIndicator) {
+            scrollIndicator.classList.remove('hidden');
+        }
+        
         // Generate placeholder image based on project name
         const placeholderImageUrl = getPlaceholderImage(projectName);
         
@@ -496,6 +502,26 @@ We developed a modern, accessible learning management system that adapts to indi
         }, 300);
     }
     
+    // Check if modal content is scrollable
+    function checkModalScrollable() {
+        const modalContainer = modal.querySelector('.modal-container');
+        const scrollIndicator = modal.querySelector('.scroll-indicator');
+        
+        if (modalContainer.scrollHeight > modalContainer.clientHeight) {
+            modalContainer.classList.add('scrollable');
+            // Show scroll indicator only if content is scrollable
+            if (scrollIndicator) {
+                scrollIndicator.classList.remove('hidden');
+            }
+        } else {
+            modalContainer.classList.remove('scrollable');
+            // Hide scroll indicator if content is not scrollable
+            if (scrollIndicator) {
+                scrollIndicator.classList.add('hidden');
+            }
+        }
+    }
+    
     // Add event listeners for project links
     document.querySelectorAll('.project-link').forEach(link => {
         link.addEventListener('click', function(e) {
@@ -505,11 +531,26 @@ We developed a modern, accessible learning management system that adapts to indi
         });
     });
     
-    // Close modal when clicking the close button
+    // Add event listeners for modal
     modalClose.addEventListener('click', closeModal);
-    
-    // Close modal when clicking the overlay
     modalOverlay.addEventListener('click', closeModal);
+    
+    // Hide scroll indicator when user scrolls
+    const modalContainer = modal.querySelector('.modal-container');
+    modalContainer.addEventListener('scroll', function() {
+        const scrollIndicator = modal.querySelector('.scroll-indicator');
+        if (scrollIndicator && !scrollIndicator.classList.contains('hidden')) {
+            scrollIndicator.classList.add('hidden');
+        }
+    });
+    
+    // Check if modal is scrollable after content is loaded
+    modalContent.addEventListener('DOMSubtreeModified', function() {
+        setTimeout(checkModalScrollable, 100); // Small delay to ensure content is rendered
+    });
+    
+    // Check scrollable status on window resize
+    window.addEventListener('resize', checkModalScrollable);
     
     // Close modal when pressing Escape key
     document.addEventListener('keydown', function(e) {

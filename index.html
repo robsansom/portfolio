@@ -346,11 +346,32 @@
         <div class="modal-overlay"></div>
         <div class="modal-container">
             <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="scroll-indicator">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
             <div class="modal-content">
-                <!-- Content will be loaded here dynamically -->
+                <!-- Initial loading state -->
                 <div class="modal-loader">Loading...</div>
             </div>
         </div>
     </div>
+    
+    <!-- 
+    APPROACH 3 (Nested container) HTML structure:
+    <div id="projectModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-inner-container">
+                <div class="modal-content">
+                    <div class="modal-loader">Loading...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
 </body>
 </html>
+
