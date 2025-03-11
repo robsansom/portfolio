@@ -396,7 +396,7 @@ section.portfolio,
     
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 70px;
+        gap: 32px;
         width: 90%;
     }
 }
@@ -409,7 +409,7 @@ section.portfolio,
     
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 80px;
+        gap: 32px;
         width: 90%;
     }
 }
