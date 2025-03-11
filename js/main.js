@@ -283,6 +283,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalClose = modal.querySelector('.modal-close');
     const modalOverlay = modal.querySelector('.modal-overlay');
     
+    // Map of project IDs to their display titles
+    const projectTitles = {
+        'lseg': 'London Stock Exchange Group (LSEG)',
+        'utility': 'TATA Consultancy Services - Interactive / W12 Studio',
+        'closetnow': 'FLIR / Raymarine',
+        'coast': 'dōTERRA',
+        'flex': 'Lavanda',
+        'midfunnel': 'Lloyds Bank',
+        'corehr': 'CoreHR',
+        'bcg': 'Boston Consulting Group - Digital Ventures',
+        'monitise': 'Monitise',
+        'edtech': 'EdTech'
+    };
+    
     // Function to open modal
     function openModal(projectName) {
         // Show loading state
@@ -301,30 +315,33 @@ document.addEventListener('DOMContentLoaded', function() {
         // Generate placeholder image based on project name
         const placeholderImageUrl = getPlaceholderImage(projectName);
         
+        // Get project title from mapping or fallback to capitalized project name
+        const projectTitle = projectTitles[projectName] || projectName.charAt(0).toUpperCase() + projectName.slice(1);
+        
         // Project descriptions
         const projectDescriptions = {
-            'lseg': `LSEG (London Stock Exchange Group) is a leading global financial markets infrastructure and data provider. They deliver information, analytics, and technology solutions to customers around the world. LSEG needed a refined digital presence that would reflect their position as a trusted partner in the financial industry.
+            'lseg': `London Stock Exchange Group (LSEG) is a leading global financial markets infrastructure and data provider. They deliver information, analytics, and technology solutions to customers around the world. LSEG needed a refined digital presence that would reflect their position as a trusted partner in the financial industry.
 
 We partnered with LSEG to create a modern, professional digital experience that communicates their core values of integrity, innovation, and excellence. The design emphasizes clarity and accessibility, making complex financial information easy to navigate for their diverse user base of investors, financial professionals, and corporate clients.`,
-            'utility': `Utility is a modern fintech platform that helps businesses streamline their financial operations through an intuitive dashboard and powerful API integrations. The company needed a brand identity and website that conveyed trust, innovation, and simplicity to appeal to both technical and non-technical decision-makers.
+            'utility': `TATA Consultancy Services - Interactive / W12 Studio is a global leader in IT services, consulting, and business solutions. They partner with the world's largest businesses in their transformation journeys. TCS needed a digital presence that would showcase their technological expertise and global reach.
 
-Our team created a comprehensive brand strategy and visual identity system that positioned Utility as a forward-thinking yet reliable financial partner. The website design focuses on clear communication of complex features through interactive demonstrations and simplified explanations. We also developed a component library for their marketing team to ensure brand consistency across all digital touchpoints.`,
-            'closetnow': `ClosetNow is a direct-to-consumer fashion platform that connects users with personal stylists and provides on-demand wardrobe management. The startup needed a fresh, engaging brand and e-commerce experience to stand out in a competitive market.
+Our team created a comprehensive digital strategy that positioned TCS as an innovative and reliable technology partner. The website design focuses on clear communication of their services and solutions through interactive demonstrations and case studies. We also developed a robust content strategy to highlight their thought leadership and industry expertise.`,
+            'closetnow': `FLIR / Raymarine is a world-leading industrial technology company specializing in intelligent sensing solutions for defense and industrial applications. They needed a digital platform that would effectively communicate their advanced technological capabilities and diverse product portfolio.
 
-We developed a vibrant, personality-driven brand identity that appeals to their target demographic of busy professionals. The website features an intuitive booking system, stylist profiles, and a seamless shopping experience. Our work included comprehensive user testing to optimize the conversion funnel and personalization features that enhance customer retention.`,
-            'coast': `Coast is a revolutionary SaaS platform for the hospitality industry, providing hotels and resorts with a unified system for guest management, bookings, and operational efficiency. They approached us to create a brand and digital presence that would appeal to both independent boutique hotels and large hospitality groups.
+We developed a sophisticated digital presence that showcases FLIR's innovative solutions and technical excellence. The website features intuitive product navigation, detailed technical specifications, and interactive demonstrations. Our work included optimizing the user experience for both technical professionals and procurement specialists.`,
+            'coast': `dōTERRA is a global leader in essential oils and wellness products, committed to sharing pure essential oils with the world. They needed a digital experience that would reflect their commitment to purity, sustainability, and holistic wellness.
 
-Our team delivered a sophisticated brand identity that evokes the calm reliability of coastal environments while showcasing the platform's cutting-edge capabilities. The website architecture was designed to address the needs of different stakeholders, from property managers to corporate decision-makers. We also created a series of animated demonstrations that effectively communicate the platform's value proposition.`,
-            'flex': `Flex is a workplace management solution that helps companies optimize their hybrid work environments through space booking, team coordination, and analytics. As a new entrant in a growing market, they needed a distinctive brand and product-focused website.
+Our team created an engaging digital platform that brings dōTERRA's natural products to life. The website combines beautiful imagery with educational content, making essential oil benefits and uses accessible to everyone. We also developed an intuitive e-commerce experience that supports their global community of Wellness Advocates.`,
+            'flex': `Lavanda is a leading property technology company that provides innovative solutions for the short-term rental and hospitality industry. They needed a digital platform that would showcase their advanced property management capabilities and appeal to property managers and enterprise clients.
 
-We created a dynamic, adaptable brand system that reflects the flexibility their product offers. The website design emphasizes user testimonials and interactive product tours to build credibility and demonstrate functionality. Our work included developing a comprehensive marketing strategy with content pillars and campaign frameworks to support their launch and ongoing growth.`,
-            'midfunnel': `MidFunnel is a B2B marketing automation platform specializing in nurturing leads through the middle of the sales funnel with personalized content and engagement strategies. They needed a brand refresh and website that would position them as thought leaders in their niche.
+We created a sophisticated digital experience that highlights Lavanda's innovative technology and industry expertise. The website design emphasizes their powerful features through interactive demonstrations and clear value propositions. Our work included developing a comprehensive content strategy to establish their thought leadership in the property technology space.`,
+            'midfunnel': `Lloyds Bank, one of the UK's largest retail and commercial banks, needed a digital transformation of their business banking services. They sought to create an intuitive, secure platform that would serve their diverse business customer base.
 
-Our approach focused on creating a sophisticated yet approachable brand identity that appeals to marketing directors and CMOs. The website architecture prioritizes educational content and clear demonstration of ROI, with case studies prominently featured. We also developed a content strategy and visual system for their resource library, webinars, and thought leadership materials.`,
+We partnered with Lloyds Bank to develop a modern, user-centric digital banking experience. The design focuses on simplifying complex banking processes while maintaining the highest security standards. Our work included extensive user research and testing to ensure the platform meets the needs of businesses of all sizes.`,
             'corehr': `CoreHR is a leading provider of innovative HR technology solutions that streamline and modernize human resource management for organizations of all sizes. Their comprehensive platform needed a sophisticated digital presence that would showcase their cutting-edge capabilities while maintaining accessibility for HR professionals.
 
 We collaborated with CoreHR to develop a refined brand identity and website that emphasizes their commitment to smarter HR technology. The design focuses on clear communication of complex features, intuitive navigation, and compelling demonstrations of their platform's capabilities. Our work helped position CoreHR as a trusted partner in HR digital transformation.`,
-            'bcg': `BCG DV is the corporate innovation and digital business building arm of Boston Consulting Group. They partner with the world's most influential companies to build and scale groundbreaking businesses that deliver uncommon impact.
+            'bcg': `Boston Consulting Group - Digital Ventures is the corporate innovation and digital business building arm of Boston Consulting Group. They partner with the world's most influential companies to build and scale groundbreaking businesses that deliver uncommon impact.
 
 We worked closely with BCG DV to create a sophisticated and dynamic digital experience that showcases their unique approach to venture building and innovation. The design emphasizes their global reach, technological expertise, and commitment to transformative innovation.`,
             'monitise': `Monitise is a pioneering fintech company that revolutionizes mobile banking, payments, and commerce solutions. As a global leader in digital financial technology, they needed a sophisticated digital presence that would reflect their innovative approach and establish trust with financial institutions and end-users alike.
@@ -342,11 +359,13 @@ We developed a modern, accessible learning management system that adapts to indi
         // Create modal content with title at the top
         const content = `
             <div class="modal-project-title">
-                ${projectName.charAt(0).toUpperCase() + projectName.slice(1)}
+                ${projectTitle}
             </div>
             <div class="modal-project-content">
                 <div class="modal-project-text">
-                    ${projectDescription}
+                    <p style="font-size: 1.2rem !important;">
+                        ${projectDescription}
+                    </p>
                 </div>
                 
                 <div class="modal-project-metadata">
@@ -366,16 +385,16 @@ We developed a modern, accessible learning management system that adapts to indi
                 
                 <div class="modal-project-images">
                     <div class="modal-project-image">
-                        <img src="${placeholderImageUrl}" alt="${projectName} project image 1">
+                        <img src="${placeholderImageUrl}" alt="${projectName} project image 1" loading="lazy">
                     </div>
                     <div class="modal-project-image">
-                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=2000&auto=format&fit=crop" alt="${projectName} project image 2">
+                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=2000&auto=format&fit=crop" alt="${projectName} project image 2" loading="lazy">
                     </div>
                     <div class="modal-project-image">
-                        <img src="https://images.unsplash.com/photo-1481487196290-c152efe083f5?q=80&w=2000&auto=format&fit=crop" alt="${projectName} project image 3">
+                        <img src="https://images.unsplash.com/photo-1481487196290-c152efe083f5?q=80&w=2000&auto=format&fit=crop" alt="${projectName} project image 3" loading="lazy">
                     </div>
                     <div class="modal-project-image">
-                        <img src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=2000&auto=format&fit=crop" alt="${projectName} project image 4">
+                        <img src="https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=2000&auto=format&fit=crop" alt="${projectName} project image 4" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -389,78 +408,33 @@ We developed a modern, accessible learning management system that adapts to indi
         styleElement.setAttribute('data-modal', 'true');
         styleElement.textContent = `
             .modal-project-title {
-                font-size: 28px;
-                font-weight: bold;
-                margin-bottom: 30px;
-                padding-bottom: 20px;
-                border-bottom: 1px solid #eee;
-                color: #000;
-            }
-            
-            .modal-project-content {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            @media (min-width: 768px) {
-                .modal-project-content {
-                    grid-template-columns: 2fr 1fr;
-                }
-            }
-            
-            .modal-project-text {
-                white-space: pre-line;
-                line-height: 1.6;
-            }
-            
-            .modal-project-metadata {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .metadata-item {
-                margin-bottom: 15px;
-            }
-            
-            .metadata-label {
+                font-family: var(--font-display);
+                font-size: 32px;
                 font-weight: 600;
-                margin-bottom: 5px;
-                font-size: 14px;
-                color: #666;
+                margin-bottom: 30px;
+                padding-bottom: 0;
+                border-bottom: none;
+                color: var(--text-color);
+                letter-spacing: -0.01em;
             }
             
-            .metadata-value {
-                font-size: 16px;
-                line-height: 1.4;
+            .modal-project-text p {
+                font-size: 1.2rem !important;
             }
             
-            .modal-project-images {
-                grid-column: 1 / -1;
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 20px;
-                margin-top: 20px;
-            }
-            
-            @media (min-width: 768px) {
-                .modal-project-images {
-                    grid-template-columns: repeat(2, 1fr);
+            @media (max-width: 768px) {
+                .modal-project-metadata {
+                    flex-direction: column;
                 }
-            }
-            
-            .modal-project-image {
-                width: 100%;
-                aspect-ratio: 16/9;
-                overflow: hidden;
-            }
-            
-            .modal-project-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
+                
+                .metadata-item {
+                    margin-right: 0;
+                    margin-bottom: 20px;
+                }
+                
+                .modal-project-title {
+                    font-size: 28px;
+                }
             }
         `;
         document.head.appendChild(styleElement);
