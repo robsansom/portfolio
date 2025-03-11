@@ -318,9 +318,9 @@ Our approach focused on creating a sophisticated yet approachable brand identity
             'corehr': `CoreHR is a leading provider of innovative HR technology solutions that streamline and modernize human resource management for organizations of all sizes. Their comprehensive platform needed a sophisticated digital presence that would showcase their cutting-edge capabilities while maintaining accessibility for HR professionals.
 
 We collaborated with CoreHR to develop a refined brand identity and website that emphasizes their commitment to smarter HR technology. The design focuses on clear communication of complex features, intuitive navigation, and compelling demonstrations of their platform's capabilities. Our work helped position CoreHR as a trusted partner in HR digital transformation.`,
-            'fintech': `Our FinTech client is a leading provider of innovative payment solutions and financial infrastructure. They required a complete digital transformation to better serve their global customer base and maintain their competitive edge in the rapidly evolving financial technology sector.
+            'bcg': `BCG Digital Ventures is the corporate innovation and digital business building arm of Boston Consulting Group. They partner with the world's most influential companies to build and scale groundbreaking businesses. The organization needed a digital presence that would reflect their position as leaders in business innovation and digital transformation.
 
-We delivered a comprehensive redesign of their digital presence, focusing on security, scalability, and user experience. The new platform features real-time transaction monitoring, advanced analytics dashboards, and seamless integration capabilities. Our work helped strengthen their market position and accelerate customer acquisition.`,
+We worked closely with BCG Digital Ventures to create a sophisticated and dynamic digital experience that showcases their unique approach to venture building and innovation. The design emphasizes their global reach, technological expertise, and impressive portfolio of successful ventures. Our work included developing an intuitive information architecture and compelling visual storytelling that effectively communicates their value proposition to potential corporate partners.`,
             'healthtech': `This HealthTech platform revolutionizes patient care coordination and medical data management. The client needed a HIPAA-compliant solution that would streamline workflows for healthcare providers while improving patient engagement and outcomes.
 
 Our team created an intuitive, secure platform that simplifies complex medical processes. The solution includes features like automated appointment scheduling, secure messaging, and comprehensive patient portals. We also implemented robust data encryption and audit trails to ensure regulatory compliance.`,
@@ -472,7 +472,7 @@ We developed a modern, accessible learning management system that adapts to indi
             'flex': 'https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=2000&auto=format&fit=crop',
             'midfunnel': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop',
             'corehr': 'images/CoreHR.png',
-            'fintech': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop',
+            'bcg': 'images/BCG.png',
             'healthtech': 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2000&auto=format&fit=crop',
             'edtech': 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2000&auto=format&fit=crop'
         };
