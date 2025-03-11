@@ -321,9 +321,9 @@ We collaborated with CoreHR to develop a refined brand identity and website that
             'bcg': `BCG Digital Ventures is the corporate innovation and digital business building arm of Boston Consulting Group. They partner with the world's most influential companies to build and scale groundbreaking businesses. The organization needed a digital presence that would reflect their position as leaders in business innovation and digital transformation.
 
 We worked closely with BCG Digital Ventures to create a sophisticated and dynamic digital experience that showcases their unique approach to venture building and innovation. The design emphasizes their global reach, technological expertise, and impressive portfolio of successful ventures. Our work included developing an intuitive information architecture and compelling visual storytelling that effectively communicates their value proposition to potential corporate partners.`,
-            'healthtech': `This HealthTech platform revolutionizes patient care coordination and medical data management. The client needed a HIPAA-compliant solution that would streamline workflows for healthcare providers while improving patient engagement and outcomes.
+            'monitise': `Monitise is a pioneering fintech company that revolutionizes mobile banking, payments, and commerce solutions. As a global leader in digital financial technology, they needed a sophisticated digital presence that would reflect their innovative approach and establish trust with financial institutions and end-users alike.
 
-Our team created an intuitive, secure platform that simplifies complex medical processes. The solution includes features like automated appointment scheduling, secure messaging, and comprehensive patient portals. We also implemented robust data encryption and audit trails to ensure regulatory compliance.`,
+We collaborated with Monitise to create a refined and professional digital experience that emphasizes their technological leadership and security-first approach. The design showcases their comprehensive suite of mobile financial solutions while maintaining a clear, user-friendly interface. Our work helped strengthen their position as a trusted partner in digital financial services.`,
             'edtech': `Our EdTech client is transforming online learning through an adaptive learning platform that personalizes education for each student. They needed a scalable, engaging solution that would serve both institutional and individual learners.
 
 We developed a modern, accessible learning management system that adapts to individual learning styles and pace. The platform incorporates gamification elements, progress tracking, and collaborative features to enhance engagement. Our design emphasizes clear navigation and mobile responsiveness to support learning anywhere.`
@@ -473,7 +473,7 @@ We developed a modern, accessible learning management system that adapts to indi
             'midfunnel': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop',
             'corehr': 'images/CoreHR.png',
             'bcg': 'images/BCG.png',
-            'healthtech': 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2000&auto=format&fit=crop',
+            'monitise': 'images/Monitise.png',
             'edtech': 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2000&auto=format&fit=crop'
         };
         
