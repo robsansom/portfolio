@@ -420,7 +420,7 @@ section.portfolio,
     overflow: visible;
     box-shadow: none;
     border-radius: 0;
-    width: 100%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -457,7 +457,7 @@ section.portfolio,
 }
 
 .portfolio-title {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 500;
     margin: 0;
     color: var(--primary-color);
@@ -467,7 +467,7 @@ section.portfolio,
 .view-project {
     display: flex;
     align-items: center;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--primary-color);
     text-decoration: none;
@@ -959,6 +959,14 @@ section.portfolio,
     
     .portfolio {
         margin-top: -6px; /* Reduced from -12px */
+    }
+    
+    .portfolio-title {
+        font-size: 1.5rem;
+    }
+    
+    .view-project {
+        font-size: 1rem;
     }
 }
 
