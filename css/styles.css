@@ -943,7 +943,7 @@ section.portfolio,
     }
     
     .modal .modal-container {
-        padding: 12px !important;
+        padding: 16px !important;
         width: 100%;
     }
     
@@ -986,8 +986,8 @@ section.portfolio,
     }
     
     .modal-close {
-        top: 20px;
-        right: 20px;
+        top: 16px;
+        right: 16px;
         width: 36px;
         height: 36px;
         font-size: 24px;
