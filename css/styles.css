@@ -841,7 +841,7 @@ section.portfolio,
     }
     
     .project-content .container {
-        width: 80%; /* Adjust width for tablet screens */
+        /* No need for custom width, it inherits from global container */
     }
 }
 
@@ -1023,7 +1023,7 @@ section.portfolio,
     }
     
     .project-content .container {
-        width: 90%; /* Adjust width for mobile screens */
+        /* No need for custom width, it inherits from global container */
     }
     
     .project-content p {
@@ -1107,7 +1107,7 @@ section.portfolio,
     }
     
     .project-content .container {
-        width: 95%; /* Even wider on small mobile screens */
+        /* No need for custom width, it inherits from global container */
     }
     
     .project-content p {
@@ -1133,10 +1133,10 @@ section.portfolio,
 }
 
 .project-content .container {
-    /* Match exactly the text-reveal-content width and styling */
-    max-width: 1100px;
-    width: 60%; /* Create more left/right padding by making content narrower */
-    margin: 0 auto;
+    /* Match the homepage container exactly */
+    max-width: 1300px; /* Match global container max-width */
+    width: 100%; /* Full width like the global container */
+    /* Let it inherit the global container padding (0 40px by default) */
 }
 
 .project-content p {
