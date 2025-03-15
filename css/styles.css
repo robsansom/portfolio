@@ -1070,6 +1070,7 @@ section.portfolio,
 .project-header {
     padding: 100px 0;
     text-align: center;
+    background-color: var(--background-light);
 }
 
 .project-header h1 {
@@ -1078,15 +1079,83 @@ section.portfolio,
 }
 
 .project-content {
-    max-width: 800px;
+    padding: 80px 0;
     margin: 0 auto;
-    padding: 0 20px;
+}
+
+.project-content .container {
+    /* Make sure width matches the text reveal section container width */
+    max-width: 1100px;
 }
 
 .project-content p {
     font-size: 1.2rem;
     line-height: 1.8;
     margin-bottom: 30px;
+}
+
+.project-info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.project-description {
+    flex: 2;
+    padding-right: 40px;
+}
+
+.project-metadata {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.metadata-item {
+    margin-bottom: 20px;
+}
+
+.metadata-label {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.metadata-value {
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.project-image {
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-image:hover {
+    transform: translateY(-5px);
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.project-image:hover img {
+    transform: scale(1.03);
 }
 
 .project-cta {
@@ -1097,6 +1166,40 @@ section.portfolio,
 
 .project-cta h2 {
     margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+@media (max-width: 992px) {
+    .project-info {
+        flex-direction: column;
+    }
+
+    .project-description {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .project-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-header {
+        padding: 60px 0;
+    }
+
+    .project-header h1 {
+        font-size: 3rem;
+    }
+
+    .project-content {
+        padding: 40px 0;
+    }
+
+    .project-cta h2 {
+        font-size: 2rem;
+    }
 }
 
 /* Modal Styles */
