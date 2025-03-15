@@ -295,7 +295,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize original text reveal animation - restoring the original behavior
     const initOriginalTextReveal = () => {
-        const words = document.querySelectorAll('.reveal-text .word');
+        // Select words from both text-reveal and project content
+        const words = document.querySelectorAll('.reveal-text .word, .project-content .word');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {

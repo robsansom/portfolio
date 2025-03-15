@@ -1133,18 +1133,29 @@ section.portfolio,
 }
 
 .project-content .container {
-    /* Match the homepage container exactly */
-    max-width: 1300px; /* Match global container max-width */
-    width: 100%; /* Full width like the global container */
-    /* Let it inherit the global container padding (0 40px by default) */
+    /* Match exactly the text-reveal container width from inspector */
+    max-width: 1280px; /* Exact width from text-reveal container */
+    margin: 0 auto;
+    /* Let it inherit the global container padding */
 }
 
 .project-content p {
-    font-size: 1.7rem; /* Match the text-reveal-content font size */
+    font-size: 1.4rem; /* Reduced from 1.7rem to match homepage better */
     line-height: 1.5;
     margin-bottom: 2rem;
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+    color: var(--primary-color);
+}
+
+/* Text fade-in animation for project page */
+.project-content .word {
+    display: inline-block;
+    color: #d1d1d1;
+    transition: color 0.5s ease;
+}
+
+.project-content .word.visible {
     color: var(--primary-color);
 }
 
