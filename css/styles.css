@@ -826,6 +826,23 @@ section.portfolio,
     .portfolio {
         margin-top: -8px; /* Reduced from -15px */
     }
+    
+    .project-info {
+        flex-direction: column;
+    }
+
+    .project-description {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .project-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-content .container {
+        width: 80%; /* Adjust width for tablet screens */
+    }
 }
 
 @media (max-width: 768px) {
@@ -992,6 +1009,30 @@ section.portfolio,
         height: 36px;
         font-size: 24px;
     }
+    
+    .project-header {
+        padding: 60px 0;
+    }
+
+    .project-header h1 {
+        font-size: 3rem;
+    }
+
+    .project-content {
+        padding: 40px 0;
+    }
+    
+    .project-content .container {
+        width: 90%; /* Adjust width for mobile screens */
+    }
+    
+    .project-content p {
+        font-size: 1.5rem; /* Slightly smaller font on mobile */
+    }
+
+    .project-cta h2 {
+        font-size: 2rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1064,6 +1105,14 @@ section.portfolio,
     .portfolio {
         margin-top: -5px; /* Reduced from -10px */
     }
+    
+    .project-content .container {
+        width: 95%; /* Even wider on small mobile screens */
+    }
+    
+    .project-content p {
+        font-size: 1.2rem; /* Smaller font on smallest screens */
+    }
 }
 
 /* Project Page Styles */
@@ -1084,14 +1133,19 @@ section.portfolio,
 }
 
 .project-content .container {
-    /* Make sure width matches the text reveal section container width */
+    /* Match exactly the text-reveal-content width and styling */
     max-width: 1100px;
+    width: 60%; /* Create more left/right padding by making content narrower */
+    margin: 0 auto;
 }
 
 .project-content p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    margin-bottom: 30px;
+    font-size: 1.7rem; /* Match the text-reveal-content font size */
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    color: var(--primary-color);
 }
 
 .project-info {
@@ -1110,6 +1164,7 @@ section.portfolio,
     display: flex;
     flex-direction: column;
     gap: 30px;
+    margin-top: 1rem;
 }
 
 .metadata-item {
@@ -1120,13 +1175,15 @@ section.portfolio,
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 0.9rem;
-    margin-bottom: 5px;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #777;
 }
 
 .metadata-value {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     line-height: 1.4;
+    font-family: var(--font-display);
 }
 
 .project-gallery {
@@ -1167,39 +1224,6 @@ section.portfolio,
 .project-cta h2 {
     margin-bottom: 30px;
     font-size: 2.5rem;
-}
-
-@media (max-width: 992px) {
-    .project-info {
-        flex-direction: column;
-    }
-
-    .project-description {
-        padding-right: 0;
-        margin-bottom: 40px;
-    }
-
-    .project-gallery {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .project-header {
-        padding: 60px 0;
-    }
-
-    .project-header h1 {
-        font-size: 3rem;
-    }
-
-    .project-content {
-        padding: 40px 0;
-    }
-
-    .project-cta h2 {
-        font-size: 2rem;
-    }
 }
 
 /* Modal Styles */
