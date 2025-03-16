@@ -1166,15 +1166,16 @@ section.portfolio,
     margin-bottom: 60px;
     gap: 60px;
     justify-content: space-between;
+    padding-right: 40px; /* Add right padding to match container padding */
 }
 
 .project-description {
     flex: 3;
-    max-width: calc(100% - 250px);
+    max-width: calc(100% - 200px); /* Adjust to create proper space for metadata */
 }
 
 .project-metadata {
-    flex: 0 0 220px;
+    flex: 0 0 160px; /* Reduced width to match image width below */
     display: flex;
     flex-direction: column;
     gap: 30px;
