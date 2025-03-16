@@ -35,7 +35,7 @@ body {
 }
 
 .container {
-    width: 100%;
+    width: 100% !important;
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 40px;
@@ -199,7 +199,7 @@ section {
     position: absolute;
     bottom: -3px;
     left: 0;
-    width: 100%;
+    width: 100% !important;
     height: 1px;
     background-color: var(--primary-color);
     transform: scaleX(0);
@@ -244,7 +244,7 @@ section {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 100% !important;
     height: 1px;
     background-color: var(--primary-color);
     transform: scaleX(0);
@@ -272,7 +272,7 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100% !important;
     height: 100%;
     background-color: currentColor;
     border-radius: 50%;
@@ -301,7 +301,7 @@ section {
 }
 
 .hero .container {
-    width: 100%;
+    width: 100% !important;
     padding-bottom: 20px; /* Reduced from 40px */
 }
 
@@ -439,7 +439,7 @@ section.portfolio,
 
 .portfolio-image {
     position: relative;
-    width: 100%;
+    width: 100% !important;
     height: 0;
     padding-bottom: 120.5%;
     overflow: hidden;
@@ -452,7 +452,7 @@ section.portfolio,
     position: absolute;
     top: 0;
     right: 0;
-    width: 100%;
+    width: 100% !important;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
@@ -780,7 +780,7 @@ section.portfolio,
     position: absolute;
     bottom: -3px;
     left: 0;
-    width: 100%;
+    width: 100% !important;
     height: 1px;
     background-color: var(--primary-color);
     transform: scaleX(0);
@@ -838,16 +838,16 @@ section.portfolio,
 
     .project-description {
         display: block;
-        width: 100%;
+        width: 100% !important;
         padding-right: 0;
         margin-bottom: 60px;
-        max-width: 100%; /* Full width on mobile */
+        max-width: 100% !important; /* Full width on mobile */
     }
 
     /* Make text use full width on mobile */
     .project-content p {
-        width: 100%;
-        max-width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
     }
     
     /* Force the metadata to display below the description */
@@ -856,8 +856,8 @@ section.portfolio,
         position: relative !important;
         right: auto !important;
         top: auto !important;
-        width: 100% !important;
-        max-width: 100% !important;
+        width: 100% !important !important;
+        max-width: 100% !important !important;
         margin-top: 40px;
         padding-left: 0;
         margin-left: 0;
@@ -880,8 +880,8 @@ section.portfolio,
     }
     
     .project-content .container {
-        width: 100%;
-        max-width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
         padding: 0 25px;
     }
 }
@@ -892,13 +892,13 @@ section.portfolio,
     
     .portfolio-grid {
         grid-template-columns: 1fr;
-        width: 100%;
+        width: 100% !important;
         gap: 50px;
     }
     
     .portfolio-item {
-        width: 100%;
-        max-width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
     }
     
     .pricing-grid {
@@ -968,7 +968,7 @@ section.portfolio,
     }
     
     .container {
-        padding: 0 20px;
+        padding: 0 20px !important;
     }
     
     .hero {
@@ -999,13 +999,13 @@ section.portfolio,
     
     .portfolio-grid {
         grid-template-columns: 1fr;
-        width: 100%;
+        width: 100% !important;
         gap: 50px;
     }
     
     .portfolio-item {
-        width: 100%;
-        max-width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
     }
     
     .pricing-grid {
@@ -1026,7 +1026,7 @@ section.portfolio,
     
     .modal .modal-container {
         padding: 16px !important;
-        width: 100%;
+        width: 100% !important;
     }
     
     .modal-project-content {
@@ -1131,7 +1131,7 @@ section.portfolio,
     
     .modal .modal-container {
         padding: 12px !important;
-        width: 100%;
+        width: 100% !important;
     }
     
     .modal-project-content {
@@ -1171,12 +1171,17 @@ section.portfolio,
         margin-top: -5px; /* Reduced from -10px */
     }
     
+    /* Fix project content width on mobile */
     .project-content .container {
-        /* No need for custom width, it inherits from global container */
+        width: 100% !important !important;
+        max-width: none !important !important;
+        padding: 0 20px !important !important;
     }
     
     .project-content p {
         font-size: 1.2rem; /* Smaller font on smallest screens */
+        width: 100% !important !important;
+        max-width: none !important !important;
     }
 }
 
@@ -1244,7 +1249,7 @@ section.portfolio,
 .project-metadata {
     display: inline-block;
     width: auto !important;
-    max-width: none;
+    max-width: none !important;
     padding: 0;
     margin: 0;
     background: transparent;
@@ -1308,7 +1313,7 @@ section.portfolio,
 }
 
 .project-image img {
-    width: 100%;
+    width: 100% !important;
     height: auto;
     display: block;
     transition: transform 0.5s ease;
@@ -1334,7 +1339,7 @@ section.portfolio,
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100% !important;
     height: 100%;
     z-index: 1000;
     display: flex;
@@ -1354,7 +1359,7 @@ section.portfolio,
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100% !important;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
@@ -1425,7 +1430,7 @@ section.portfolio,
 }
 
 .modal-content {
-    width: 100%;
+    width: 100% !important;
 }
 
 .modal-loader {
@@ -1464,7 +1469,7 @@ body.modal-open {
 }
 
 .modal-project-text {
-    width: 100%;
+    width: 100% !important;
     font-family: var(--font-display);
     letter-spacing: -0.01em;
     line-height: 1.6;
@@ -1513,12 +1518,12 @@ body.modal-open {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    width: 100%;
+    width: 100% !important;
 }
 
 .modal-project-image {
     position: relative;
-    width: 100%;
+    width: 100% !important;
     height: 0;
     padding-bottom: 66.67%; /* 3:2 aspect ratio */
     overflow: hidden;
@@ -1530,7 +1535,7 @@ body.modal-open {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100% !important;
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
