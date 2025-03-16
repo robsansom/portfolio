@@ -1161,34 +1161,23 @@ section.portfolio,
 }
 
 .project-info {
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
+    position: relative;
     margin-bottom: 60px;
-    gap: 60px;
-    justify-content: space-between;
-    padding-right: 0; /* Remove this padding */
-    max-width: 100%; /* Ensure container doesn't exceed browser width */
-    position: relative; /* For absolute positioning of metadata */
 }
 
 .project-description {
-    flex: 1; /* Let it take available space */
-    max-width: calc(100% - 220px); /* Make space for metadata */
-    margin-right: auto; /* Push content to the left */
+    max-width: calc(100% - 250px);
+    margin-right: auto;
 }
 
 .project-metadata {
-    flex: 0 0 auto; /* Don't grow or shrink */
-    margin-right: 0; /* Align with right edge */
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-top: 0;
-    background-color: transparent;
-    padding: 0;
-    border-radius: 0;
-    box-shadow: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 220px;
     text-align: right;
+    background-color: #ff3333; /* Temporary red background to make it visible */
 }
 
 .metadata-item {
@@ -1228,17 +1217,6 @@ section.portfolio,
 
 .project-image:hover {
     transform: translateY(-5px);
-}
-
-.project-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.project-image:hover img {
-    transform: scale(1.03);
 }
 
 .project-cta {
