@@ -1175,50 +1175,47 @@ section.portfolio,
 }
 
 .project-metadata {
-    padding-right: 0;
-    padding-left: 0;
-    flex: 0 0 auto;
-    width: fit-content;
-    max-width: max-content; /* Ensure it's only as wide as the longest content */
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-top: 0;
-    background-color: transparent;
-    border-radius: 0;
+    display: inline-block;
+    width: auto !important;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
     box-shadow: none;
-    text-align: right;
-    margin-right: 0;
 }
 
 .metadata-item {
-    margin-bottom: 20px;
+    display: block;
+    width: auto !important;
+    margin: 0 0 20px 0;
+    padding: 0;
     text-align: right;
-    margin-right: 0;
-    padding-right: 0;
-    width: max-content; /* Make each item only as wide as its content */
-    margin-left: auto; /* Push to the right */
 }
 
 .metadata-label {
+    display: block;
+    width: auto !important;
+    margin: 0 0 8px 0;
+    padding: 0;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 1rem;
-    margin-bottom: 8px;
     color: #777;
     text-align: right;
-    margin-right: 0;
-    padding-right: 0;
 }
 
 .metadata-value {
+    display: block;
+    width: auto !important;
+    margin: 0;
+    padding: 0;
     font-size: 1.4rem;
     line-height: 1.4;
     font-family: var(--font-display);
     text-align: right;
-    margin-right: 0;
-    padding-right: 0;
+    white-space: nowrap;
 }
 
 .project-gallery {
