@@ -175,8 +175,10 @@ section {
 }
 
 .header .container {
-    width: 90%;
-    padding: 0;
+    width: 90%; /* Base percentage */
+    max-width: 1044px; /* Exact width from the inspector */
+    margin: 0 auto; /* Center it */
+    padding: 0; /* No padding to ensure exact width */
 }
 
 .logo {
