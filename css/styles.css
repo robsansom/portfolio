@@ -1166,16 +1166,20 @@ section.portfolio,
     margin-bottom: 60px;
     gap: 60px;
     justify-content: space-between;
-    padding-right: 40px; /* Add right padding to match container padding */
+    padding-right: 0; /* Remove this padding */
+    max-width: 100%; /* Ensure container doesn't exceed browser width */
+    position: relative; /* For absolute positioning of metadata */
 }
 
 .project-description {
-    flex: 3;
-    max-width: calc(100% - 200px); /* Adjust to create proper space for metadata */
+    flex: 1; /* Let it take available space */
+    max-width: calc(100% - 220px); /* Make space for metadata */
+    margin-right: auto; /* Push content to the left */
 }
 
 .project-metadata {
-    flex: 0 0 160px; /* Reduced width to match image width below */
+    flex: 0 0 auto; /* Don't grow or shrink */
+    margin-right: 0; /* Align with right edge */
     display: flex;
     flex-direction: column;
     gap: 30px;
