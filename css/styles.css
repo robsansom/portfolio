@@ -1185,7 +1185,7 @@ section.portfolio,
     border-radius: 0;
     box-shadow: none;
     text-align: right;
-    margin-right: 0;
+    margin-right: -40px; /* Negative margin to align with edge */
 }
 
 .metadata-item {
