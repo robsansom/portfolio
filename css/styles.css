@@ -1177,9 +1177,10 @@ section.portfolio,
     flex-direction: column;
     gap: 30px;
     margin-top: 1rem;
-    background-color: var(--light-gray);
+    background-color: var(--secondary-color);
     padding: 20px;
     border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 .metadata-item {
