@@ -1200,7 +1200,7 @@ section.portfolio,
 
 .project-content p {
     font-size: 1.4rem; /* Reduced from 1.7rem to match homepage better */
-    line-height: 1.5;
+    line-height: 1.6;
     margin-bottom: 2rem;
     font-family: var(--font-display);
     letter-spacing: -0.02em;
