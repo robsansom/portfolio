@@ -1118,7 +1118,8 @@ section.portfolio,
     }
     
     .container {
-        padding: 0 15px;
+        padding: 0;
+        width: 100%;
     }
     
     .logo {
@@ -1199,15 +1200,25 @@ section.portfolio,
     }
     
     .text-reveal-content {
-        width: 100%;
-        padding: 0 15px;
+        width: calc(100% - 30px);
+        margin-left: 15px;
+        margin-right: 15px;
+        max-width: none;
+        padding: 0;
         font-size: 1.2rem;
-        max-width: none !important; /* Remove any max-width constraints on mobile */
+    }
+    
+    .portfolio .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
     }
     
     .portfolio-grid {
-        width: 100% !important; /* Ensure portfolio grid also uses 100% width */
-        padding: 0 15px;
+        width: calc(100% - 30px) !important;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding: 0;
     }
 }
 
