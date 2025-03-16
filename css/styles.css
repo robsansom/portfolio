@@ -829,6 +829,7 @@ section.portfolio,
     
     .project-info {
         flex-direction: column;
+        position: relative;
     }
 
     .project-description {
@@ -843,6 +844,8 @@ section.portfolio,
         width: 100% !important;
         max-width: 100%;
         margin-top: 40px;
+        padding-left: 0;
+        margin-left: 0;
     }
     
     /* Align metadata labels and values to left on mobile */
@@ -851,6 +854,8 @@ section.portfolio,
     .metadata-value {
         text-align: left;
         white-space: normal;
+        margin-left: 0;
+        padding-left: 0;
     }
 
     .project-gallery {
