@@ -1191,10 +1191,11 @@ section.portfolio,
 }
 
 .project-content .container {
-    /* Match exactly the text-reveal container width from inspector */
-    max-width: 1280px; /* Exact width from text-reveal container */
-    margin: 0 auto;
-    /* Let it inherit the global container padding */
+    /* Match exactly the same width as the navigation and text-reveal content */
+    width: 90%; /* Base percentage */
+    max-width: 1044px; /* Exact width from the inspector */
+    margin: 0 auto; /* Center it */
+    padding: 0; /* No padding to ensure exact width */
 }
 
 .project-content p {
