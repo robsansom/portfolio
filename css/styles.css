@@ -1117,49 +1117,21 @@ section.portfolio,
         text-align: center;
     }
     
-    /* Common base styles */
-    body {
-        width: 100%;
-        overflow-x: hidden;
-    }
-    
+    /* Standard mobile container padding */
     .container {
-        width: 100% !important;
-        padding: 0 !important;
-        max-width: 100% !important;
+        padding: 0 15px;
+        width: 100%;
+        max-width: 100%;
     }
     
-    /* ===== CRITICAL FIX FOR TEXT AND PORTFOLIO ALIGNMENT ===== */
-    /* Remove ALL container/content customizations */
-    .text-reveal .container,
-    .portfolio .container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin: 0 auto !important;
+    /* Ensure logo has proper padding */
+    .header .container {
+        padding: 0 15px;
     }
     
-    /* Apply EXACTLY the same box model */
-    .text-reveal-content,
-    .portfolio-grid {
-        box-sizing: border-box !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
-    
-    /* Force reset any additional styles */
-    .text-reveal-content *,
-    .portfolio-grid * {
-        box-sizing: border-box !important;
-    }
-    
-    /* Original styles follow */
     .logo {
         font-size: 1.2rem;
+        margin-left: 0;
     }
 
     .now-booking {
@@ -1176,7 +1148,81 @@ section.portfolio,
         min-width: 140px;
     }
     
-    /* Rest of mobile styles... */
+    .modal .modal-container {
+        padding: 12px !important;
+        width: 100% !important;
+    }
+    
+    .modal-project-content {
+        gap: 25px;
+    }
+    
+    .modal-project-metadata {
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+    }
+    
+    .modal-project-images {
+        gap: 25px;
+    }
+    
+    .modal-project-image {
+        padding-bottom: 100%; /* Square aspect ratio for small mobile */
+    }
+    
+    .portfolio {
+        margin-top: -5px; /* Reduced from -10px */
+    }
+    
+    .hero {
+        min-height: 80vh;
+    }
+    
+    .hero .container {
+        padding-bottom: 10px; /* Reduced from 20px */
+        padding-left: 15px; 
+        padding-right: 15px;
+    }
+    
+    /* Fix for text-reveal and portfolio grid consistency */
+    .text-reveal {
+        padding: 60px 0;
+    }
+    
+    /* Ensure text-reveal has the standard 15px padding */
+    .text-reveal .container {
+        padding: 0 15px;
+    }
+    
+    .text-reveal-content {
+        width: 100%;
+        padding: 0;
+        font-size: 1.2rem;
+    }
+    
+    /* Ensure portfolio also has standard 15px padding */
+    .portfolio .container {
+        padding: 0 15px;
+    }
+    
+    .portfolio-grid {
+        width: 100%;
+        padding: 0;
+        margin-top: 30px;
+    }
+    
+    /* Fix project content width on mobile */
+    .project-content .container {
+        width: 100%;
+        max-width: none;
+        padding: 0 15px;
+    }
+    
+    .project-content p {
+        font-size: 1.2rem; /* Smaller font on smallest screens */
+        width: 100%;
+        max-width: none;
+    }
 }
 
 /* Project Page Styles */
