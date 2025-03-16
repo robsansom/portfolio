@@ -1161,23 +1161,30 @@ section.portfolio,
 }
 
 .project-info {
-    display: block;
-    position: relative;
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 60px;
+    gap: 60px;
+    justify-content: flex-start;
+    padding-right: 0;
 }
 
 .project-description {
-    max-width: calc(100% - 250px);
-    margin-right: auto;
+    flex: 1;
+    max-width: calc(100% - 220px);
 }
 
 .project-metadata {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 220px;
+    padding-right: 40px;
+    flex: 0 0 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 0;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
     text-align: right;
-    background-color: #ff3333; /* Temporary red background to make it visible */
 }
 
 .metadata-item {
@@ -1217,6 +1224,17 @@ section.portfolio,
 
 .project-image:hover {
     transform: translateY(-5px);
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.project-image:hover img {
+    transform: scale(1.03);
 }
 
 .project-cta {
