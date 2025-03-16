@@ -1185,10 +1185,14 @@ section.portfolio,
     border-radius: 0;
     box-shadow: none;
     text-align: right;
+    margin-right: 0;
 }
 
 .metadata-item {
     margin-bottom: 20px;
+    text-align: right;
+    margin-right: 0;
+    padding-right: 0;
 }
 
 .metadata-label {
@@ -1199,6 +1203,8 @@ section.portfolio,
     margin-bottom: 8px;
     color: #777;
     text-align: right;
+    margin-right: 0;
+    padding-right: 0;
 }
 
 .metadata-value {
@@ -1206,6 +1212,8 @@ section.portfolio,
     line-height: 1.4;
     font-family: var(--font-display);
     text-align: right;
+    margin-right: 0;
+    padding-right: 0;
 }
 
 .project-gallery {
