@@ -834,6 +834,23 @@ section.portfolio,
     .project-description {
         padding-right: 0;
         margin-bottom: 40px;
+        max-width: 100%; /* Full width on mobile */
+    }
+    
+    /* Reset the absolute positioning for smaller screens */
+    .project-metadata {
+        position: static;
+        width: 100% !important;
+        max-width: 100%;
+        margin-top: 40px;
+    }
+    
+    /* Align metadata labels and values to left on mobile */
+    .metadata-item,
+    .metadata-label,
+    .metadata-value {
+        text-align: left;
+        white-space: normal;
     }
 
     .project-gallery {
