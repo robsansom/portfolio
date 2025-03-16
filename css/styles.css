@@ -1538,7 +1538,7 @@ body.modal-open {
     font-size: 1.4rem;
     line-height: 1.5;
     letter-spacing: -0.02em;
-    width: 90%; /* Match portfolio grid width */
+    width: 100%; /* Changed from 90% to match container width */
 }
 
 .reveal-text {
