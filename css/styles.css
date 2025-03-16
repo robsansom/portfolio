@@ -843,6 +843,12 @@ section.portfolio,
         margin-bottom: 60px;
         max-width: 100%; /* Full width on mobile */
     }
+
+    /* Make text use full width on mobile */
+    .project-content p {
+        width: 100%;
+        max-width: 100%;
+    }
     
     /* Force the metadata to display below the description */
     .project-metadata {
@@ -874,7 +880,9 @@ section.portfolio,
     }
     
     .project-content .container {
-        /* No need for custom width, it inherits from global container */
+        width: 100%;
+        max-width: 100%;
+        padding: 0 25px;
     }
 }
 
