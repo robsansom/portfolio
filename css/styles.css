@@ -1164,7 +1164,7 @@ section.portfolio,
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 60px;
-    gap: 60px;
+    gap: 250px;
     justify-content: flex-start;
     padding-right: 0;
 }
