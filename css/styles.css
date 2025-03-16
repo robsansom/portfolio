@@ -1098,6 +1098,16 @@ section.portfolio,
     .project-cta h2 {
         font-size: 2rem;
     }
+
+    .text-reveal {
+        padding: 80px 0;
+    }
+    
+    .text-reveal-content {
+        width: 100%;
+        padding: 0 20px;
+        font-size: 1.3rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1182,6 +1192,22 @@ section.portfolio,
         font-size: 1.2rem; /* Smaller font on smallest screens */
         width: 100% !important !important;
         max-width: none !important !important;
+    }
+
+    .text-reveal {
+        padding: 60px 0;
+    }
+    
+    .text-reveal-content {
+        width: 100%;
+        padding: 0 15px;
+        font-size: 1.2rem;
+        max-width: none !important; /* Remove any max-width constraints on mobile */
+    }
+    
+    .portfolio-grid {
+        width: 100% !important; /* Ensure portfolio grid also uses 100% width */
+        padding: 0 15px;
     }
 }
 
