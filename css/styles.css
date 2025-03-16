@@ -182,6 +182,11 @@ section {
     position: relative;
 }
 
+.logo a {
+    font-weight: 600;
+    text-decoration: none;
+}
+
 .logo::after {
     content: '';
     position: absolute;
