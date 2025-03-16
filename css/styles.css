@@ -1202,7 +1202,7 @@ section.portfolio,
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #777;
     text-align: right;
 }
@@ -1212,7 +1212,7 @@ section.portfolio,
     width: auto !important;
     margin: 0;
     padding: 0;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     line-height: 1.4;
     font-family: var(--font-display);
     text-align: right;
