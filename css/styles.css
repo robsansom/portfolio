@@ -1176,11 +1176,11 @@ section.portfolio,
     display: flex;
     flex-direction: column;
     gap: 30px;
-    margin-top: 1rem;
-    background-color: var(--secondary-color);
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    margin-top: 0;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .metadata-item {
