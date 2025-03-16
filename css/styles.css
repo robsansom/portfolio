@@ -1176,7 +1176,8 @@ section.portfolio,
 
 .project-metadata {
     padding-right: 0;
-    flex: 0 0 200px;
+    flex: 0 0 auto;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -1185,7 +1186,7 @@ section.portfolio,
     border-radius: 0;
     box-shadow: none;
     text-align: right;
-    margin-right: 0; /* Remove negative margin to align with content edge */
+    margin-right: 0;
 }
 
 .metadata-item {
