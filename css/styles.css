@@ -1138,6 +1138,7 @@ section.portfolio,
     max-width: 1280px; /* Exact width from text-reveal container */
     margin: 0 auto;
     /* Let it inherit the global container padding */
+    padding-right: 0; /* Remove right padding to allow metadata to align with edge */
 }
 
 .project-content p {
@@ -1165,7 +1166,7 @@ section.portfolio,
     flex-wrap: wrap;
     margin-bottom: 60px;
     gap: 60px;
-    justify-content: flex-start;
+    justify-content: space-between; /* Change to space-between to push metadata to right edge */
     padding-right: 0;
 }
 
@@ -1185,7 +1186,8 @@ section.portfolio,
     border-radius: 0;
     box-shadow: none;
     text-align: right;
-    margin-right: 0;
+    margin-right: -40px; /* Negative margin to extend past container padding */
+    position: relative; /* Allow positioning relative to container */
 }
 
 .metadata-item {
