@@ -1164,11 +1164,11 @@ section.portfolio,
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 60px;
+    gap: 60px;
 }
 
 .project-description {
-    flex: 2;
-    padding-right: 40px;
+    flex: 3;
 }
 
 .project-metadata {
@@ -1177,6 +1177,9 @@ section.portfolio,
     flex-direction: column;
     gap: 30px;
     margin-top: 1rem;
+    background-color: var(--light-gray);
+    padding: 20px;
+    border-radius: 4px;
 }
 
 .metadata-item {
