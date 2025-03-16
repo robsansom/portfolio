@@ -1175,7 +1175,7 @@ section.portfolio,
 }
 
 .project-metadata {
-    padding-right: 40px;
+    padding-right: 0;
     flex: 0 0 200px;
     display: flex;
     flex-direction: column;
