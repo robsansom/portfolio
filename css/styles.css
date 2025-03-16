@@ -1164,14 +1164,14 @@ section.portfolio,
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 60px;
-    gap: 250px;
+    position: relative;
     justify-content: flex-start;
     padding-right: 0;
 }
 
 .project-description {
     flex: 1;
-    max-width: 950px; /* Increased from 800px to 950px for longer line length */
+    max-width: 1050px;
 }
 
 .project-metadata {
@@ -1183,6 +1183,9 @@ section.portfolio,
     background: transparent;
     border: none;
     box-shadow: none;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 .metadata-item {
