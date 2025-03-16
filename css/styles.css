@@ -1171,7 +1171,7 @@ section.portfolio,
 
 .project-description {
     flex: 1;
-    max-width: 700px; /* Set specific width for ideal reading line length */
+    max-width: 800px; /* Increased from 700px to 800px as requested */
 }
 
 .project-metadata {
