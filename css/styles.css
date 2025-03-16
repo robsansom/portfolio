@@ -1176,8 +1176,10 @@ section.portfolio,
 
 .project-metadata {
     padding-right: 0;
+    padding-left: 0;
     flex: 0 0 auto;
     width: fit-content;
+    max-width: max-content; /* Ensure it's only as wide as the longest content */
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -1194,6 +1196,8 @@ section.portfolio,
     text-align: right;
     margin-right: 0;
     padding-right: 0;
+    width: max-content; /* Make each item only as wide as its content */
+    margin-left: auto; /* Push to the right */
 }
 
 .metadata-label {
