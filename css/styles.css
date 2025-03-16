@@ -1229,7 +1229,7 @@ section.portfolio,
 
 .project-description {
     flex: 1;
-    max-width: 700px; /* Reduced from 900px to create more space */
+    max-width: 800px; /* Increased from 700px for better balance */
     padding-right: 40px; /* Add padding to the right to increase the gap */
 }
 
