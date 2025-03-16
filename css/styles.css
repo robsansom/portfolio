@@ -1188,9 +1188,10 @@ section.portfolio,
 .metadata-item {
     display: block;
     width: auto !important;
-    margin: 0 0 20px 0;
+    margin: 0 0px 20px 0;
     padding: 0;
     text-align: right;
+    margin-right: 0px !important;
 }
 
 .metadata-label {
