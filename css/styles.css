@@ -1181,6 +1181,7 @@ section.portfolio,
     padding: 0;
     border-radius: 0;
     box-shadow: none;
+    text-align: right;
 }
 
 .metadata-item {
@@ -1194,12 +1195,14 @@ section.portfolio,
     font-size: 1rem;
     margin-bottom: 8px;
     color: #777;
+    text-align: right;
 }
 
 .metadata-value {
     font-size: 1.4rem;
     line-height: 1.4;
     font-family: var(--font-display);
+    text-align: right;
 }
 
 .project-gallery {
