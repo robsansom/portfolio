@@ -390,7 +390,7 @@ section.portfolio,
 
 @media (min-width: 768px) {
     .container {
-        max-width: 1200px;
+        max-width: 1280px;
         padding: 0 40px;
     }
     
@@ -403,7 +403,7 @@ section.portfolio,
 
 @media (min-width: 992px) {
     .container {
-        max-width: 1400px;
+        max-width: 1280px;
         padding: 0 60px;
     }
     
