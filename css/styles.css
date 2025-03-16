@@ -176,6 +176,7 @@ section {
 
 .header .container {
     width: 90%;
+    padding: 0;
 }
 
 .logo {
