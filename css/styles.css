@@ -827,32 +827,42 @@ section.portfolio,
         margin-top: -8px; /* Reduced from -15px */
     }
     
+    /* Completely restructure the project info layout for mobile */
     .project-info {
+        display: block !important;
         flex-direction: column;
         position: relative;
+        flex-wrap: nowrap !important;
     }
 
     .project-description {
+        display: block;
+        width: 100%;
         padding-right: 0;
-        margin-bottom: 40px;
+        margin-bottom: 60px;
         max-width: 100%; /* Full width on mobile */
     }
     
-    /* Reset the absolute positioning for smaller screens */
+    /* Force the metadata to display below the description */
     .project-metadata {
-        position: static;
+        display: block;
+        position: relative !important;
+        right: auto !important;
+        top: auto !important;
         width: 100% !important;
-        max-width: 100%;
+        max-width: 100% !important;
         margin-top: 40px;
         padding-left: 0;
         margin-left: 0;
+        clear: both;
     }
     
     /* Align metadata labels and values to left on mobile */
     .metadata-item,
     .metadata-label,
     .metadata-value {
-        text-align: left;
+        display: block;
+        text-align: left !important;
         white-space: normal;
         margin-left: 0;
         padding-left: 0;
