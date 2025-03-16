@@ -1165,14 +1165,16 @@ section.portfolio,
     flex-wrap: wrap;
     margin-bottom: 60px;
     gap: 60px;
+    justify-content: space-between;
 }
 
 .project-description {
     flex: 3;
+    max-width: calc(100% - 250px);
 }
 
 .project-metadata {
-    flex: 1;
+    flex: 0 0 220px;
     display: flex;
     flex-direction: column;
     gap: 30px;
