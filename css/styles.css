@@ -856,8 +856,8 @@ section.portfolio,
         position: relative !important;
         right: auto !important;
         top: auto !important;
-        width: 100% !important !important;
-        max-width: 100% !important !important;
+        width: 100% !important;
+        max-width: 100% !important;
         margin-top: 40px;
         padding-left: 0;
         margin-left: 0;
@@ -1209,15 +1209,15 @@ section.portfolio,
     
     /* Fix project content width on mobile */
     .project-content .container {
-        width: 100%;
-        max-width: none;
-        padding: 0 15px;
+        width: 100% !important;
+        max-width: none !important;
+        padding: 0 15px !important;
     }
     
     .project-content p {
         font-size: 1.2rem; /* Smaller font on smallest screens */
-        width: 100%;
-        max-width: none;
+        width: 100% !important;
+        max-width: none !important;
     }
 }
 
@@ -1283,17 +1283,16 @@ section.portfolio,
 }
 
 .project-metadata {
-    display: inline-block;
-    width: auto !important;
-    max-width: none !important;
-    padding: 0;
-    margin: 0;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    position: absolute;
-    right: 0;
-    top: 0;
+    display: block;
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 40px;
+    padding-left: 0;
+    margin-left: 0;
+    clear: both;
 }
 
 .metadata-item {
