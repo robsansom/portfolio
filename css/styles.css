@@ -1106,6 +1106,8 @@ section.portfolio,
     .text-reveal-content {
         padding: 0;
         width: 100%;
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
@@ -1195,6 +1197,8 @@ section.portfolio,
     .text-reveal-content {
         padding: 0;
         width: 100%;
+        margin-left: 0;
+        margin-right: 0;
     }
     
     /* Ensure portfolio also has standard 15px padding */
