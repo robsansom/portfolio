@@ -1112,6 +1112,56 @@ section.portfolio,
 }
 
 @media (max-width: 480px) {
+    /* Debugging styles */
+    .text-reveal .container {
+        outline: 2px solid red;
+        position: relative;
+    }
+    
+    .text-reveal .container::before {
+        content: 'Container Width: ' attr(data-width);
+        position: absolute;
+        top: -20px;
+        left: 0;
+        background: red;
+        color: white;
+        padding: 2px 5px;
+        font-size: 12px;
+    }
+    
+    .text-reveal-content {
+        outline: 2px solid blue;
+        position: relative;
+    }
+    
+    .text-reveal-content::before {
+        content: 'Content Width: ' attr(data-width);
+        position: absolute;
+        top: -20px;
+        left: 0;
+        background: blue;
+        color: white;
+        padding: 2px 5px;
+        font-size: 12px;
+    }
+    
+    .reveal-text {
+        outline: 2px solid green;
+        position: relative;
+    }
+    
+    .reveal-text::before {
+        content: 'Text Width: ' attr(data-width);
+        position: absolute;
+        top: -20px;
+        left: 0;
+        background: green;
+        color: white;
+        padding: 2px 5px;
+        font-size: 12px;
+    }
+    
+    /* Existing mobile styles */
     .hero-title-dark,
     .hero-title-light {
         font-size: 2.2rem;

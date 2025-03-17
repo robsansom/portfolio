@@ -315,4 +315,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize the page
     init();
+    
+    // Add width measurement for debugging
+    const measureElementWidths = () => {
+        const container = document.querySelector('.text-reveal .container');
+        const content = document.querySelector('.text-reveal-content');
+        const text = document.querySelector('.reveal-text');
+        
+        if (container) {
+            container.setAttribute('data-width', `${container.offsetWidth}px`);
+        }
+        if (content) {
+            content.setAttribute('data-width', `${content.offsetWidth}px`);
+        }
+        if (text) {
+            text.setAttribute('data-width', `${text.offsetWidth}px`);
+        }
+    };
+    
+    // Measure on load and resize
+    window.addEventListener('load', measureElementWidths);
+    window.addEventListener('resize', measureElementWidths);
 });
