@@ -1100,11 +1100,12 @@ section.portfolio,
     }
 
     .text-reveal {
-        padding: 80px 0;
+        padding: 60px 0;
     }
     
     .text-reveal-content {
         padding: 0;
+        width: 100%;
     }
 }
 
@@ -1182,18 +1183,18 @@ section.portfolio,
         padding-right: 15px;
     }
     
-    /* Fix for text-reveal and portfolio grid consistency */
     .text-reveal {
-        padding: 60px 0;
+        padding: 40px 0;
     }
     
-    /* Ensure text-reveal has the standard 15px padding */
+    /* Specific container padding for text reveal */
     .text-reveal .container {
         padding: 0 15px;
     }
     
     .text-reveal-content {
         padding: 0;
+        width: 100%;
     }
     
     /* Ensure portfolio also has standard 15px padding */
