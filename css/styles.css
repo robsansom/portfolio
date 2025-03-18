@@ -12,6 +12,12 @@
     --green: #2db346;
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --font-display: 'Poppins', 'Inter', sans-serif;
+    
+    /* Container variables for standardized spacing */
+    --container-padding-desktop: 40px;
+    --container-padding-mobile: 15px;
+    --container-max-width: 1280px;
+    --container-width: 100%;
 }
 
 * {
@@ -34,11 +40,37 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Base container standardization */
 .container {
-    width: 100% !important;
-    max-width: 1280px;
+    width: 90% !important;
+    max-width: 1044px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0;
+}
+
+/* Header and nav specific styles */
+.header {
+    padding: 30px 0;
+    position: relative;
+    background-color: var(--background-light);
+    z-index: 1000;
+    border-bottom: none;
+}
+
+.header .container {
+    width: 90%;
+    max-width: 1044px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Hero section alignment */
+.hero .container {
+    width: 90% !important;
+    max-width: 1044px;
+    margin: 0 auto;
+    padding: 0;
+    padding-bottom: 20px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -166,21 +198,6 @@ section {
 }
 
 /* Header Styles */
-.header {
-    padding: 30px 0;
-    position: relative;
-    background-color: var(--background-light);
-    z-index: 1000;
-    border-bottom: none;
-}
-
-.header .container {
-    width: 90%; /* Base percentage */
-    max-width: 1044px; /* Exact width from the inspector */
-    margin: 0 auto; /* Center it */
-    padding: 0; /* No padding to ensure exact width */
-}
-
 .logo {
     font-family: var(--font-display);
     font-weight: 600;
@@ -300,11 +317,6 @@ section {
     background-color: var(--background-light);
 }
 
-.hero .container {
-    width: 100% !important;
-    padding-bottom: 20px; /* Reduced from 40px */
-}
-
 .now-booking {
     margin: 0 auto 80px;
     text-align: center;
@@ -327,20 +339,24 @@ section {
 }
 
 .hero h1 {
-    margin-bottom: 0;
     max-width: 1200px;
-    margin-left: auto;
+    margin-left: 0;
     margin-right: auto;
     line-height: 1.05;
     white-space: nowrap;
-    text-align: center;
+    text-align: left;
+}
+
+.hero-title-dark,
+.hero-title-light {
+    display: block;
+    text-align: left;
 }
 
 .hero-title-dark {
     color: var(--primary-color);
     font-weight: 600;
     font-size: 4rem;
-    display: block;
     margin-bottom: 5px;
 }
 
@@ -348,15 +364,14 @@ section {
     color: #9e9e9e;
     font-weight: 400;
     font-size: 4rem;
-    display: block;
 }
 
 .hero-buttons {
     display: flex;
     gap: 16px;
-    justify-content: center;
     margin-top: 80px;
-    margin-left: auto;
+    width: fit-content;
+    margin-left: 0;
     margin-right: auto;
 }
 
@@ -377,27 +392,25 @@ section {
 /* Portfolio Section */
 .portfolio {
     padding: 0 !important;
-    margin-top: -10px; /* Reduced from -20px */
+    margin-top: -10px;
     position: relative;
     z-index: 2;
     background-color: var(--background-light);
 }
 
-/* Make sure this takes precedence */
-section.portfolio, 
-#work {
-    padding: 0px 0 !important;
-    margin: 0 !important;
+.portfolio .container {
+    width: 90% !important;
+    max-width: 1044px;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 70px;
-    margin-top: 60px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    width: 100%;
+    margin: 60px 0 0 0;
 }
 
 @media (min-width: 768px) {
@@ -432,9 +445,9 @@ section.portfolio,
     overflow: visible;
     box-shadow: none;
     border-radius: 0;
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .portfolio-image {
@@ -793,492 +806,68 @@ section.portfolio,
     transform-origin: left;
 }
 
-/* Responsive Styles */
-@media (max-width: 1200px) {
-    .hero-title-dark,
-    .hero-title-light {
-        font-size: 3rem;
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .container,
+    .header .container,
+    .hero .container,
+    .text-reveal .container,
+    .portfolio .container {
+        width: 90% !important;
+        max-width: 1044px;
+        margin: 0 auto;
+        padding: 0;
     }
     
-    .hero-title-dark {
-        font-weight: 600;
+    .text-reveal-content {
+        width: 100%;
+        margin: 0;
+        padding: 0;
     }
-    
-    .container {
-        padding: 0 30px;
-    }
-    
-    .hero {
-        min-height: 80vh;
-    }
-    
-    .hero .container {
-        padding-bottom: 15px; /* Reduced from 30px */
-    }
-    
-    .now-booking {
-        margin-bottom: 60px;
-    }
-    
-    .hero-buttons {
-        margin-top: 60px;
-    }
-    
-    .portfolio {
-        margin-top: -8px; /* Reduced from -15px */
-    }
-    
-    /* Completely restructure the project info layout for mobile */
-    .project-info {
-        display: block !important;
-        flex-direction: column;
-        position: relative;
-        flex-wrap: nowrap !important;
-    }
-
-    .project-description {
-        display: block;
-        width: 100% !important;
-        padding-right: 0;
-        margin-bottom: 60px;
-        max-width: 100% !important; /* Full width on mobile */
-    }
-
-    /* Make text use full width on mobile */
-    .project-content p {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-    
-    /* Force the metadata to display below the description */
-    .project-metadata {
-        display: block;
-        position: relative !important;
-        right: auto !important;
-        top: auto !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-top: 40px;
-        padding-left: 0;
-        margin-left: 0;
-        clear: both;
-    }
-    
-    /* Align metadata labels and values to left on mobile */
-    .metadata-item,
-    .metadata-label,
-    .metadata-value {
-        display: block;
-        text-align: left !important;
-        white-space: normal;
-        margin-left: 0;
-        padding-left: 0;
-    }
-
-    .project-gallery {
-        grid-template-columns: 1fr;
-    }
-    
-    .project-content .container {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 25px;
-    }
-}
-
-@media (max-width: 992px) {
-    /* Mobile-specific styles that aren't related to project layout */
-    /* We've moved the project layout styles to the 1200px breakpoint */
     
     .portfolio-grid {
-        grid-template-columns: 1fr;
-        width: 100% !important;
-        gap: 50px;
+        width: 100%;
+        margin: 40px 0 0 0;
     }
-    
-    .portfolio-item {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-    
-    .pricing-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .faq-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
-@media (max-width: 768px) {
-    .hero-title-dark,
-    .hero-title-light {
-        font-size: 2.6rem;
-        white-space: normal;
-        line-height: 1.1;
-        text-align: center;
-    }
-    
-    .hero-title-dark {
-        font-weight: 600;
-        margin-right: 0;
-        margin-bottom: 5px;
-        text-align: center;
-    }
-    
-    .hero h1 {
-        white-space: normal;
-        text-align: center;
-    }
-    
-    h1 {
-        font-size: 2.5rem;
-    }
-    
-    h2 {
-        font-size: 2rem;
-    }
-    
-    h3 {
-        font-size: 1.5rem;
-    }
-    
-    .header {
-        padding: 20px 0;
-    }
-    
-    .nav {
-        display: flex;
-        justify-content: flex-start;
-    }
-    
-    .logo {
-        margin-left: 0;
-        padding-left: 0;
-    }
-    
-    .nav-links {
-        display: none;
-    }
-    
-    .btn {
-        padding: 14px 24px;
-        min-width: 160px;
-        font-size: 0.85rem;
-    }
-    
-    .container {
-        padding: 0 20px !important;
-    }
-    
-    .hero {
-        min-height: 80vh;
-    }
-    
     .hero .container {
-        padding-bottom: 12px; /* Reduced from 25px */
+        padding-bottom: 12px;
     }
-    
-    .now-booking {
-        margin-bottom: 40px;
-    }
-    
+
     .hero-buttons {
         flex-direction: column;
         gap: 15px;
         margin-top: 50px;
-        width: 75%;
-        margin-left: auto;
+        width: fit-content;
+        margin-left: 0;
         margin-right: auto;
     }
-    
-    .menu-cta, .pricing-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        width: 100% !important;
-        gap: 50px;
-    }
-    
+
     .portfolio-item {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-    
-    .pricing-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .faq-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .portfolio-image {
-        border-radius: 20px;
-    }
-    
-    .portfolio-image img {
-        border-radius: 20px;
-    }
-    
-    .modal .modal-container {
-        padding: 16px !important;
-        width: 100% !important;
-    }
-    
-    .modal-project-content {
-        gap: 30px;
-    }
-    
-    .modal-project-text {
-        /* Removing font-size declaration */
-    }
-    
-    .modal-project-metadata {
-        margin-bottom: 30px;
-        padding-bottom: 30px;
-    }
-    
-    .metadata-item {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-    
-    .modal-project-images {
-        gap: 30px;
-    }
-    
-    .modal-project-image {
-        padding-bottom: 75%; /* 4:3 aspect ratio for mobile */
-    }
-    
-    .portfolio {
-        margin-top: -6px; /* Reduced from -12px */
-    }
-    
-    .portfolio-title {
-        font-size: 1.5rem;
-    }
-    
-    .view-project {
-        font-size: 1rem;
-    }
-    
-    .modal-close {
-        top: 16px;
-        right: 16px;
-        width: 36px;
-        height: 36px;
-        font-size: 24px;
-    }
-    
-    .project-header {
-        padding: 60px 0;
-    }
-
-    .project-header h1 {
-        font-size: 3rem;
-    }
-
-    .project-content {
-        padding: 40px 0;
-    }
-    
-    .project-content .container {
-        /* No need for custom width, it inherits from global container */
-    }
-    
-    .project-content p {
-        font-size: 1.5rem; /* Slightly smaller font on mobile */
-    }
-
-    .project-cta h2 {
-        font-size: 2rem;
-    }
-
-    .text-reveal {
-        padding: 60px 0;
-    }
-    
-    .text-reveal-content {
-        padding: 0;
         width: 100%;
-        margin-left: 0;
-        margin-right: 0;
+        margin: 0;
     }
 }
 
 @media (max-width: 480px) {
-    /* Debugging styles - increased specificity and visibility */
-    .text-reveal .container {
-        outline: 3px solid red !important;
-        position: relative !important;
-        background: rgba(255, 0, 0, 0.1) !important;
-    }
-    
-    .text-reveal .container::before {
-        content: 'Container Width: ' attr(data-width);
-        position: absolute !important;
-        top: -25px !important;
-        left: 0 !important;
-        background: red !important;
-        color: white !important;
-        padding: 4px 8px !important;
-        font-size: 14px !important;
-        z-index: 9999 !important;
-    }
-    
-    .text-reveal-content {
-        outline: 3px solid blue !important;
-        position: relative !important;
-        background: rgba(0, 0, 255, 0.1) !important;
-    }
-    
-    .text-reveal-content::before {
-        content: 'Content Width: ' attr(data-width);
-        position: absolute !important;
-        top: -25px !important;
-        left: 0 !important;
-        background: blue !important;
-        color: white !important;
-        padding: 4px 8px !important;
-        font-size: 14px !important;
-        z-index: 9999 !important;
-    }
-    
-    .reveal-text {
-        outline: 3px solid green !important;
-        position: relative !important;
-        background: rgba(0, 255, 0, 0.1) !important;
-    }
-    
-    .reveal-text::before {
-        content: 'Text Width: ' attr(data-width);
-        position: absolute !important;
-        top: -25px !important;
-        left: 0 !important;
-        background: green !important;
-        color: white !important;
-        padding: 4px 8px !important;
-        font-size: 14px !important;
-        z-index: 9999 !important;
-    }
-    
-    /* Existing mobile styles */
-    .hero-title-dark,
-    .hero-title-light {
-        font-size: 2.2rem;
-        text-align: center;
-    }
-    
-    /* Standard mobile container padding */
-    .container {
-        padding: 0 15px;
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    /* Ensure logo has proper padding */
-    .header .container {
-        padding: 0 15px;
-    }
-    
-    .logo {
-        font-size: 1.2rem;
-        margin-left: 0;
+    .container,
+    .header .container,
+    .hero .container,
+    .text-reveal .container,
+    .portfolio .container {
+        width: 90% !important;
+        max-width: 1044px;
+        margin: 0 auto;
+        padding: 0;
     }
 
-    .now-booking {
-        font-size: 0.8rem;
-    }
-    
-    .booking-dot {
-        width: 6px;
-        height: 6px;
-    }
-    
-    .btn {
-        padding: 12px 20px;
-        min-width: 140px;
-    }
-    
-    .modal .modal-container {
-        padding: 12px !important;
-        width: 100% !important;
-    }
-    
-    .modal-project-content {
-        gap: 25px;
-    }
-    
-    .modal-project-metadata {
-        margin-bottom: 25px;
-        padding-bottom: 25px;
-    }
-    
-    .modal-project-images {
-        gap: 25px;
-    }
-    
-    .modal-project-image {
-        padding-bottom: 100%; /* Square aspect ratio for small mobile */
-    }
-    
-    .portfolio {
-        margin-top: -5px; /* Reduced from -10px */
-    }
-    
-    .hero {
-        min-height: 80vh;
-    }
-    
-    .hero .container {
-        padding-bottom: 10px; /* Reduced from 20px */
-        padding-left: 15px; 
-        padding-right: 15px;
-    }
-    
-    .text-reveal {
-        padding: 40px 0;
-    }
-    
-    /* Specific container padding for text reveal */
-    .text-reveal .container {
-        padding: 0 15px;
-    }
-    
-    .text-reveal-content {
-        padding: 0;
+    .hero-buttons {
         width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    
-    /* Ensure portfolio also has standard 15px padding */
-    .portfolio .container {
-        padding: 0 15px;
     }
     
     .portfolio-grid {
-        width: 100%;
-        padding: 0;
+        gap: 40px;
         margin-top: 30px;
-    }
-    
-    /* Fix project content width on mobile */
-    .project-content .container {
-        width: 100% !important;
-        max-width: none !important;
-        padding: 0 15px !important;
-    }
-    
-    .project-content p {
-        font-size: 1.2rem; /* Smaller font on smallest screens */
-        width: 100% !important;
-        max-width: none !important;
     }
 }
 
@@ -1650,28 +1239,26 @@ body.modal-open {
     background-color: var(--background-light);
 }
 
-.text-reveal-content {
-    max-width: 1280px;
+.text-reveal .container {
+    width: 90% !important;
+    max-width: 1044px;
     margin: 0 auto;
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    line-height: 1.5;
-    letter-spacing: -0.02em;
-    width: 90%; /* Changed back to 90% to match portfolio grid width */
+    padding: 0;
+}
+
+.text-reveal-content {
+    max-width: 860px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .reveal-text {
+    font-size: 1.4rem;
+    line-height: 1.6;
     margin-bottom: 2rem;
+    font-family: var(--font-display);
     letter-spacing: -0.02em;
-}
-
-.reveal-text .word {
-    display: inline-block;
-    color: #d1d1d1;
-    transition: color 0.5s ease;
-}
-
-.reveal-text .word.visible {
     color: var(--primary-color);
 }
 
@@ -1827,3 +1414,6 @@ To use this approach:
     font-family: var(--font-display);
     letter-spacing: -0.02em;
 }
+
+/* Future Improvement Note:
+   Consider converting this CSS file into SCSS to utilize mixins and partials for breakpoint management and component styling, which will help avoid duplicate rules and ensure consistency across breakpoints. This can further improve maintainability and scalability of the codebase. */

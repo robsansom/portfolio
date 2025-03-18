@@ -315,43 +315,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize the page
     init();
-    
-    // Add width measurement for debugging
-    const measureElementWidths = () => {
-        console.log('Measuring element widths...');
-        const container = document.querySelector('.text-reveal .container');
-        const content = document.querySelector('.text-reveal-content');
-        const text = document.querySelector('.reveal-text');
-        
-        if (container) {
-            const width = container.offsetWidth;
-            container.setAttribute('data-width', `${width}px`);
-            console.log('Container width:', width);
-        } else {
-            console.log('Container not found');
-        }
-        
-        if (content) {
-            const width = content.offsetWidth;
-            content.setAttribute('data-width', `${width}px`);
-            console.log('Content width:', width);
-        } else {
-            console.log('Content not found');
-        }
-        
-        if (text) {
-            const width = text.offsetWidth;
-            text.setAttribute('data-width', `${width}px`);
-            console.log('Text width:', width);
-        } else {
-            console.log('Text not found');
-        }
-    };
-    
-    // Measure on load and resize
-    window.addEventListener('load', measureElementWidths);
-    window.addEventListener('resize', measureElementWidths);
-    
-    // Initial measurement
-    measureElementWidths();
 });
