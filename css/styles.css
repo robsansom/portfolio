@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap');
+
 /* Base Styles */
 :root {
     --primary-color: #000;
@@ -646,6 +648,7 @@ section {
     margin-bottom: 30px;
     flex-grow: 1;
     font-weight: 400;
+    font-family: 'Poppins', var(--font-display);
 }
 
 .testimonial-author {
@@ -659,12 +662,14 @@ section {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 4px;
+    font-family: 'Poppins', var(--font-display);
 }
 
 .testimonial-author p {
     font-size: 0.875rem;
     color: var(--text-light);
     margin: 0;
+    font-family: var(--font-display);
 }
 
 .testimonial-dot {
