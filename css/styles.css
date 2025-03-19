@@ -345,6 +345,7 @@ section {
     font-family: var(--font-display);
     font-weight: 500;
     letter-spacing: -0.02em;
+    max-width: 600px;
 }
 
 .hero-buttons {
@@ -744,6 +745,7 @@ section {
         line-height: 1.4;
         margin-top: 24px;
         margin-bottom: 32px;
+        max-width: none;
     }
 
     .hero-buttons {
