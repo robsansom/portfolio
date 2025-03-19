@@ -752,11 +752,13 @@ section {
         flex-direction: column;
         width: 100%;
         gap: 16px;
+        margin: 0;
     }
 
     .hero-buttons .btn {
         width: 100%;
         justify-content: center;
+        margin: 0;
     }
 
     .container,
@@ -841,7 +843,13 @@ section {
     }
 
     .hero-buttons {
-        margin-top: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        margin: 0;
     }
 }
 
