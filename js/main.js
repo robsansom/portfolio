@@ -328,34 +328,47 @@ document.addEventListener('DOMContentLoaded', function() {
         let currentIndex = 0;
         let isScrolling = false;
 
+        if (!track || !cards.length || !prevButton || !nextButton) return;
+
+        const cardsToScroll = 2; // Number of cards to scroll at once
+        const totalGroups = Math.ceil(cards.length / cardsToScroll);
+
         // Update navigation state
         function updateNavigation() {
-            const isAtStart = currentIndex === 0;
-            const isAtEnd = currentIndex === cards.length - 1;
+            const currentGroup = Math.floor(currentIndex / cardsToScroll);
+            const isAtStart = currentGroup === 0;
+            const isAtEnd = currentGroup >= totalGroups - 1;
             
             prevButton.disabled = isAtStart;
             nextButton.disabled = isAtEnd;
+            prevButton.style.opacity = isAtStart ? '0.15' : '1';
+            nextButton.style.opacity = isAtEnd ? '0.15' : '1';
         }
 
-        // Scroll to specific card
+        // Scroll to specific card group
         function scrollToCard(index, smooth = true) {
             if (isScrolling) return;
             isScrolling = true;
 
-            const card = cards[index];
+            const targetIndex = Math.min(index, cards.length - 1);
+            const card = cards[targetIndex];
+            if (!card) return;
+
             const cardWidth = card.offsetWidth;
-            const gap = 40; // gap between cards
-            const scrollPosition = index * (cardWidth + gap);
+            const gap = 40;
+            const containerWidth = track.offsetWidth;
+            const groupWidth = (cardWidth + gap) * cardsToScroll;
+            const targetGroup = Math.floor(targetIndex / cardsToScroll);
+            const scrollPosition = targetGroup * groupWidth;
 
             track.scrollTo({
                 left: scrollPosition,
                 behavior: smooth ? 'smooth' : 'instant'
             });
 
-            currentIndex = index;
+            currentIndex = targetIndex;
             updateNavigation();
 
-            // Reset isScrolling after animation
             setTimeout(() => {
                 isScrolling = false;
             }, 500);
@@ -364,22 +377,26 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle button navigation
         prevButton.addEventListener('click', () => {
             if (currentIndex > 0 && !isScrolling) {
-                scrollToCard(currentIndex - 1);
+                const targetIndex = Math.max(0, currentIndex - cardsToScroll);
+                scrollToCard(targetIndex);
             }
         });
 
         nextButton.addEventListener('click', () => {
             if (currentIndex < cards.length - 1 && !isScrolling) {
-                scrollToCard(currentIndex + 1);
+                const targetIndex = Math.min(cards.length - 1, currentIndex + cardsToScroll);
+                scrollToCard(targetIndex);
             }
         });
 
         // Handle keyboard navigation
         track.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft' && currentIndex > 0 && !isScrolling) {
-                scrollToCard(currentIndex - 1);
+                const targetIndex = Math.max(0, currentIndex - cardsToScroll);
+                scrollToCard(targetIndex);
             } else if (e.key === 'ArrowRight' && currentIndex < cards.length - 1 && !isScrolling) {
-                scrollToCard(currentIndex + 1);
+                const targetIndex = Math.min(cards.length - 1, currentIndex + cardsToScroll);
+                scrollToCard(targetIndex);
             }
         });
 
@@ -393,17 +410,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 const cardWidth = cards[0].offsetWidth;
                 const gap = 40;
                 const scrollPosition = track.scrollLeft;
-                const newIndex = Math.round(scrollPosition / (cardWidth + gap));
+                const groupWidth = (cardWidth + gap) * cardsToScroll;
+                const newGroup = Math.round(scrollPosition / groupWidth);
+                const newIndex = newGroup * cardsToScroll;
 
                 if (newIndex !== currentIndex) {
-                    currentIndex = Math.min(Math.max(newIndex, 0), cards.length - 1);
+                    currentIndex = Math.min(newIndex, cards.length - 1);
                     updateNavigation();
                 }
             }, 150);
         });
 
         // Initialize navigation state and scroll position
+        updateNavigation();
         scrollToCard(0, false);
+
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                scrollToCard(currentIndex, false);
+            }, 100);
+        });
     }
     
     // Initialize everything

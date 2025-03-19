@@ -548,17 +548,14 @@ section {
 .testimonial-navigation {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     margin-top: 40px;
     padding: 0;
     width: 90% !important;
     max-width: 1044px;
-    margin-left: auto;
+    margin-left: calc(auto - 50px);
     margin-right: auto;
     position: relative;
-}
-
-.testimonial-dots {
-    display: none;
 }
 
 .testimonial-button {
@@ -575,45 +572,32 @@ section {
     justify-content: center;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 0;
 }
 
 .testimonial-button img {
     width: 24px;
     height: 24px;
     position: relative;
-    top: -1px; /* Optical adjustment */
-    left: -1px; /* Optical adjustment */
+    filter: invert(1);
 }
 
 .testimonial-button.prev {
-    transform: rotate(180deg);
-    margin-left: -80px; /* -104px + 24px */
+    margin-right: 0;
 }
 
 .testimonial-button.next {
-    margin-left: 24px;
+    margin-left: 16px;
 }
 
 .testimonial-button:hover {
     transform: scale(1.05);
 }
 
-.testimonial-button.prev:hover {
-    transform: rotate(180deg) scale(1.05);
-}
-
 .testimonial-button:disabled {
     opacity: 0.15;
     cursor: not-allowed;
     box-shadow: none;
-}
-
-.testimonial-button.prev:disabled {
-    transform: rotate(180deg);
-}
-
-.testimonial-button.prev:disabled:hover {
-    transform: rotate(180deg);
 }
 
 .testimonial-card {
@@ -625,6 +609,7 @@ section {
     padding: 40px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .testimonial-content {
