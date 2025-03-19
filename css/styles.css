@@ -498,7 +498,8 @@ section {
 
 /* Testimonials Section */
 .testimonials {
-    padding: 120px 0 80px;
+    padding: 120px 0;
+    scroll-margin-top: 180px;
     background-color: var(--background-light);
     overflow: visible;
     position: relative;
@@ -673,33 +674,6 @@ section {
         width: 40px;
         height: 40px;
     }
-}
-
-/* Menu Section */
-.menu {
-    text-align: center;
-    background-color: var(--background-light);
-    padding: 120px 0;
-}
-
-.menu h1 {
-    font-size: 5rem;
-    margin-bottom: 20px;
-    letter-spacing: -0.03em;
-}
-
-.menu h2 {
-    font-size: 4rem;
-    margin-bottom: 40px;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-}
-
-.menu-cta {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    margin-top: 40px;
 }
 
 /* Reputation Section */
