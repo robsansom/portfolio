@@ -1,4 +1,4 @@
-// Main JavaScript file for OFF MENU clone
+// Main JavaScript file for portfolio site animations and interactions
 
 document.addEventListener('DOMContentLoaded', function() {
     // Add a subtle parallax effect to the hero section
