@@ -30,7 +30,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 120px; /* Increased from 100px for more breathing room */
+    scroll-padding-top: 0; /* Reset global scroll padding */
 }
 
 body {
@@ -134,7 +134,7 @@ ul {
 section {
     padding: 80px 0;
     border-bottom: 0px solid var(--border-color);
-    scroll-margin-top: 120px; /* Matching the scroll-padding-top */
+    scroll-margin-top: 40px;
 }
 
 /* Button Styles */
@@ -504,18 +504,11 @@ section {
 /* Testimonials Section */
 .testimonials {
     padding: 120px 0;
-    scroll-margin-top: 0; /* Removed margin completely to test the scroll position */
+    scroll-margin-top: 0; /* Reset scroll margin */
     background-color: var(--background-light);
     overflow: visible;
     position: relative;
     margin-top: 0;
-}
-
-.testimonials h1 {
-    font-size: 4rem;
-    margin-bottom: 80px;
-    font-weight: 600;
-    letter-spacing: -0.02em;
 }
 
 .testimonials .container {
@@ -524,6 +517,14 @@ section {
     margin: 0 auto;
     padding: 0;
     overflow: visible;
+}
+
+.testimonials h1 {
+    font-size: 4rem;
+    margin-bottom: 80px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    padding-top: 0; /* Remove any top padding */
 }
 
 .testimonials-container {
