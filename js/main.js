@@ -277,42 +277,6 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(faqStyles);
     
-    // All initialization functions
-    const init = () => {
-        createMobileNav();
-        initMobileNav();
-        
-        // Add animation styles and initialize animations
-        addAnimationStyles();
-        animateOnScroll();
-        
-        // Setup the original text reveal animation
-        initOriginalTextReveal();
-
-        // Initialize portfolio load more functionality
-        initPortfolioLoadMore();
-    };
-    
-    // Initialize original text reveal animation - restoring the original behavior
-    const initOriginalTextReveal = () => {
-        // Select words from both text-reveal and project content
-        const words = document.querySelectorAll('.reveal-text .word, .project-content .word');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 1.0,
-            rootMargin: '-10% 0px -10% 0px'
-        });
-        
-        words.forEach(word => {
-            observer.observe(word);
-        });
-    };
-
     // Initialize portfolio load more functionality
     function initPortfolioLoadMore() {
         const portfolioItems = document.querySelectorAll('.portfolio-item');
@@ -355,6 +319,130 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Initialize the page
+    // Initialize testimonials carousel
+    function initTestimonialsCarousel() {
+        const track = document.querySelector('.testimonials-track');
+        const cards = Array.from(track.querySelectorAll('.testimonial-card'));
+        const prevButton = document.querySelector('.testimonial-button.prev');
+        const nextButton = document.querySelector('.testimonial-button.next');
+        let currentIndex = 0;
+        let isScrolling = false;
+
+        // Update navigation state
+        function updateNavigation() {
+            const isAtStart = currentIndex === 0;
+            const isAtEnd = currentIndex === cards.length - 1;
+            
+            prevButton.disabled = isAtStart;
+            nextButton.disabled = isAtEnd;
+        }
+
+        // Scroll to specific card
+        function scrollToCard(index, smooth = true) {
+            if (isScrolling) return;
+            isScrolling = true;
+
+            const card = cards[index];
+            const cardWidth = card.offsetWidth;
+            const gap = 40; // gap between cards
+            const scrollPosition = index * (cardWidth + gap);
+
+            track.scrollTo({
+                left: scrollPosition,
+                behavior: smooth ? 'smooth' : 'instant'
+            });
+
+            currentIndex = index;
+            updateNavigation();
+
+            // Reset isScrolling after animation
+            setTimeout(() => {
+                isScrolling = false;
+            }, 500);
+        }
+
+        // Handle button navigation
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0 && !isScrolling) {
+                scrollToCard(currentIndex - 1);
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < cards.length - 1 && !isScrolling) {
+                scrollToCard(currentIndex + 1);
+            }
+        });
+
+        // Handle keyboard navigation
+        track.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && currentIndex > 0 && !isScrolling) {
+                scrollToCard(currentIndex - 1);
+            } else if (e.key === 'ArrowRight' && currentIndex < cards.length - 1 && !isScrolling) {
+                scrollToCard(currentIndex + 1);
+            }
+        });
+
+        // Handle scroll events to update navigation
+        let scrollTimeout;
+        track.addEventListener('scroll', () => {
+            if (isScrolling) return;
+            
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const cardWidth = cards[0].offsetWidth;
+                const gap = 40;
+                const scrollPosition = track.scrollLeft;
+                const newIndex = Math.round(scrollPosition / (cardWidth + gap));
+
+                if (newIndex !== currentIndex) {
+                    currentIndex = Math.min(Math.max(newIndex, 0), cards.length - 1);
+                    updateNavigation();
+                }
+            }, 150);
+        });
+
+        // Initialize navigation state and scroll position
+        scrollToCard(0, false);
+    }
+    
+    // Initialize everything
+    const init = () => {
+        createMobileNav();
+        initMobileNav();
+        
+        // Add animation styles and initialize animations
+        addAnimationStyles();
+        animateOnScroll();
+        
+        // Setup the original text reveal animation
+        initOriginalTextReveal();
+
+        // Initialize portfolio load more functionality
+        initPortfolioLoadMore();
+        initTestimonialsCarousel();
+    };
+    
+    // Initialize original text reveal animation - restoring the original behavior
+    const initOriginalTextReveal = () => {
+        // Select words from both text-reveal and project content
+        const words = document.querySelectorAll('.reveal-text .word, .project-content .word');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 1.0,
+            rootMargin: '-10% 0px -10% 0px'
+        });
+        
+        words.forEach(word => {
+            observer.observe(word);
+        });
+    };
+
+    // Call init when DOM is loaded
     init();
 });

@@ -1605,6 +1605,16 @@ To use this approach:
     height: 24px;
 }
 
+/* Portfolio Load More Styles */
+.portfolio-item.hidden {
+    display: none;
+}
+
+.portfolio-item.loading {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
 .btn-load-more {
     margin-top: 40px;
     display: flex;
@@ -1627,13 +1637,4 @@ To use this approach:
 
 .btn-load-more .cta-pulse {
     background-color: var(--secondary-color);
-}
-
-.portfolio-item.hidden {
-    display: none;
-}
-
-.portfolio-item.loading {
-    opacity: 0;
-    transform: translateY(20px);
 }
