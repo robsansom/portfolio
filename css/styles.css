@@ -315,16 +315,29 @@ section {
 }
 
 /* Hero Section */
-.hero h1,
-.hero-title-dark,
-.hero-title-light {
-    font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
+.hero h1 {
+    font-size: 4rem;
     line-height: 1.1;
     margin-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.hero-title-dark {
+    color: var(--primary-color);
+    display: block;
+    font-weight: 600;
+}
+
+.hero-title-light {
+    color: var(--dark-gray);
+    opacity: 0.6;
+    display: block;
+    font-weight: 400;
 }
 
 .hero-text {
-    font-size: clamp(1.2rem, 2vw + 0.5rem, 1.7rem);
+    font-size: 1.7rem;
     line-height: 1.4;
     margin-top: 24px;
     margin-bottom: 40px;
@@ -713,15 +726,13 @@ section {
         background-color: #f5f5f5;
     }
 
-    .hero h1,
-    .hero-title-dark,
-    .hero-title-light {
+    .hero h1 {
         font-size: 3.2rem !important;
         line-height: 1.1;
     }
 
     .hero-text {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
         line-height: 1.4;
         margin-top: 28px;
     }
@@ -739,14 +750,12 @@ section {
 }
 
 @media (max-width: 480px) {
-    .hero h1,
-    .hero-title-dark,
-    .hero-title-light {
+    .hero h1 {
         font-size: 2.8rem !important;
     }
 
     .hero-text {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 }
 
