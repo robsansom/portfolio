@@ -1430,11 +1430,17 @@ To use this approach:
 
 .btn-load-more .btn {
     min-width: 200px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: none;
 }
 
-.btn-load-more .btn.disabled {
-    opacity: 0.5;
-    cursor: default;
-    transform: none;
-    pointer-events: none;
+.btn-load-more .cta-pulse-dot.is-large {
+    margin-left: 0;
+    background-color: var(--secondary-color);
+}
+
+.btn-load-more .cta-pulse {
+    background-color: var(--secondary-color);
 }
