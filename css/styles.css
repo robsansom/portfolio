@@ -503,7 +503,7 @@ section {
 
 /* Testimonials Section */
 .testimonials {
-    padding: 60px 0 120px; /* Reduced top padding */
+    padding: 100px 0 120px;
     background-color: var(--background-light);
     overflow: visible;
     position: relative;
