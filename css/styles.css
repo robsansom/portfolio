@@ -857,7 +857,7 @@ section {
 
 /* Project content styles */
 .project-content {
-    padding: 80px 0;
+    padding: 80px 0 40px;
     margin: 0 auto;
 }
 
@@ -1365,3 +1365,48 @@ To use this approach:
 
 /* Future Improvement Note:
    Consider converting this CSS file into SCSS to utilize mixins and partials for breakpoint management and component styling, which will help avoid duplicate rules and ensure consistency across breakpoints. This can further improve maintainability and scalability of the codebase. */
+
+.project-navigation {
+    padding: 40px 0;
+    background-color: var(--background-light);
+    border-top: 0px solid rgba(0, 0, 0, 0.1);
+}
+
+.project-navigation .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90% !important;
+    max-width: 1044px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.project-nav-link {
+    display: flex;
+    align-items: center;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    font-family: var(--font-display);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.project-nav-link:hover {
+    opacity: 0.8;
+}
+
+.project-nav-link.prev img {
+    margin-right: 8px;
+    transform: rotate(180deg);
+}
+
+.project-nav-link.next img {
+    margin-left: 8px;
+}
+
+.project-nav-link img {
+    width: 24px;
+    height: 24px;
+}
