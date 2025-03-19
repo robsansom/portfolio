@@ -807,7 +807,7 @@ section {
     }
 
     .portfolio-image {
-        padding-bottom: 100%;
+        padding-bottom: 177.78%; /* Changed to 16:9 aspect ratio (9/16 * 100) */
     }
 
     .portfolio-footer {
@@ -913,7 +913,7 @@ section {
     }
 
     .portfolio-image {
-        padding-bottom: 100%;
+        padding-bottom: 177.78%; /* Maintaining 16:9 aspect ratio for smaller screens */
         border-radius: 16px;
     }
 
@@ -1227,7 +1227,7 @@ section {
     }
 
     .portfolio-image {
-        padding-bottom: 100%;
+        padding-bottom: 177.78%; /* Changed to 16:9 aspect ratio (9/16 * 100) */
     }
 
     .portfolio-footer {
@@ -1301,7 +1301,7 @@ section {
     }
 
     .portfolio-image {
-        padding-bottom: 100%;
+        padding-bottom: 177.78%; /* Maintaining 16:9 aspect ratio for smaller screens */
         border-radius: 16px;
     }
 
