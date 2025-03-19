@@ -69,7 +69,10 @@ body {
 
 /* Hero section alignment */
 .hero {
-    padding: 114px 0 72px;  /* ~28.5px * 4 for top, 18px * 4 for bottom */
+    padding: 114px 0 72px;
+    position: relative;
+    z-index: 2;
+    background-color: var(--background-light);
 }
 
 .hero .container {
@@ -77,6 +80,8 @@ body {
     max-width: 1044px;
     margin: 0 auto;
     padding: 0;
+    position: relative;
+    z-index: 2;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -379,7 +384,7 @@ section {
     padding: 72px 0 96px !important;
     margin-top: 0;
     position: relative;
-    z-index: 2;
+    z-index: 1;
     background-color: var(--background-light);
     scroll-margin-top: 120px;
 }
@@ -389,6 +394,8 @@ section {
     max-width: 1044px;
     margin: 0 auto;
     padding: 0;
+    position: relative;
+    z-index: 1;
 }
 
 .portfolio-grid {
@@ -724,20 +731,21 @@ section {
         height: 40px;
     }
 
+    .hero {
+        padding: 80px 0 40px;
+        position: relative;
+        z-index: 2;
+    }
+
     .hero .container {
-        padding: var(--container-padding-mobile);
-        padding-top: 60px;
-        padding-bottom: 60px;
-        background-color: #f5f5f5;
+        padding: 0;
+        position: relative;
+        z-index: 2;
     }
 
     .hero h1 {
         font-size: 3.6rem !important;
         line-height: 1.1;
-    }
-
-    .hero {
-        padding: 80px 0 40px;
     }
 
     .hero-text {
@@ -825,6 +833,12 @@ section {
     .footer-logo {
         display: block;
     }
+
+    .portfolio {
+        position: relative;
+        z-index: 1;
+        margin-top: 40px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -834,6 +848,8 @@ section {
 
     .hero {
         padding: 40px 0 32px;
+        position: relative;
+        z-index: 2;
     }
 
     .hero-text {
@@ -850,6 +866,12 @@ section {
     .hero-buttons .btn {
         width: 100%;
         margin: 0;
+    }
+
+    .portfolio {
+        position: relative;
+        z-index: 1;
+        margin-top: 20px;
     }
 }
 
