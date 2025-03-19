@@ -316,51 +316,41 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize portfolio load more functionality
     function initPortfolioLoadMore() {
         const portfolioItems = document.querySelectorAll('.portfolio-item');
-        const loadMoreBtn = document.querySelector('.btn-load-more .btn');
-        const itemsPerLoad = 4;
+        const loadMoreBtn = document.querySelector('.btn-load-more');
+        const itemsToShow = 4;
+        let visibleItems = itemsToShow;
 
-        // Initially hide all items except first 4
+        // Initially hide all items beyond the initial count
         portfolioItems.forEach((item, index) => {
-            if (index >= itemsPerLoad) {
+            if (index >= itemsToShow) {
                 item.classList.add('hidden');
             }
         });
 
-        if (loadMoreBtn) {
-            loadMoreBtn.addEventListener('click', showNextItems);
+        // Hide load more button if there are no more items to show
+        if (portfolioItems.length <= itemsToShow) {
+            loadMoreBtn.style.display = 'none';
         }
+
+        loadMoreBtn.addEventListener('click', showNextItems);
 
         function showNextItems() {
             const hiddenItems = document.querySelectorAll('.portfolio-item.hidden');
-            const itemsToShow = Array.from(hiddenItems).slice(0, itemsPerLoad);
+            const nextItems = Array.from(hiddenItems).slice(0, itemsToShow);
 
-            itemsToShow.forEach((item, index) => {
-                // Remove hidden class but keep opacity at 0
+            nextItems.forEach(item => {
                 item.classList.remove('hidden');
                 item.classList.add('loading');
-
-                // Trigger reflow
-                void item.offsetWidth;
-
-                // Add transition properties
-                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                
-                // Delay each item slightly
                 setTimeout(() => {
                     item.classList.remove('loading');
-                }, index * 100);
+                }, 10);
             });
 
-            // If no more items to show, hide the button container completely
-            if (hiddenItems.length <= itemsPerLoad) {
-                const btnContainer = loadMoreBtn.closest('.btn-load-more');
-                if (btnContainer) {
-                    btnContainer.style.opacity = '0';
-                    btnContainer.style.transform = 'translateY(10px)';
-                    setTimeout(() => {
-                        btnContainer.style.display = 'none';
-                    }, 300);
-                }
+            visibleItems += nextItems.length;
+
+            // Hide the load more button if all items are shown
+            if (visibleItems >= portfolioItems.length) {
+                loadMoreBtn.style.display = 'none';
             }
         }
     }
