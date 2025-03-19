@@ -288,9 +288,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Setup the original text reveal animation
         initOriginalTextReveal();
-        
-        // Remove modal-related event listeners since we're now using direct links to project pages
-        // initializeModalHandlers(); - modal functionality removed in favor of individual project pages
+
+        // Initialize portfolio load more functionality
+        initPortfolioLoadMore();
     };
     
     // Initialize original text reveal animation - restoring the original behavior
@@ -312,6 +312,58 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(word);
         });
     };
+
+    // Initialize portfolio load more functionality
+    function initPortfolioLoadMore() {
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const loadMoreBtn = document.querySelector('.btn-load-more .btn');
+        const itemsPerLoad = 4;
+
+        // Initially hide all items except first 4
+        portfolioItems.forEach((item, index) => {
+            if (index >= itemsPerLoad) {
+                item.classList.add('hidden');
+            }
+        });
+
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', showNextItems);
+        }
+
+        function showNextItems() {
+            const hiddenItems = document.querySelectorAll('.portfolio-item.hidden');
+            const itemsToShow = Array.from(hiddenItems).slice(0, itemsPerLoad);
+
+            itemsToShow.forEach((item, index) => {
+                // Remove hidden class but keep opacity at 0
+                item.classList.remove('hidden');
+                item.classList.add('loading');
+
+                // Trigger reflow
+                void item.offsetWidth;
+
+                // Add transition properties
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                // Delay each item slightly
+                setTimeout(() => {
+                    item.classList.remove('loading');
+                }, index * 100);
+            });
+
+            // If no more items to show, hide the button container completely
+            if (hiddenItems.length <= itemsPerLoad) {
+                const btnContainer = loadMoreBtn.closest('.btn-load-more');
+                if (btnContainer) {
+                    btnContainer.style.opacity = '0';
+                    btnContainer.style.transform = 'translateY(10px)';
+                    setTimeout(() => {
+                        btnContainer.style.display = 'none';
+                    }, 300);
+                }
+            }
+        }
+    }
     
     // Initialize the page
     init();

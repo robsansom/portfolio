@@ -1410,3 +1410,36 @@ To use this approach:
     width: 24px;
     height: 24px;
 }
+
+.btn-load-more {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.btn-load-more .btn {
+    min-width: 200px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: none;
+}
+
+.btn-load-more .cta-pulse-dot.is-large {
+    margin-left: 0;
+    background-color: var(--secondary-color);
+}
+
+.btn-load-more .cta-pulse {
+    background-color: var(--secondary-color);
+}
+
+.portfolio-item.hidden {
+    display: none;
+}
+
+.portfolio-item.loading {
+    opacity: 0;
+    transform: translateY(20px);
+}
