@@ -731,7 +731,7 @@ section {
     }
 
     .hero h1 {
-        font-size: 3.4rem !important;
+        font-size: 3.6rem !important;
         line-height: 1.1;
     }
 
@@ -740,7 +740,7 @@ section {
     }
 
     .hero-text {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         line-height: 1.4;
         margin-top: 24px;
         margin-bottom: 32px;
@@ -756,11 +756,76 @@ section {
         width: 100%;
         justify-content: center;
     }
+
+    .container,
+    .header .container,
+    .hero .container,
+    .text-reveal .container,
+    .portfolio .container {
+        width: 90% !important;
+        max-width: 1044px;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+    
+    .text-reveal-content {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .portfolio-grid {
+        width: 100%;
+        margin: 40px 0 0 0;
+    }
+
+    .hero .container {
+        padding-bottom: 12px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 50px;
+        width: fit-content;
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .portfolio-item {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Hide navigation elements on mobile */
+    .nav-links,
+    .footer-nav {
+        display: none;
+    }
+
+    /* Ensure logo remains visible and centered */
+    .header .container {
+        justify-content: center;
+    }
+
+    .footer-content {
+        justify-content: center;
+    }
+
+    /* Preserve logo visibility */
+    .logo,
+    .footer-logo {
+        display: block;
+    }
 }
 
 @media (max-width: 480px) {
     .hero h1 {
-        font-size: 3.2rem !important;
+        font-size: 3.4rem !important;
     }
 
     .hero {
@@ -768,7 +833,7 @@ section {
     }
 
     .hero-text {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         margin-top: 20px;
         margin-bottom: 28px;
     }
