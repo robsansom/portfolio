@@ -30,7 +30,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 0; /* Reset global scroll padding */
+    scroll-padding-top: 0;
 }
 
 body {
@@ -134,7 +134,7 @@ ul {
 section {
     padding: 80px 0;
     border-bottom: 0px solid var(--border-color);
-    scroll-margin-top: 40px;
+    scroll-margin-top: 0;
 }
 
 /* Button Styles */
@@ -503,8 +503,7 @@ section {
 
 /* Testimonials Section */
 .testimonials {
-    padding: 120px 0;
-    scroll-margin-top: 0; /* Reset scroll margin */
+    padding: 60px 0 120px; /* Reduced top padding */
     background-color: var(--background-light);
     overflow: visible;
     position: relative;
@@ -521,10 +520,10 @@ section {
 
 .testimonials h1 {
     font-size: 4rem;
-    margin-bottom: 80px;
+    margin-bottom: 60px; /* Reduced from 80px */
     font-weight: 600;
     letter-spacing: -0.02em;
-    padding-top: 0; /* Remove any top padding */
+    padding-top: 0;
 }
 
 .testimonials-container {
