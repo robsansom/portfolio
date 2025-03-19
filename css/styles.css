@@ -728,6 +728,52 @@ section {
         width: 40px;
         height: 40px;
     }
+
+    .hero .container {
+        padding: var(--container-padding-mobile);
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .hero h1 {
+        font-size: 3.2rem;
+        line-height: 1.2;
+    }
+
+    .hero-title-dark,
+    .hero-title-light {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .hero-text {
+        font-size: 1.6rem;
+        line-height: 1.5;
+        margin-top: 24px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-text {
+        font-size: 1.4rem;
+    }
 }
 
 /* Reputation Section */
