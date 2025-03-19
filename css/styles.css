@@ -740,15 +740,14 @@ section {
     .hero h1,
     .hero-title-dark,
     .hero-title-light {
-        font-size: 2.8rem !important;
-        white-space: normal;
-        line-height: 1.2;
+        font-size: 3.2rem !important;
+        line-height: 1.1;
     }
 
     .hero-text {
-        font-size: 1.5rem;
-        margin-bottom: 40px;
-        margin-top: 24px;
+        font-size: 1.7rem;
+        line-height: 1.4;
+        margin-top: 28px;
     }
 
     .hero-buttons {
@@ -767,11 +766,11 @@ section {
     .hero h1,
     .hero-title-dark,
     .hero-title-light {
-        font-size: 2.4rem !important;
+        font-size: 2.8rem !important;
     }
 
     .hero-text {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 }
 
