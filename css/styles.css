@@ -504,7 +504,7 @@ section {
 /* Testimonials Section */
 .testimonials {
     padding: 120px 0;
-    scroll-margin-top: 140px; /* Slightly more space for testimonials section */
+    scroll-margin-top: 80px; /* Reduced from 140px to show navigation buttons above the fold */
     background-color: var(--background-light);
     overflow: visible;
     position: relative;
