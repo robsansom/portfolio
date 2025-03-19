@@ -1147,10 +1147,8 @@ section {
 
 /* Project CTA Section */
 .project-cta {
+    padding: 160px 0;
     text-align: center;
-    padding: 120px 0;
-    background-color: var(--background-light);
-    border-top: 0;
 }
 
 .project-cta .logos-container {
