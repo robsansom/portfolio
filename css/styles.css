@@ -649,6 +649,21 @@ section {
     flex-grow: 1;
     font-weight: 400;
     font-family: 'Poppins', var(--font-display);
+    position: relative;
+    padding-left: 28px;
+}
+
+.testimonial-text::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -5px;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    font-family: 'Poppins', var(--font-display);
+    font-weight: 600;
+    line-height: 1;
+    opacity: 0.8;
 }
 
 .testimonial-author {
