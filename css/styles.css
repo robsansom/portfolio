@@ -71,7 +71,7 @@ body {
 .hero {
     padding: 114px 0 72px;
     position: relative;
-    z-index: 2;
+    z-index: 3;
     background-color: var(--background-light);
 }
 
@@ -81,7 +81,7 @@ body {
     margin: 0 auto;
     padding: 0;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -355,7 +355,9 @@ section {
 
 .hero-buttons {
     display: flex;
-    gap: 16px; /* 4px * 4 */
+    gap: 16px;
+    position: relative;
+    z-index: 3;
 }
 
 .now-booking {
@@ -386,7 +388,6 @@ section {
     position: relative;
     z-index: 1;
     background-color: var(--background-light);
-    scroll-margin-top: 120px;
 }
 
 .portfolio .container {
@@ -732,15 +733,16 @@ section {
     }
 
     .hero {
-        padding: 80px 0 40px;
+        padding: 80px 0 60px;
         position: relative;
-        z-index: 2;
+        z-index: 3;
+        background-color: var(--background-light);
     }
 
     .hero .container {
         padding: 0;
         position: relative;
-        z-index: 2;
+        z-index: 3;
     }
 
     .hero h1 {
@@ -761,6 +763,10 @@ section {
         width: 100%;
         gap: 16px;
         margin: 0;
+        position: relative;
+        z-index: 3;
+        background-color: var(--background-light);
+        padding-bottom: 20px;
     }
 
     .hero-buttons .btn {
@@ -837,7 +843,9 @@ section {
     .portfolio {
         position: relative;
         z-index: 1;
-        margin-top: 40px;
+        margin-top: 0;
+        padding-top: 40px !important;
+        background-color: var(--background-light);
     }
 }
 
@@ -847,9 +855,10 @@ section {
     }
 
     .hero {
-        padding: 40px 0 32px;
+        padding: 40px 0 40px;
         position: relative;
-        z-index: 2;
+        z-index: 3;
+        background-color: var(--background-light);
     }
 
     .hero-text {
@@ -861,6 +870,10 @@ section {
     .hero-buttons {
         margin: 0;
         width: 100%;
+        position: relative;
+        z-index: 3;
+        background-color: var(--background-light);
+        padding-bottom: 20px;
     }
 
     .hero-buttons .btn {
@@ -871,7 +884,9 @@ section {
     .portfolio {
         position: relative;
         z-index: 1;
-        margin-top: 20px;
+        margin-top: 0;
+        padding-top: 20px !important;
+        background-color: var(--background-light);
     }
 }
 
