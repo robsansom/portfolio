@@ -766,11 +766,20 @@ section {
         z-index: 3;
         background-color: var(--background-light);
         padding-bottom: 20px;
+        transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     .hero-buttons .btn {
         width: 100%;
         margin: 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero-buttons .btn.visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .portfolio {

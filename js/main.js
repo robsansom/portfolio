@@ -154,6 +154,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const animateOnScroll = () => {
         const elements = document.querySelectorAll('.portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn');
         
+        // Add hero buttons visibility check for mobile
+        const heroButtons = document.querySelectorAll('.hero-buttons .btn');
+        const handleHeroButtonsVisibility = () => {
+            if (window.innerWidth <= 480) { // Only on mobile
+                heroButtons.forEach(button => {
+                    const rect = button.getBoundingClientRect();
+                    const isVisible = rect.top <= window.innerHeight - 100;
+                    button.classList.toggle('visible', isVisible);
+                });
+            } else {
+                // Remove classes on desktop
+                heroButtons.forEach(button => button.classList.remove('visible'));
+            }
+        };
+
+        // Initial check
+        handleHeroButtonsVisibility();
+        
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
             const windowHeight = window.innerHeight;
@@ -475,4 +493,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Call init when DOM is loaded
     init();
+
+    // Add to scroll event
+    window.addEventListener('scroll', () => {
+        handleHeroButtonsVisibility();
+        animateOnScroll();
+    });
+
+    // Handle resize for responsive changes
+    window.addEventListener('resize', handleHeroButtonsVisibility);
 });
