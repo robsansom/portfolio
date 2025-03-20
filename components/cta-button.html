@@ -1,0 +1,11 @@
+<!-- CTA Button Component -->
+<div class="cta-button-wrapper">
+    <a href="${href}" class="btn ${buttonClass}">
+        ${text}
+        ${pulseAnimation ? `
+        <div class="cta-pulse-dot is-large">
+            <div class="cta-pulse"></div>
+        </div>
+        ` : ''}
+    </a>
+</div> 

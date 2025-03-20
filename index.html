@@ -7,6 +7,7 @@
     <meta name="description" content="Work closely with our team of senior designers, strategists, and copywriters. Get full-service creative with full-service care. We collaborate closely. We help craft strategy and story. We become an extension of your team.">
     <link rel="stylesheet" href="css/styles.css?v=1.8.7">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="css/components/cta-button.css">
 </head>
 <body>
     <header class="header">
@@ -34,7 +35,11 @@
                     Product designer and creative strategist crafting digital experiences that solve real problems
                 </p>
                 <div class="hero-buttons">
-                    <a href="mailto:design@rsansom.co.uk" class="btn btn-dark">Get in Touch</a>
+                    <cta-button 
+                        href="mailto:design@rsansom.co.uk" 
+                        text="Get in Touch" 
+                        button-class="btn-dark">
+                    </cta-button>
                 </div>
             </div>
         </section>
@@ -258,7 +263,11 @@
                 <h1>Interested in working together?</h1>
                 <p>Let's discuss your project and see how I can help.</p>
                 <div class="cta-buttons">
-                    <a href="mailto:design@rsansom.co.uk" class="btn btn-primary">Get in Touch</a>
+                    <cta-button 
+                        href="mailto:design@rsansom.co.uk" 
+                        text="Get in Touch" 
+                        button-class="btn-dark">
+                    </cta-button>
                 </div>
             </div>
         </section>
@@ -294,6 +303,7 @@
         </div>
     </footer>
 
+    <script src="js/components/cta-button.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
