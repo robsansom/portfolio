@@ -69,7 +69,7 @@ body {
 
 /* Hero section alignment */
 .hero {
-    padding: 114px 0 72px;
+    padding: 160px 0 72px;
     position: relative;
     z-index: 3;
     background-color: var(--background-light);
@@ -747,7 +747,7 @@ section {
     }
 
     .hero {
-        padding: 40px 0 40px;
+        padding: 86px 0 40px;
         position: relative;
         z-index: 3;
         background-color: var(--background-light);
