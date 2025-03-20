@@ -1889,15 +1889,17 @@ To use this approach:
 }
 
 .btn-load-more .btn {
-    min-width: 160px;
+    min-width: 100px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
     box-shadow: none;
     margin: 0 auto;
-    font-size: 0.9rem;
-    padding: 10px 20px;
+    font-size: 0.75rem;
+    padding: 12px 12px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .btn-load-more .cta-pulse-dot.is-large {
