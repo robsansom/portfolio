@@ -747,7 +747,7 @@ section {
     }
 
     .hero {
-        padding: 86px 0 40px;
+        padding: 63px 0 40px;
         position: relative;
         z-index: 3;
         background-color: var(--background-light);
