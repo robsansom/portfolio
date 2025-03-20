@@ -2024,3 +2024,73 @@ To use this approach:
         margin-top: 24px; /* Slightly reduced margin on mobile */
     }
 }
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 24px;
+    margin: 48px 0;
+}
+
+.bento-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: var(--background-light);
+    transition: transform 0.3s ease;
+}
+
+.bento-item:hover {
+    transform: scale(1.02);
+}
+
+.bento-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Bento grid layout */
+.bento-item.featured {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: 1.5;
+}
+
+.bento-item.wide {
+    grid-column: span 2;
+    aspect-ratio: 2;
+}
+
+.bento-item.tall {
+    grid-row: span 2;
+    aspect-ratio: 0.8;
+}
+
+.bento-item.standard {
+    aspect-ratio: 1;
+}
+
+@media (max-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .bento-item.featured,
+    .bento-item.wide,
+    .bento-item.tall,
+    .bento-item.standard {
+        grid-column: 1;
+        grid-row: auto;
+        aspect-ratio: 1.2;
+    }
+}
