@@ -742,6 +742,10 @@ section {
         font-size: 3rem !important;
     }
 
+    .hero-title-dark {
+        font-weight: 700;
+    }
+
     .hero {
         padding: 40px 0 40px;
         position: relative;
