@@ -735,6 +735,10 @@ section {
         gap: 16px;
         padding-right: 15%;
     }
+
+    .testimonials h1 {
+        font-size: 3rem;
+    }
 }
 
 @media (max-width: 480px) {
