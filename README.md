@@ -62,6 +62,20 @@ To customize this portfolio:
 3. Add your own JavaScript functionality in `js/main.js`
 4. Add your own images to the `images/` directory
 
+## Stable Version
+
+This is the stable production version (v1.1-stable) of the portfolio website. This version:
+- Features a clean, minimalist design
+- Includes a circular plus button Show More component
+- Uses a modular component structure for better maintainability
+- Has refined button styles with improved hierarchy
+- Provides a solid foundation for further development
+
+To ensure continued stability:
+- This version has been tagged as `v1.1-stable`
+- The GitHub Pages deployment is based on this stable version
+- For experimental features or modernization, please use the `main` branch
+
 ## License
 
 Copyright © 2025. All rights reserved.
