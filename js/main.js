@@ -332,42 +332,57 @@ document.addEventListener('DOMContentLoaded', function() {
     function initPortfolioLoadMore() {
         const portfolioItems = document.querySelectorAll('.portfolio-item');
         const loadMoreBtn = document.querySelector('.btn-load-more');
-        const itemsToShow = 4;
+        
+        // Function to determine how many items to show based on screen width
+        function getItemsToShow() {
+            return window.innerWidth <= 768 ? 2 : 4;
+        }
+
+        let itemsToShow = getItemsToShow();
         let visibleItems = itemsToShow;
 
-        // Initially hide all items beyond the initial count
-        portfolioItems.forEach((item, index) => {
-            if (index >= itemsToShow) {
-                item.classList.add('hidden');
-            }
-        });
+        // Function to update visible items
+        function updateVisibleItems() {
+            portfolioItems.forEach((item, index) => {
+                if (index >= visibleItems) {
+                    item.classList.add('hidden');
+                } else {
+                    item.classList.remove('hidden');
+                }
+            });
 
-        // Hide load more button if there are no more items to show
-        if (portfolioItems.length <= itemsToShow) {
-            loadMoreBtn.style.display = 'none';
+            // Hide load more button if there are no more items to show
+            if (visibleItems >= portfolioItems.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+            }
+        }
+
+        // Initially hide items beyond the initial count
+        updateVisibleItems();
+
+        // Show next set of items when clicking load more
+        function showNextItems() {
+            visibleItems += getItemsToShow();
+            updateVisibleItems();
         }
 
         loadMoreBtn.addEventListener('click', showNextItems);
 
-        function showNextItems() {
-            const hiddenItems = document.querySelectorAll('.portfolio-item.hidden');
-            const nextItems = Array.from(hiddenItems).slice(0, itemsToShow);
-
-            nextItems.forEach(item => {
-                item.classList.remove('hidden');
-                item.classList.add('loading');
-                setTimeout(() => {
-                    item.classList.remove('loading');
-                }, 10);
-            });
-
-            visibleItems += nextItems.length;
-
-            // Hide the load more button if all items are shown
-            if (visibleItems >= portfolioItems.length) {
-                loadMoreBtn.style.display = 'none';
-            }
-        }
+        // Update visible items when screen size changes
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                const newItemsToShow = getItemsToShow();
+                if (newItemsToShow !== itemsToShow) {
+                    itemsToShow = newItemsToShow;
+                    visibleItems = Math.min(visibleItems, itemsToShow);
+                    updateVisibleItems();
+                }
+            }, 250);
+        });
     }
     
     // Initialize testimonials carousel

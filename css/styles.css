@@ -1884,18 +1884,18 @@ To use this approach:
 }
 
 .btn-load-more {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin: 40px auto;
+    text-align: center;
 }
 
 .btn-load-more .btn {
     min-width: 200px;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     box-shadow: none;
+    margin: 0 auto;
 }
 
 .btn-load-more .cta-pulse-dot.is-large {
