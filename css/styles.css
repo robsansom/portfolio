@@ -766,6 +766,8 @@ section {
         z-index: 3;
         background-color: var(--background-light);
         padding-bottom: 20px;
+        display: flex;
+        justify-content: flex-start;
     }
 
     .hero-buttons .btn {
@@ -781,6 +783,11 @@ section {
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
+    }
+
+    /* Hide My Work button on mobile */
+    .hero-buttons .btn-light {
+        display: none;
     }
 
     .portfolio {
