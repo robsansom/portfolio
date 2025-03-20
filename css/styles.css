@@ -739,7 +739,7 @@ section {
 
 @media (max-width: 480px) {
     .hero h1 {
-        font-size: 3.2rem !important;
+        font-size: 3rem !important;
     }
 
     .hero {
@@ -750,7 +750,7 @@ section {
     }
 
     .hero-text {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         margin-top: 20px;
         margin-bottom: 28px;
     }
