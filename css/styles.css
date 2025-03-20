@@ -557,7 +557,7 @@ section {
 
 .testimonials-track {
     display: flex;
-    gap: 40px;
+    gap: 24px; /* Reduced from 40px to show more of next card */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
@@ -634,11 +634,11 @@ section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
     background: var(--secondary-color);
-    border-radius: 12px;
+    border-radius: 20px; /* Match project thumbnails */
     padding: 40px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Match project thumbnails shadow */
 }
 
 .testimonial-content {
@@ -732,7 +732,12 @@ section {
     }
 
     .testimonials-track {
+        gap: 16px; /* Even smaller gap on mobile */
         padding-right: 15%; /* Add some padding to hint at more content */
+    }
+
+    .testimonial-pagination {
+        margin-top: 24px; /* Slightly reduced margin on mobile */
     }
 
     .hero {
@@ -2093,5 +2098,39 @@ To use this approach:
     }
     100% {
         transform: translateX(calc(-50% - 24px));
+    }
+}
+
+/* Add pagination dots */
+.testimonial-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 32px;
+    padding: 0;
+}
+
+.pagination-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-color);
+    transition: all 0.3s ease;
+    opacity: 0.5;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+}
+
+.pagination-dot.active {
+    opacity: 1;
+    background: var(--primary-color);
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .testimonial-pagination {
+        margin-top: 24px; /* Slightly reduced margin on mobile */
     }
 }

@@ -325,19 +325,58 @@ document.addEventListener('DOMContentLoaded', function() {
         const cards = Array.from(track.querySelectorAll('.testimonial-card'));
         const prevButton = document.querySelector('.testimonial-button.prev');
         const nextButton = document.querySelector('.testimonial-button.next');
+        const paginationDots = Array.from(document.querySelectorAll('.pagination-dot'));
         let currentIndex = 0;
         let isScrolling = false;
 
-        if (!track || !cards.length || !prevButton || !nextButton) return;
+        if (!track || !cards.length) return;
 
-        const cardsToScroll = 2; // Number of cards to scroll at once
-        const totalGroups = Math.ceil(cards.length / cardsToScroll);
+        // Update active pagination dot
+        function updatePagination() {
+            paginationDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        // Scroll to specific card
+        function scrollToCard(index, smooth = true) {
+            if (isScrolling) return;
+            isScrolling = true;
+
+            currentIndex = Math.min(Math.max(0, index), cards.length - 1);
+            const card = cards[currentIndex];
+            if (!card) return;
+
+            const cardWidth = card.offsetWidth;
+            const gap = 24; // Match the CSS gap value
+            const scrollPosition = currentIndex * (cardWidth + gap);
+
+            track.scrollTo({
+                left: scrollPosition,
+                behavior: smooth ? 'smooth' : 'instant'
+            });
+
+            updateNavigation();
+            updatePagination();
+
+            setTimeout(() => {
+                isScrolling = false;
+            }, 500);
+        }
+
+        // Handle pagination dot clicks
+        paginationDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                scrollToCard(index);
+            });
+        });
 
         // Update navigation state
         function updateNavigation() {
-            const currentGroup = Math.floor(currentIndex / cardsToScroll);
-            const isAtStart = currentGroup === 0;
-            const isAtEnd = currentGroup >= totalGroups - 1;
+            if (!prevButton || !nextButton) return;
+            
+            const isAtStart = currentIndex === 0;
+            const isAtEnd = currentIndex >= cards.length - 1;
             
             prevButton.disabled = isAtStart;
             nextButton.disabled = isAtEnd;
@@ -345,60 +384,22 @@ document.addEventListener('DOMContentLoaded', function() {
             nextButton.style.opacity = isAtEnd ? '0.15' : '1';
         }
 
-        // Scroll to specific card group
-        function scrollToCard(index, smooth = true) {
-            if (isScrolling) return;
-            isScrolling = true;
-
-            const targetIndex = Math.min(index, cards.length - 1);
-            const card = cards[targetIndex];
-            if (!card) return;
-
-            const cardWidth = card.offsetWidth;
-            const gap = 40;
-            const containerWidth = track.offsetWidth;
-            const groupWidth = (cardWidth + gap) * cardsToScroll;
-            const targetGroup = Math.floor(targetIndex / cardsToScroll);
-            const scrollPosition = targetGroup * groupWidth;
-
-            track.scrollTo({
-                left: scrollPosition,
-                behavior: smooth ? 'smooth' : 'instant'
+        // Handle button navigation
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0 && !isScrolling) {
+                    scrollToCard(currentIndex - 1);
+                }
             });
-
-            currentIndex = targetIndex;
-            updateNavigation();
-
-            setTimeout(() => {
-                isScrolling = false;
-            }, 500);
         }
 
-        // Handle button navigation
-        prevButton.addEventListener('click', () => {
-            if (currentIndex > 0 && !isScrolling) {
-                const targetIndex = Math.max(0, currentIndex - cardsToScroll);
-                scrollToCard(targetIndex);
-            }
-        });
-
-        nextButton.addEventListener('click', () => {
-            if (currentIndex < cards.length - 1 && !isScrolling) {
-                const targetIndex = Math.min(cards.length - 1, currentIndex + cardsToScroll);
-                scrollToCard(targetIndex);
-            }
-        });
-
-        // Handle keyboard navigation
-        track.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft' && currentIndex > 0 && !isScrolling) {
-                const targetIndex = Math.max(0, currentIndex - cardsToScroll);
-                scrollToCard(targetIndex);
-            } else if (e.key === 'ArrowRight' && currentIndex < cards.length - 1 && !isScrolling) {
-                const targetIndex = Math.min(cards.length - 1, currentIndex + cardsToScroll);
-                scrollToCard(targetIndex);
-            }
-        });
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < cards.length - 1 && !isScrolling) {
+                    scrollToCard(currentIndex + 1);
+                }
+            });
+        }
 
         // Handle scroll events to update navigation
         let scrollTimeout;
@@ -408,21 +409,21 @@ document.addEventListener('DOMContentLoaded', function() {
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(() => {
                 const cardWidth = cards[0].offsetWidth;
-                const gap = 40;
+                const gap = 24; // Match the CSS gap value
                 const scrollPosition = track.scrollLeft;
-                const groupWidth = (cardWidth + gap) * cardsToScroll;
-                const newGroup = Math.round(scrollPosition / groupWidth);
-                const newIndex = newGroup * cardsToScroll;
+                const newIndex = Math.round(scrollPosition / (cardWidth + gap));
 
                 if (newIndex !== currentIndex) {
                     currentIndex = Math.min(newIndex, cards.length - 1);
                     updateNavigation();
+                    updatePagination();
                 }
             }, 150);
         });
 
-        // Initialize navigation state and scroll position
+        // Initialize state
         updateNavigation();
+        updatePagination();
         scrollToCard(0, false);
 
         // Handle window resize
