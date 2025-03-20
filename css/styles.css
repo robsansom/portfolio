@@ -481,17 +481,17 @@ section {
 .view-project {
     display: flex;
     align-items: center;
-    font-size: 0.9rem;
+    gap: 8px;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--primary-color);
-    text-decoration: none;
-    font-family: var(--font-display);
+    transition: opacity 0.3s ease;
 }
 
 .view-project img {
-    margin-left: 4px;
     width: 24px;
     height: 24px;
+    transition: transform 0.3s ease;
 }
 
 .view-project svg {
@@ -1889,13 +1889,15 @@ To use this approach:
 }
 
 .btn-load-more .btn {
-    min-width: 200px;
+    min-width: 160px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 8px;
     box-shadow: none;
     margin: 0 auto;
+    font-size: 0.9rem;
+    padding: 10px 20px;
 }
 
 .btn-load-more .cta-pulse-dot.is-large {
