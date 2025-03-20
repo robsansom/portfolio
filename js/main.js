@@ -3,11 +3,44 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Add a subtle parallax effect to the hero section
     const hero = document.querySelector('.hero');
+    const heroButtons = document.querySelectorAll('.hero-buttons .btn');
+    let hasScrolled = false;
+
     if (hero) {
         window.addEventListener('scroll', function() {
             const scrollPosition = window.scrollY;
+            
+            // Parallax effect
             if (scrollPosition < 600) {
                 hero.style.transform = `translateY(${scrollPosition * 0.1}px)`;
+            }
+
+            // Show buttons on first scroll on mobile
+            if (window.innerWidth <= 480 && !hasScrolled && scrollPosition > 10) {
+                hasScrolled = true;
+                heroButtons.forEach(button => {
+                    button.classList.add('visible');
+                });
+            }
+        });
+
+        // Hide buttons initially on mobile
+        if (window.innerWidth <= 480) {
+            heroButtons.forEach(button => {
+                button.classList.remove('visible');
+            });
+        }
+
+        // Handle resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth <= 480 && !hasScrolled) {
+                heroButtons.forEach(button => {
+                    button.classList.remove('visible');
+                });
+            } else {
+                heroButtons.forEach(button => {
+                    button.classList.add('visible');
+                });
             }
         });
     }

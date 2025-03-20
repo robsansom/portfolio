@@ -760,7 +760,7 @@ section {
     }
 
     .hero-buttons {
-        margin: 60px 0 0 0;
+        margin: 40px 0 0 0;
         width: 100%;
         position: relative;
         z-index: 3;
@@ -773,12 +773,14 @@ section {
         margin: 0;
         opacity: 0;
         transform: translateY(20px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        pointer-events: none;
     }
 
     .hero-buttons .btn.visible {
         opacity: 1;
         transform: translateY(0);
+        pointer-events: auto;
     }
 
     .portfolio {
