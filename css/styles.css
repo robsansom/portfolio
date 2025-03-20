@@ -724,20 +724,24 @@ section {
     }
 
     .testimonial-navigation {
-        display: none; /* Hide navigation arrows on mobile */
+        display: none; /* Hide arrows on mobile */
     }
 
     .testimonials-container::after {
-        display: none; /* Remove fade effect on mobile */
+        display: none;
     }
 
     .testimonials-track {
-        gap: 16px; /* Even smaller gap on mobile */
-        padding-right: 15%; /* Add some padding to hint at more content */
+        gap: 16px;
+        padding-right: 15%;
     }
 
     .testimonial-pagination {
-        margin-top: 24px; /* Slightly reduced margin on mobile */
+        display: flex; /* Show pagination dots ONLY on mobile */
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-top: 24px;
     }
 
     .hero {
@@ -2103,12 +2107,7 @@ To use this approach:
 
 /* Add pagination dots */
 .testimonial-pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-top: 32px;
-    padding: 0;
+    display: none; /* Hide by default on desktop */
 }
 
 .pagination-dot {
