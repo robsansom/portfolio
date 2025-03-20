@@ -1873,6 +1873,32 @@ To use this approach:
     height: 24px;
 }
 
+@media (max-width: 768px) {
+    .project-nav-link.prev {
+        position: relative;
+    }
+    
+    .project-nav-link.next {
+        position: relative;
+    }
+
+    .project-nav-link.prev::after {
+        content: "Prev";
+        position: absolute;
+        left: 32px; /* Space for the arrow */
+    }
+
+    .project-nav-link.next::before {
+        content: "Next";
+        position: absolute;
+        right: 32px; /* Space for the arrow */
+    }
+
+    .project-nav-link span {
+        display: none; /* Hide the original text */
+    }
+}
+
 /* Portfolio Load More Styles */
 .portfolio-item.hidden {
     display: none;
