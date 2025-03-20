@@ -724,12 +724,15 @@ section {
     }
 
     .testimonial-navigation {
-        padding: 0 20px;
+        display: none; /* Hide navigation arrows on mobile */
     }
 
-    .testimonial-button {
-        width: 40px;
-        height: 40px;
+    .testimonials-container::after {
+        display: none; /* Remove fade effect on mobile */
+    }
+
+    .testimonials-track {
+        padding-right: 15%; /* Add some padding to hint at more content */
     }
 
     .hero {
