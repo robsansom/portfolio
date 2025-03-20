@@ -760,13 +760,12 @@ section {
     }
 
     .hero-buttons {
-        margin: 0;
+        margin: 40px 0 0 0;
         width: 100%;
         position: relative;
         z-index: 3;
         background-color: var(--background-light);
         padding-bottom: 20px;
-        transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     .hero-buttons .btn {
