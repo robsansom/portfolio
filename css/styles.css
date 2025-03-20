@@ -1860,43 +1860,17 @@ To use this approach:
 }
 
 .project-nav-link.prev img {
-    margin-right: 8px;
+    margin-right: 4px;
     transform: rotate(180deg);
 }
 
 .project-nav-link.next img {
-    margin-left: 8px;
+    margin-left: 4px;
 }
 
 .project-nav-link img {
     width: 24px;
     height: 24px;
-}
-
-@media (max-width: 768px) {
-    .project-nav-link.prev {
-        position: relative;
-    }
-    
-    .project-nav-link.next {
-        position: relative;
-    }
-
-    .project-nav-link.prev::after {
-        content: "Prev";
-        position: absolute;
-        left: 32px; /* Space for the arrow */
-    }
-
-    .project-nav-link.next::before {
-        content: "Next";
-        position: absolute;
-        right: 32px; /* Space for the arrow */
-    }
-
-    .project-nav-link span {
-        display: none; /* Hide the original text */
-    }
 }
 
 /* Portfolio Load More Styles */
