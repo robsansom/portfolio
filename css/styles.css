@@ -397,6 +397,9 @@ section {
     padding: 0;
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .portfolio-grid {
@@ -1884,31 +1887,70 @@ To use this approach:
 }
 
 .btn-load-more {
-    margin: 40px auto;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
 }
 
-.btn-load-more .btn {
-    min-width: 100px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    box-shadow: none;
-    margin: 0 auto;
-    font-size: 0.75rem;
-    padding: 12px 12px;
+.btn-load-more .circular-btn {
+    width: 48px;
+    height: 48px;
+    min-width: unset;
+    padding: 0;
+    border-radius: 50%;
     background-color: var(--primary-color);
     color: var(--secondary-color);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-load-more .circular-btn:hover {
+    transform: scale(1.1);
+}
+
+.btn-load-more .circular-btn svg {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    z-index: 2;
 }
 
 .btn-load-more .cta-pulse-dot.is-large {
-    margin-left: 0;
-    background-color: var(--secondary-color);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: transparent;
+    margin: 0;
 }
 
 .btn-load-more .cta-pulse {
-    background-color: var(--secondary-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    animation: pulse 1.4s infinite;
+    opacity: 0.2;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
 }
 
 /* Company Logos Section */
