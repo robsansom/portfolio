@@ -11,5 +11,5 @@ if [ ! -d ".git" ]; then
     exit 1
 fi
 
-# Call the main script in the scripts directory
+# Call the update script in the same directory
 ./scripts/update-site.sh 
