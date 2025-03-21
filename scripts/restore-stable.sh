@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script to restore to the stable version tagged as STABLE_RESTORE_POINT
+# Script to restore to the stable version in STABLE-BACKUP branch
 # Usage: ./scripts/restore-stable.sh
 
 # Colors for output
@@ -21,19 +21,13 @@ fi
 echo -e "${YELLOW}📦 Stashing any current changes...${NC}"
 git stash
 
-# Checkout the stable tag
+# Checkout the stable branch
 echo -e "${YELLOW}🔄 Checking out stable version...${NC}"
-git checkout STABLE_RESTORE_POINT
+git checkout STABLE-BACKUP
 
-# Create a new branch from this point if needed
-echo -e "${YELLOW}🌿 Creating a new branch from stable version...${NC}"
-read -p "Create a new branch? (y/n): " create_branch
-if [[ $create_branch == "y" || $create_branch == "Y" ]]; then
-    read -p "Enter branch name: " branch_name
-    git checkout -b "$branch_name"
-    echo -e "${GREEN}✅ Created new branch: $branch_name${NC}"
-fi
+# Push to gh-pages
+echo -e "${YELLOW}🚀 Updating live site...${NC}"
+git push -f origin STABLE-BACKUP:gh-pages
 
-echo -e "${GREEN}✅ Successfully restored to stable version!${NC}"
-echo -e "${YELLOW}Note: You are now in a 'detached HEAD' state unless you created a new branch.${NC}"
-echo -e "${YELLOW}To update gh-pages with this version, run: git push -f origin HEAD:gh-pages${NC}" 
+echo -e "${GREEN}✅ Site restored to stable version!${NC}"
+echo -e "${GREEN}🌐 View your site at: https://robsansom.github.io/portfolio/${NC}" 

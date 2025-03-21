@@ -65,3 +65,33 @@ To customize this portfolio:
 ## License
 
 Copyright © 2025. All rights reserved.
+
+## Script Reference
+
+### Deployment Scripts
+
+- **`git_commit.sh`** - Wrapper script that calls the main update script
+- **`scripts/update-site.sh`** - Main script for committing changes and deploying to GitHub Pages
+  - Automatically switches between branches
+  - Commits changes to main branch
+  - Deploys to gh-pages branch
+  - Excludes development files from deployment
+
+### Recovery Scripts
+
+- **`scripts/restore-stable.sh`** - Restores the site to the stable version (STABLE-BACKUP branch)
+  - Stashes any current changes
+  - Switches to the stable branch
+  - Updates the live site
+
+## Usage
+
+### To deploy changes:
+```bash
+./git_commit.sh
+```
+
+### To restore to stable version:
+```bash
+./scripts/restore-stable.sh
+```
