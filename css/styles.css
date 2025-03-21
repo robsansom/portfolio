@@ -1893,64 +1893,23 @@ To use this approach:
     margin: 40px 0;
 }
 
-.btn-load-more .circular-btn {
-    width: 48px;
-    height: 48px;
-    min-width: unset;
-    padding: 0;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    border: none;
+.btn-show-more {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 12px 24px;
     cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    font-family: var(--font-display);
 }
 
-.btn-load-more .circular-btn:hover {
-    transform: scale(1.1);
-}
-
-.btn-load-more .circular-btn svg {
-    width: 24px;
-    height: 24px;
-    position: relative;
-    z-index: 2;
-}
-
-.btn-load-more .cta-pulse-dot.is-large {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: transparent;
-    margin: 0;
-}
-
-.btn-load-more .cta-pulse {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    animation: pulse 1.4s infinite;
-    opacity: 0.2;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.2;
-    }
-    100% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
+.btn-show-more:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+    transform: translateY(-2px);
 }
 
 /* Company Logos Section */
