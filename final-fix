@@ -1,0 +1,89 @@
+#!/bin/bash
+set -e
+
+# Simple script to commit changes and deploy to GitHub Pages
+INCLUDE_FILES="*.html css/ js/ images/ components/ work/ scripts/ .nojekyll .safe"
+EXCLUDE_FILES="RESPONSIVE.md git_commit.sh MODERNIZATION.md generate_commit.py"
+
+echo "Starting git commit and deploy..."
+
+# Make sure we're on main branch
+if [ "$(git rev-parse --abbrev-ref HEAD)" != "main" ]; then
+  echo "Switching to main branch..."
+  git checkout main
+fi
+
+# Commit any changes on main if needed
+if [ -n "$(git status --porcelain)" ]; then
+  echo "Changes detected, staging changes..."
+  git add .
+  
+  # Show git diff summary
+  echo "Changes to be committed:"
+  git diff --staged --stat
+  
+  # Try to generate commit message using Python script
+  if [ -f "generate_commit.py" ]; then
+    echo "Generating commit message..."
+    python3 generate_commit.py > /dev/null 2>&1
+    if [ -f "/tmp/git_commit_msg.txt" ]; then
+      COMMIT_MSG=$(cat /tmp/git_commit_msg.txt)
+      rm /tmp/git_commit_msg.txt
+    else
+      COMMIT_MSG="Update site"
+    fi
+  else
+    # Ask for commit message with default if Python script not available
+    echo ""
+    echo "Enter commit message (press Enter to use 'Update site'):"
+    read -r USER_COMMIT_MSG
+    COMMIT_MSG=${USER_COMMIT_MSG:-"Update site"}
+  fi
+  
+  echo "Using commit message: $COMMIT_MSG"
+  git commit -m "$COMMIT_MSG"
+  git push origin main
+  echo "✓ Changes pushed to main"
+else
+  echo "✓ Main branch is up to date"
+fi
+
+# Switch to gh-pages and update it
+echo "Updating gh-pages branch..."
+git checkout gh-pages
+git pull origin gh-pages
+
+# Save README.md from gh-pages if it exists
+if [ -f "README.md" ]; then
+  cp README.md README.md.bak
+fi
+
+# Copy files from main branch
+echo "Copying files from main branch..."
+git checkout main -- $INCLUDE_FILES
+
+# Restore gh-pages README
+if [ -f "README.md.bak" ]; then
+  mv README.md.bak README.md
+fi
+
+# Remove files we don't want on the live site
+echo "Cleaning up files not needed for live site..."
+for file in $EXCLUDE_FILES; do
+  if [ -f "$file" ]; then
+    rm -f "$file"
+  fi
+done
+
+# Always commit and push changes to gh-pages, regardless of status
+echo "Pushing updates to live site..."
+git add .
+DEPLOY_MSG="Deploy site: $(date +'%Y-%m-%d %H:%M')"
+git commit -m "$DEPLOY_MSG" --allow-empty
+git push origin gh-pages
+echo "✓ Live site updated!"
+
+# Switch back to main branch
+git checkout main
+
+echo "✅ Deployment complete!"
