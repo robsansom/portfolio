@@ -185,7 +185,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animate elements on scroll
     const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn');
+        const elements = document.querySelectorAll('.portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn:not(.btn-show-more), .testimonial-card, .hero-text, .project-cta p');
+        const showMoreBtn = document.querySelector('.btn-show-more');
         
         // Add hero buttons visibility check for mobile
         const heroButtons = document.querySelectorAll('.hero-buttons .btn');
@@ -204,6 +205,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Initial check
         handleHeroButtonsVisibility();
+        
+        // Handle show more button separately
+        if (showMoreBtn) {
+            const btnPosition = showMoreBtn.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (btnPosition < windowHeight - 50) {
+                showMoreBtn.classList.add('fade-in');
+            }
+        }
         
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
@@ -229,7 +240,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const addAnimationStyles = () => {
         const style = document.createElement('style');
         style.textContent = `
-            .portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn, .pricing-features li {
+            .portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn, .pricing-features li,
+            .testimonial-card, .hero-text, .project-cta p, .btn-show-more {
                 opacity: 0;
                 transform: translateY(20px);
                 transition: opacity 0.6s ease, transform 0.6s ease;

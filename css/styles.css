@@ -1977,7 +1977,7 @@ To use this approach:
     transition: all 0.25s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
     font-family: var(--font-display);
-    margin-top: 10px; /* Reduced from 80px */
+    margin-top: 20px; /* Increased from 10px */
 }
 
 .btn-show-more:hover {
