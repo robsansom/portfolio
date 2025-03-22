@@ -1273,8 +1273,8 @@ section {
 
 .project-description {
     flex: 1;
-    max-width: 860px; /* Increased from 800px for better balance */
-    padding-right: 40px; /* Add padding to the right to increase the gap */
+    max-width: 860px;
+    padding-right: 40px;
 }
 
 .project-metadata {
@@ -1294,10 +1294,10 @@ section {
 .metadata-item {
     display: block;
     width: auto !important;
-    margin: 0 0px 20px 0;
+    margin: 0 0 20px 0;
     padding: 0;
     text-align: right;
-    margin-right: 0px !important;
+    margin-right: 0 !important;
 }
 
 .metadata-label {
@@ -2071,5 +2071,77 @@ To use this approach:
         grid-column: 1;
         grid-row: auto;
         aspect-ratio: 1.2;
+    }
+}
+
+/* Full-width Gallery Layout */
+.project-gallery.fullwidth {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 48px 0;
+}
+
+.project-gallery.fullwidth .gallery-item {
+    position: relative;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: var(--background-light);
+    transition: transform 0.3s ease;
+}
+
+.project-gallery.fullwidth .gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.project-gallery.fullwidth .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .project-gallery.fullwidth {
+        gap: 24px;
+        margin: 32px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-info {
+        flex-direction: column;
+    }
+
+    .project-description {
+        padding-right: 0;
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .project-metadata {
+        position: relative;
+        width: 100% !important;
+        display: block;
+    }
+
+    .metadata-item {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .metadata-label {
+        text-align: left;
+    }
+
+    .metadata-value {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-metadata {
+        margin-top: 20px;
     }
 }
