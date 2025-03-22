@@ -1036,14 +1036,12 @@ section {
     padding: 0;
 }
 
-.footer-social {
-    display: flex;
-    gap: 16px;
-    margin-left: auto;
-}
-
 .footer .logo {
-    margin-right: auto;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    position: relative;
 }
 
 .footer span {
@@ -1051,6 +1049,11 @@ section {
     opacity: 0.6;
     font-size: 0.95rem;
     font-family: var(--font-primary);
+}
+
+.footer-social {
+    display: flex;
+    gap: 16px;
 }
 
 .social-icon {
@@ -1094,7 +1097,6 @@ section {
 
     .footer .logo {
         width: auto;
-        margin-right: 0;
     }
 
     .footer span {
