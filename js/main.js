@@ -187,6 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const animateOnScroll = () => {
         const elements = document.querySelectorAll('.portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn:not(.btn-show-more), .testimonial-card, .hero-text, .project-cta p');
         const showMoreBtn = document.querySelector('.btn-show-more');
+        const projectCtaText = document.querySelector('.project-cta p');
         
         // Add hero buttons visibility check for mobile
         const heroButtons = document.querySelectorAll('.hero-buttons .btn');
@@ -213,6 +214,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (btnPosition < windowHeight - 50) {
                 showMoreBtn.classList.add('fade-in');
+            }
+        }
+
+        // Handle project-cta text separately
+        if (projectCtaText) {
+            const textPosition = projectCtaText.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (textPosition < windowHeight - 50) {
+                projectCtaText.classList.add('fade-in');
             }
         }
         

@@ -2191,3 +2191,35 @@ To use this approach:
         margin: 40px 0 24px; /* Reduced margins on mobile */
     }
 }
+
+/* Add fade-in animation styles */
+.portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn, .pricing-features li,
+.testimonial-card, .hero-text, .project-cta p, .btn-show-more {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    pointer-events: none;
+}
+
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+}
+
+/* Project CTA Section */
+.project-cta {
+    padding: 180px 0 240px;
+    text-align: left;
+}
+
+.project-cta p {
+    font-size: 1.35rem;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    max-width: 760px;
+    margin: 0 0 40px;
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
