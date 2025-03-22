@@ -1109,19 +1109,27 @@ section {
 
     .footer .logo {
         order: 1;
-        width: 100%;
+        width: auto;
     }
 
     .footer span {
-        order: 2;
+        order: 3;
         font-size: 0.85rem;
         width: 100%;
     }
 
     .footer-social {
-        order: 3;
-        margin-left: 0;
+        order: 2;
+        margin-left: auto;
         gap: 20px;
+        width: auto;
+    }
+
+    /* Add a wrapper for logo and social icons */
+    .footer .container > div:first-child {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
     }
 
