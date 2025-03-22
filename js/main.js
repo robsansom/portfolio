@@ -183,76 +183,102 @@ document.addEventListener('DOMContentLoaded', function() {
     // Disable the resize listener for mobile nav
     // window.addEventListener('resize', initMobileNav);
     
-    // Animate elements on scroll
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn:not(.btn-show-more), .testimonial-card, .hero-text, .project-cta p');
-        const showMoreBtn = document.querySelector('.btn-show-more');
-        const projectCtaText = document.querySelector('.project-cta p');
-        
-        // Add hero buttons visibility check for mobile
-        const heroButtons = document.querySelectorAll('.hero-buttons .btn');
-        const handleHeroButtonsVisibility = () => {
-            if (window.innerWidth <= 480) { // Only on mobile
-                heroButtons.forEach(button => {
-                    const rect = button.getBoundingClientRect();
-                    const isVisible = rect.top <= window.innerHeight - 100;
-                    button.classList.toggle('visible', isVisible);
+    // Show More button functionality
+    const showMoreBtn = document.querySelector('#btn-show-more');
+    const hiddenItems = document.querySelectorAll('.portfolio-item.hidden');
+    
+    if (showMoreBtn && hiddenItems.length > 0) {
+        showMoreBtn.addEventListener('click', function() {
+            hiddenItems.forEach(item => {
+                item.classList.remove('hidden');
+            });
+            showMoreBtn.style.display = 'none';
+        });
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
                 });
-            } else {
-                // Remove classes on desktop
-                heroButtons.forEach(button => button.classList.remove('visible'));
+            }
+        });
+    });
+
+    // Testimonial slider functionality
+    const track = document.querySelector('.testimonials-track');
+    const prevButton = document.querySelector('.testimonial-button.prev');
+    const nextButton = document.querySelector('.testimonial-button.next');
+    const cards = document.querySelectorAll('.testimonial-card');
+    let currentIndex = 0;
+
+    if (track && prevButton && nextButton) {
+        // Update button states
+        const updateButtons = () => {
+            prevButton.disabled = currentIndex === 0;
+            nextButton.disabled = currentIndex >= cards.length - 1;
+        };
+
+        // Scroll to card
+        const scrollToCard = (index) => {
+            if (cards[index]) {
+                const card = cards[index];
+                const trackRect = track.getBoundingClientRect();
+                const cardRect = card.getBoundingClientRect();
+                const scrollLeft = cardRect.left - trackRect.left - 24; // 24px gap
+
+                track.scrollTo({
+                    left: scrollLeft,
+                    behavior: 'smooth'
+                });
+
+                currentIndex = index;
+                updateButtons();
             }
         };
 
-        // Initial check
-        handleHeroButtonsVisibility();
-        
-        // Handle show more button separately
-        if (showMoreBtn) {
-            const btnPosition = showMoreBtn.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (btnPosition < windowHeight - 50) {
-                showMoreBtn.classList.add('fade-in');
-            }
-        }
+        // Button click handlers
+        prevButton.addEventListener('click', () => {
+            scrollToCard(currentIndex - 1);
+        });
 
-        // Handle project-cta text separately
-        if (projectCtaText) {
-            const textPosition = projectCtaText.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (textPosition < windowHeight - 50) {
-                projectCtaText.classList.add('fade-in');
-            }
-        }
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementPosition < windowHeight - 50) {
-                element.classList.add('fade-in');
-                
-                // Add staggered animation for pricing features
-                if (element.classList.contains('pricing-card')) {
-                    const features = element.querySelectorAll('.pricing-features li');
-                    features.forEach((feature, index) => {
-                        setTimeout(() => {
-                            feature.classList.add('fade-in');
-                        }, 100 * index);
-                    });
+        nextButton.addEventListener('click', () => {
+            scrollToCard(currentIndex + 1);
+        });
+
+        // Initialize button states
+        updateButtons();
+
+        // Handle scroll events
+        track.addEventListener('scroll', () => {
+            const trackRect = track.getBoundingClientRect();
+            let newIndex = 0;
+
+            cards.forEach((card, index) => {
+                const cardRect = card.getBoundingClientRect();
+                if (cardRect.left - trackRect.left >= -24) { // 24px threshold
+                    newIndex = Math.max(0, index);
+                    return;
                 }
+            });
+
+            if (newIndex !== currentIndex) {
+                currentIndex = newIndex;
+                updateButtons();
             }
         });
-    };
+    }
     
     // Add fade-in animation styles
     const addAnimationStyles = () => {
         const style = document.createElement('style');
         style.textContent = `
             .portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn, .pricing-features li,
-            .testimonial-card, .hero-text, .project-cta p, .btn-show-more {
+            .testimonial-card, .hero-text, .project-cta p {
                 opacity: 0;
                 transform: translateY(20px);
                 transition: opacity 0.6s ease, transform 0.6s ease;
@@ -284,9 +310,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize animations
     addAnimationStyles();
-    animateOnScroll();
     
-    // Listen for scroll events
+    // Animate elements on scroll
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn:not(.btn-show-more), .testimonial-card, .hero-text, .project-cta p');
+        
+        elements.forEach(element => {
+            const position = element.getBoundingClientRect();
+            
+            // Check if element is in viewport
+            if (position.top < window.innerHeight - 50) {
+                element.classList.add('fade-in');
+            }
+        });
+    };
+    
+    // Run animation check on load and scroll
+    animateOnScroll();
     window.addEventListener('scroll', animateOnScroll);
     
     // Add FAQ accordion functionality

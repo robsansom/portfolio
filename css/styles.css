@@ -1965,8 +1965,7 @@ To use this approach:
 .btn-load-more {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 40px 0;
+    margin-top: 20px;
 }
 
 .btn-show-more {
