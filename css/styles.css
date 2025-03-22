@@ -1243,12 +1243,14 @@ section {
 }
 
 .project-content p {
-    font-size: 1.4rem; /* Reduced from 1.7rem to match homepage better */
+    font-size: 1.35rem;
     line-height: 1.6;
     margin-bottom: 2rem;
     font-family: var(--font-display);
+    font-weight: 400;
     letter-spacing: -0.02em;
-    color: var(--primary-color);
+    color: var(--dark-gray);
+    max-width: 760px;
 }
 
 /* Text fade-in animation for project page */
@@ -2142,7 +2144,7 @@ To use this approach:
     .project-description {
         padding-right: 0;
         max-width: 100%;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 
     .project-metadata {
@@ -2167,6 +2169,6 @@ To use this approach:
 
 @media (max-width: 480px) {
     .project-metadata {
-        margin-top: 20px;
+        margin-top: 12px;
     }
 }
