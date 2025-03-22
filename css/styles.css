@@ -1874,7 +1874,7 @@ To use this approach:
    Consider converting this CSS file into SCSS to utilize mixins and partials for breakpoint management and component styling, which will help avoid duplicate rules and ensure consistency across breakpoints. This can further improve maintainability and scalability of the codebase. */
 
 .project-navigation {
-    padding: 24px 0;
+    padding: 8px 0 60px;
     background-color: var(--background-light);
     border-top: 0px solid rgba(0, 0, 0, 0.1);
 }
@@ -1944,7 +1944,7 @@ To use this approach:
     }
 
     .project-navigation {
-        padding: 20px 0;
+        padding: 8px 0 60px; /* Match desktop padding */
     }
 }
 
@@ -2183,7 +2183,7 @@ To use this approach:
 
 @media (max-width: 768px) {
     .project-navigation {
-        padding: 20px 0; /* Reduced padding on mobile */
+        padding: 8px 0 60px; /* Match desktop padding */
     }
     
     .project-gallery {
