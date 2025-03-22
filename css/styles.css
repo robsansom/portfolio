@@ -1354,6 +1354,31 @@ section {
     transform: scale(1.03);
 }
 
+@media (max-width: 768px) {
+    .project-gallery {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 40px;
+    }
+
+    .project-image {
+        border-radius: 3px;
+    }
+
+    .project-image:hover {
+        transform: none;
+    }
+
+    .project-image img {
+        width: 100% !important;
+        height: auto;
+    }
+
+    .project-image:hover img {
+        transform: none;
+    }
+}
+
 /* Project CTA Section */
 .project-cta {
     padding: 180px 0 240px;
