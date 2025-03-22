@@ -1019,37 +1019,47 @@ section {
     margin-bottom: 80px;
 }
 
-/* Footer */
+/* ================================================================
+   DESKTOP FOOTER - DO NOT MODIFY WITHOUT APPROVAL
+   These styles maintain the critical desktop layout with:
+   - Logo on left
+   - Copyright and social icons grouped on right
+   - Single line layout
+   ================================================================ */
 .footer {
     padding: 24px 0;
     background: var(--background-light);
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+/* !important Desktop Container - DO NOT MODIFY */
 .footer .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90% !important;
-    max-width: 1044px;
-    margin: 0 auto;
-    padding: 0;
+    display: flex !important; /* Protected: Maintains horizontal layout */
+    justify-content: space-between !important; /* Protected: Maintains spacing */
+    align-items: center !important; /* Protected: Maintains vertical alignment */
+    width: 90% !important; /* Protected: Maintains consistent width */
+    max-width: 1044px !important; /* Protected: Maintains max width */
+    margin: 0 auto !important; /* Protected: Maintains centering */
+    padding: 0 !important; /* Protected: Maintains edge spacing */
 }
 
+/* Protected Logo Styles - DO NOT MODIFY */
 .footer .logo {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 1.4rem;
-    letter-spacing: -0.01em;
-    position: relative;
+    font-family: var(--font-display) !important;
+    font-weight: 600 !important;
+    font-size: 1.4rem !important;
+    letter-spacing: -0.01em !important;
+    position: relative !important;
 }
 
+/* Protected Right Section Layout - DO NOT MODIFY */
 .footer-right {
-    display: flex;
-    align-items: center;
-    gap: 40px;
+    display: flex !important; /* Protected: Maintains group layout */
+    align-items: center !important; /* Protected: Maintains alignment */
+    gap: 40px !important; /* Protected: Maintains spacing */
 }
 
+/* Protected Copyright Text - DO NOT MODIFY */
 .footer span {
     color: var(--dark-gray);
     opacity: 0.6;
@@ -1057,32 +1067,16 @@ section {
     font-family: var(--font-primary);
 }
 
+/* Protected Social Icons Layout - DO NOT MODIFY */
 .footer-social {
-    display: flex;
-    gap: 16px;
+    display: flex !important; /* Protected: Maintains horizontal icons */
+    gap: 16px !important; /* Protected: Maintains icon spacing */
 }
 
-.social-icon {
-    width: 36px;
-    height: 36px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--secondary-color) !important;
-    transition: transform 0.3s ease !important;
-}
-
-.social-icon:hover {
-    transform: translateY(-2px);
-    opacity: 1 !important;
-}
-
-.social-icon i {
-    font-size: 16px;
-}
-
+/* ================================================================
+   MOBILE FOOTER STYLES BELOW - Safe to modify
+   All mobile-specific changes should go inside this media query
+   ================================================================ */
 @media (max-width: 768px) {
     .footer {
         padding: 32px 0;
@@ -1106,16 +1100,26 @@ section {
     }
 
     .footer-right {
-        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .footer-right > div:first-child {
+        display: flex;
         justify-content: space-between;
+        align-items: center;
+        width: 100%;
     }
 
     .footer span {
         font-size: 0.85rem;
+        order: 2;
     }
 
     .footer-social {
         gap: 20px;
+        order: 1;
     }
 
     .social-icon {
