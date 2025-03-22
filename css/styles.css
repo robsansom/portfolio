@@ -1033,18 +1033,17 @@ section {
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 40px;
-    align-items: start;
 }
 
 .footer h3 {
     font-size: 1.35rem;
-    margin-bottom: 24px;
     color: var(--primary-color);
     font-family: var(--font-display);
     font-weight: 500;
+    margin-bottom: 24px;
 }
 
 .footer-brand p {
@@ -1098,7 +1097,6 @@ section {
 
 @media (max-width: 768px) {
     .footer-content {
-        grid-template-columns: 1fr;
         gap: 40px;
     }
 
