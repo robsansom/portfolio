@@ -1274,23 +1274,16 @@ section {
 }
 
 .project-description {
-    flex: 1;
-    max-width: 860px;
-    padding-right: 40px;
+    padding-right: 60px;
+    max-width: 760px;
+    margin-bottom: 12px; /* Reduced spacing */
 }
 
 .project-metadata {
-    display: inline-block;
-    width: auto !important;
-    max-width: none !important;
-    padding: 0;
-    margin: 0;
-    background: transparent;
-    border: none;
-    box-shadow: none;
     position: absolute;
     right: 0;
-    top: 0;
+    width: 280px !important;
+    margin-top: 4px; /* Reduced spacing */
 }
 
 .metadata-item {
@@ -1331,7 +1324,7 @@ section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    margin: 60px 0 32px; /* Reduced from 40px */
+    margin: 60px 0 32px; /* Reduced bottom margin */
 }
 
 .project-image {
@@ -1360,7 +1353,7 @@ section {
     .project-gallery {
         grid-template-columns: 1fr;
         gap: 24px;
-        margin: 40px 0 24px; /* Reduced from 32px */
+        margin: 40px 0 24px; /* Reduced margins on mobile */
     }
 
     .project-image {
@@ -1378,6 +1371,23 @@ section {
 
     .project-image:hover img {
         transform: none;
+    }
+
+    .project-info {
+        flex-direction: column;
+    }
+
+    .project-description {
+        padding-right: 0;
+        max-width: 100%;
+        margin-bottom: 12px; /* Reduced from 16px */
+    }
+
+    .project-metadata {
+        position: relative;
+        width: 100% !important;
+        display: block;
+        margin-top: 4px; /* Reduced from 8px */
     }
 }
 
@@ -1865,7 +1875,7 @@ To use this approach:
    Consider converting this CSS file into SCSS to utilize mixins and partials for breakpoint management and component styling, which will help avoid duplicate rules and ensure consistency across breakpoints. This can further improve maintainability and scalability of the codebase. */
 
 .project-navigation {
-    padding: 24px 0; /* Reduced from 32px */
+    padding: 24px 0; /* Reduced padding */
     background-color: var(--background-light);
     border-top: 0px solid rgba(0, 0, 0, 0.1);
 }
@@ -2143,42 +2153,11 @@ To use this approach:
 }
 
 @media (max-width: 768px) {
-    .project-info {
-        flex-direction: column;
+    .project-navigation {
+        padding: 20px 0; /* Reduced padding on mobile */
     }
-
-    .project-description {
-        padding-right: 0;
-        max-width: 100%;
-        margin-bottom: 12px; /* Reduced from 16px */
-    }
-
-    .project-metadata {
-        position: relative;
-        width: 100% !important;
-        display: block;
-    }
-
-    .metadata-item {
-        text-align: left;
-        margin-bottom: 20px;
-    }
-
-    .metadata-label {
-        text-align: left;
-    }
-
-    .metadata-value {
-        text-align: left;
-    }
-
+    
     .project-gallery {
-        margin: 40px 0 24px; /* Reduced from 32px */
-    }
-}
-
-@media (max-width: 480px) {
-    .project-metadata {
-        margin-top: 4px; /* Reduced from 8px */
+        margin: 40px 0 24px; /* Reduced margins on mobile */
     }
 }
