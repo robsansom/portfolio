@@ -1058,6 +1058,9 @@ section {
         opacity: 0.6;
         font-size: 0.95rem;
         font-family: var(--font-primary);
+        text-align: right !important;
+        margin-left: auto !important;
+        margin-right: 40px !important;
     }
 
     .footer-social {
