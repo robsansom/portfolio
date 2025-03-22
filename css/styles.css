@@ -1032,45 +1032,43 @@ section {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* !important Desktop Container - DO NOT MODIFY */
-.footer .container {
-    display: flex !important; /* Protected: Maintains horizontal layout */
-    justify-content: space-between !important; /* Protected: Maintains spacing */
-    align-items: center !important; /* Protected: Maintains vertical alignment */
-    width: 90% !important; /* Protected: Maintains consistent width */
-    max-width: 1044px !important; /* Protected: Maintains max width */
-    margin: 0 auto !important; /* Protected: Maintains centering */
-    padding: 0 !important; /* Protected: Maintains edge spacing */
-}
+/* Desktop-only styles - DO NOT MODIFY */
+@media (min-width: 769px) {
+    .footer .container {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 90% !important;
+        max-width: 1044px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
 
-/* Protected Logo Styles - DO NOT MODIFY */
-.footer .logo {
-    font-family: var(--font-display) !important;
-    font-weight: 600 !important;
-    font-size: 1.4rem !important;
-    letter-spacing: -0.01em !important;
-    position: relative !important;
-}
+    .footer .logo {
+        font-family: var(--font-display) !important;
+        font-weight: 600 !important;
+        font-size: 1.4rem !important;
+        letter-spacing: -0.01em !important;
+        position: relative !important;
+    }
 
-/* Protected Right Section Layout - DO NOT MODIFY */
-.footer-right {
-    display: flex !important; /* Protected: Maintains group layout */
-    align-items: center !important; /* Protected: Maintains alignment */
-    gap: 40px !important; /* Protected: Maintains spacing */
-}
+    .footer-right {
+        display: flex !important;
+        align-items: center !important;
+        gap: 40px !important;
+    }
 
-/* Protected Copyright Text - DO NOT MODIFY */
-.footer span {
-    color: var(--dark-gray);
-    opacity: 0.6;
-    font-size: 0.95rem;
-    font-family: var(--font-primary);
-}
+    .footer span {
+        color: var(--dark-gray);
+        opacity: 0.6;
+        font-size: 0.95rem;
+        font-family: var(--font-primary);
+    }
 
-/* Protected Social Icons Layout - DO NOT MODIFY */
-.footer-social {
-    display: flex !important; /* Protected: Maintains horizontal icons */
-    gap: 16px !important; /* Protected: Maintains icon spacing */
+    .footer-social {
+        display: flex !important;
+        gap: 16px !important;
+    }
 }
 
 /* ================================================================
