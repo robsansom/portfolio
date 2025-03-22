@@ -1097,16 +1097,37 @@ section {
 }
 
 @media (max-width: 768px) {
-    .footer .container {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 24px;
-        text-align: center;
+    .footer {
+        padding: 32px 0;
     }
-    
+
+    .footer .container {
+        flex-direction: column-reverse;
+        gap: 24px;
+    }
+
+    .footer-social {
+        margin-left: 0;
+        order: 1;
+        gap: 20px;
+    }
+
     .footer .logo {
-        width: 100%;
-        text-align: center;
+        order: 2;
+    }
+
+    .footer span {
+        order: 3;
+        font-size: 0.85rem;
+    }
+
+    .social-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .social-icon i {
+        font-size: 18px;
     }
 }
 
