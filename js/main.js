@@ -192,7 +192,14 @@ document.addEventListener('DOMContentLoaded', function() {
             hiddenItems.forEach(item => {
                 item.classList.remove('hidden');
             });
-            showMoreBtn.style.display = 'none';
+            
+            // Instead of hiding the button, disable it and update its appearance
+            const button = showMoreBtn.querySelector('.btn');
+            if (button) {
+                button.style.opacity = '0.5';
+                button.style.cursor = 'not-allowed';
+                button.style.pointerEvents = 'none';
+            }
         });
     }
 
@@ -278,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const style = document.createElement('style');
         style.textContent = `
             .portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn, .pricing-features li,
-            .testimonial-card, .hero-text, .project-cta p {
+            .testimonial-card, .hero-text, .project-cta p, .footer-brand, .footer-links, .footer-contact {
                 opacity: 0;
                 transform: translateY(20px);
                 transition: opacity 0.6s ease, transform 0.6s ease;
@@ -313,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animate elements on scroll
     const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn:not(.btn-show-more), .testimonial-card, .hero-text, .project-cta p');
+        const elements = document.querySelectorAll('.portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn:not(.btn-show-more), .testimonial-card, .hero-text, .project-cta p, .footer-brand, .footer-links, .footer-contact');
         
         elements.forEach(element => {
             const position = element.getBoundingClientRect();
