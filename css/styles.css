@@ -1044,6 +1044,12 @@ section {
     position: relative;
 }
 
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
 .footer span {
     color: var(--dark-gray);
     opacity: 0.6;
@@ -1099,15 +1105,17 @@ section {
         width: auto;
     }
 
-    .footer span {
+    .footer-right {
         width: 100%;
+        justify-content: space-between;
+    }
+
+    .footer span {
         font-size: 0.85rem;
     }
 
     .footer-social {
-        margin-left: auto;
         gap: 20px;
-        width: auto;
     }
 
     .social-icon {
