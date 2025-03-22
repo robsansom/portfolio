@@ -1023,7 +1023,8 @@ section {
    DESKTOP FOOTER - DO NOT MODIFY WITHOUT APPROVAL
    These styles maintain the critical desktop layout with:
    - Logo on left
-   - Copyright and social icons grouped on right
+   - Copyright text in center
+   - Social icons on right
    - Single line layout
    ================================================================ */
 .footer {
@@ -1052,12 +1053,6 @@ section {
         position: relative !important;
     }
 
-    .footer-right {
-        display: flex !important;
-        align-items: center !important;
-        gap: 40px !important;
-    }
-
     .footer span {
         color: var(--dark-gray);
         opacity: 0.6;
@@ -1068,6 +1063,27 @@ section {
     .footer-social {
         display: flex !important;
         gap: 16px !important;
+    }
+
+    .social-icon {
+        width: 36px !important;
+        height: 36px !important;
+        background: var(--primary-color) !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: var(--secondary-color) !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    .social-icon:hover {
+        transform: translateY(-2px) !important;
+        opacity: 1 !important;
+    }
+
+    .social-icon i {
+        font-size: 16px !important;
     }
 }
 
@@ -1095,19 +1111,6 @@ section {
 
     .footer .logo {
         width: auto;
-    }
-
-    .footer-right {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-    }
-
-    .footer-right > div:first-child {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
     }
 
     .footer span {
