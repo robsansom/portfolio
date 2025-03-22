@@ -1331,7 +1331,7 @@ section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    margin-top: 60px;
+    margin: 60px 0 40px; /* Added bottom margin */
 }
 
 .project-image {
@@ -1360,7 +1360,7 @@ section {
     .project-gallery {
         grid-template-columns: 1fr;
         gap: 24px;
-        margin-top: 40px;
+        margin: 40px 0 32px; /* Adjusted margins for mobile */
     }
 
     .project-image {
@@ -1378,6 +1378,12 @@ section {
 
     .project-image:hover img {
         transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-metadata {
+        margin-top: 8px; /* Reduced from 12px */
     }
 }
 
@@ -1859,7 +1865,7 @@ To use this approach:
    Consider converting this CSS file into SCSS to utilize mixins and partials for breakpoint management and component styling, which will help avoid duplicate rules and ensure consistency across breakpoints. This can further improve maintainability and scalability of the codebase. */
 
 .project-navigation {
-    padding: 40px 0;
+    padding: 32px 0; /* Reduced from 40px */
     background-color: var(--background-light);
     border-top: 0px solid rgba(0, 0, 0, 0.1);
 }
@@ -2144,7 +2150,7 @@ To use this approach:
     .project-description {
         padding-right: 0;
         max-width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 16px; /* Reduced from 20px */
     }
 
     .project-metadata {
@@ -2165,10 +2171,14 @@ To use this approach:
     .metadata-value {
         text-align: left;
     }
+
+    .project-gallery {
+        margin: 40px 0 32px; /* Adjusted margins for mobile */
+    }
 }
 
 @media (max-width: 480px) {
     .project-metadata {
-        margin-top: 12px;
+        margin-top: 8px; /* Reduced from 12px */
     }
 }
