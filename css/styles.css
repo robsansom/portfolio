@@ -1105,13 +1105,6 @@ section {
         gap: 24px;
     }
 
-    .footer-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
-
     .footer .logo {
         width: auto;
     }
