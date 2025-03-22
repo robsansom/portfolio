@@ -1107,19 +1107,19 @@ section {
         gap: 24px;
     }
 
-    .footer span {
+    .footer-social {
         order: 1;
-        font-size: 0.85rem;
+        margin-left: 0;
+        gap: 20px;
     }
 
     .footer .logo {
         order: 2;
     }
 
-    .footer-social {
+    .footer span {
         order: 3;
-        margin-left: 0;
-        gap: 20px;
+        font-size: 0.85rem;
     }
 
     .social-icon {
