@@ -69,10 +69,11 @@ body {
 
 /* Hero section alignment */
 .hero {
-    padding: 160px 0 72px;
+    padding-top: 140px;
+    padding-bottom: 120px;
+    background-color: var(--background-color);
     position: relative;
     z-index: 3;
-    background-color: var(--background-light);
 }
 
 .hero .container {
