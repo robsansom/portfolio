@@ -1499,7 +1499,7 @@ section {
     }
 }
 
-/* Project CTA Section */
+/* Project CTA Section for project pages */
 .project-cta {
     padding: 180px 0 240px;
     text-align: left;
@@ -1525,13 +1525,6 @@ section {
 
 .project-cta-text-inter {
     font-family: var(--font-primary) !important;
-}
-
-.project-cta .cta-buttons {
-    display: flex;
-    justify-content: flex-start;
-    gap: 16px;
-    margin-top: 40px;
 }
 
 @media (max-width: 768px) {
