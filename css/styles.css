@@ -69,7 +69,7 @@ body {
 
 /* Hero section alignment */
 .hero {
-    padding-top: 140px;
+    padding-top: 150px;
     padding-bottom: 120px;
     background-color: var(--background-color);
     position: relative;
