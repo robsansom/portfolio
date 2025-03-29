@@ -234,15 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const scrollToCard = (index) => {
             if (cards[index]) {
                 const card = cards[index];
-                const trackRect = track.getBoundingClientRect();
-                const cardRect = card.getBoundingClientRect();
-                const scrollLeft = cardRect.left - trackRect.left - 24; // 24px gap
-
-                track.scrollTo({
-                    left: scrollLeft,
-                    behavior: 'smooth'
-                });
-
+                track.scrollLeft = card.offsetLeft - track.offsetLeft;
                 currentIndex = index;
                 updateButtons();
             }
@@ -254,30 +246,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         nextButton.addEventListener('click', () => {
-            scrollToCard(currentIndex + 1);
-        });
-
-        // Initialize button states
-        updateButtons();
-
-        // Handle scroll events
-        track.addEventListener('scroll', () => {
-            const trackRect = track.getBoundingClientRect();
-            let newIndex = 0;
-
-            cards.forEach((card, index) => {
-                const cardRect = card.getBoundingClientRect();
-                if (cardRect.left - trackRect.left >= -24) { // 24px threshold
-                    newIndex = Math.max(0, index);
-                    return;
-                }
-            });
-
-            if (newIndex !== currentIndex) {
+            if (currentIndex < cards.length - 1) {
+                const newIndex = currentIndex + 1;
+                const card = cards[newIndex];
+                track.scrollLeft = card.offsetLeft - track.offsetLeft;
                 currentIndex = newIndex;
                 updateButtons();
             }
         });
+
+        // Initialize button states
+        updateButtons();
     }
     
     // Add fade-in animation styles
@@ -461,115 +440,85 @@ document.addEventListener('DOMContentLoaded', function() {
         const cards = Array.from(track.querySelectorAll('.testimonial-card'));
         const prevButton = document.querySelector('.testimonial-button.prev');
         const nextButton = document.querySelector('.testimonial-button.next');
-        const paginationDots = Array.from(document.querySelectorAll('.pagination-dot'));
         let currentIndex = 0;
-        let isScrolling = false;
 
-        if (!track || !cards.length) return;
+        if (!track || !cards.length || !prevButton || !nextButton) return;
 
-        // Update active pagination dot
-        function updatePagination() {
-            paginationDots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
+        function updateButtons() {
+            prevButton.disabled = currentIndex <= 0;
+            nextButton.disabled = currentIndex >= cards.length - 1;
+            prevButton.style.opacity = currentIndex <= 0 ? '0.15' : '1';
+            nextButton.style.opacity = currentIndex >= cards.length - 1 ? '0.15' : '1';
         }
 
-        // Scroll to specific card
-        function scrollToCard(index, smooth = true) {
-            if (isScrolling) return;
-            isScrolling = true;
-
-            currentIndex = Math.min(Math.max(0, index), cards.length - 1);
+        function scrollToCard(index) {
+            currentIndex = Math.max(0, Math.min(index, cards.length - 1));
             const card = cards[currentIndex];
-            if (!card) return;
-
-            const cardWidth = card.offsetWidth;
-            const gap = 24; // Match the CSS gap value
-            const scrollPosition = currentIndex * (cardWidth + gap);
-
+            const trackRect = track.getBoundingClientRect();
+            const cardRect = card.getBoundingClientRect();
+            const scrollLeft = track.scrollLeft + (cardRect.left - trackRect.left);
+            
             track.scrollTo({
-                left: scrollPosition,
-                behavior: smooth ? 'smooth' : 'instant'
+                left: scrollLeft,
+                behavior: 'smooth'
             });
-
-            updateNavigation();
-            updatePagination();
-
-            setTimeout(() => {
-                isScrolling = false;
-            }, 500);
+            
+            updateButtons();
         }
 
-        // Handle pagination dot clicks
-        paginationDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                scrollToCard(index);
-            });
+        // Handle button clicks
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                scrollToCard(currentIndex - 1);
+            }
         });
 
-        // Update navigation state
-        function updateNavigation() {
-            if (!prevButton || !nextButton) return;
-            
-            const isAtStart = currentIndex === 0;
-            const isAtEnd = currentIndex >= cards.length - 1;
-            
-            prevButton.disabled = isAtStart;
-            nextButton.disabled = isAtEnd;
-            prevButton.style.opacity = isAtStart ? '0.15' : '1';
-            nextButton.style.opacity = isAtEnd ? '0.15' : '1';
-        }
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < cards.length - 1) {
+                const newIndex = currentIndex + 1;
+                const card = cards[newIndex];
+                track.scrollLeft = card.offsetLeft - track.offsetLeft;
+                currentIndex = newIndex;
+                updateButtons();
+            }
+        });
 
-        // Handle button navigation
-        if (prevButton) {
-            prevButton.addEventListener('click', () => {
-                if (currentIndex > 0 && !isScrolling) {
-                    scrollToCard(currentIndex - 1);
-                }
-            });
-        }
-
-        if (nextButton) {
-            nextButton.addEventListener('click', () => {
-                if (currentIndex < cards.length - 1 && !isScrolling) {
-                    scrollToCard(currentIndex + 1);
-                }
-            });
-        }
-
-        // Handle scroll events to update navigation
+        // Handle scroll events
         let scrollTimeout;
         track.addEventListener('scroll', () => {
-            if (isScrolling) return;
-            
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(() => {
-                const cardWidth = cards[0].offsetWidth;
-                const gap = 24; // Match the CSS gap value
-                const scrollPosition = track.scrollLeft;
-                const newIndex = Math.round(scrollPosition / (cardWidth + gap));
+                const trackRect = track.getBoundingClientRect();
+                let nearestIndex = 0;
+                let minDistance = Infinity;
 
-                if (newIndex !== currentIndex) {
-                    currentIndex = Math.min(newIndex, cards.length - 1);
-                    updateNavigation();
-                    updatePagination();
+                cards.forEach((card, index) => {
+                    const cardRect = card.getBoundingClientRect();
+                    const distance = Math.abs(cardRect.left - trackRect.left);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        nearestIndex = index;
+                    }
+                });
+
+                if (nearestIndex !== currentIndex) {
+                    currentIndex = nearestIndex;
+                    updateButtons();
                 }
-            }, 150);
+            }, 100);
         });
-
-        // Initialize state
-        updateNavigation();
-        updatePagination();
-        scrollToCard(0, false);
 
         // Handle window resize
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                scrollToCard(currentIndex, false);
+                scrollToCard(currentIndex);
             }, 100);
         });
+
+        // Initialize
+        updateButtons();
     }
     
     // Initialize everything

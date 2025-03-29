@@ -566,9 +566,8 @@ section {
 
 .testimonials-track {
     display: flex;
-    gap: 24px; /* Reduced from 40px to show more of next card */
+    gap: 24px;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
     scrollbar-width: none;
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
@@ -577,10 +576,6 @@ section {
     padding-right: calc(50vw - 50%);
     margin: 0;
     position: relative;
-}
-
-.testimonials-track::-webkit-scrollbar {
-    display: none;
 }
 
 .testimonial-navigation {
@@ -611,6 +606,9 @@ section {
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     padding: 0;
+    z-index: 2;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .testimonial-button img {
@@ -628,14 +626,21 @@ section {
     margin-left: 16px;
 }
 
-.testimonial-button:hover {
-    transform: scale(1.05);
-}
-
 .testimonial-button:disabled {
     opacity: 0.15;
     cursor: not-allowed;
     box-shadow: none;
+    pointer-events: none;
+}
+
+.testimonial-button:not(:disabled):hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide scrollbar */
+.testimonials-track::-webkit-scrollbar {
+    display: none;
 }
 
 .testimonial-card {
@@ -643,11 +648,13 @@ section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
     background: var(--secondary-color);
-    border-radius: 20px; /* Match project thumbnails */
+    border-radius: 20px;
     padding: 40px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Match project thumbnails shadow */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .testimonial-content {
