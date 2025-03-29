@@ -224,20 +224,26 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
 
     if (track && prevButton && nextButton) {
-        // Update button states
+        // Update button states - always enabled for circular scrolling
         const updateButtons = () => {
-            prevButton.disabled = currentIndex === 0;
-            nextButton.disabled = currentIndex >= cards.length - 1;
+            prevButton.disabled = false;
+            nextButton.disabled = false;
+            prevButton.style.opacity = '1';
+            nextButton.style.opacity = '1';
         };
 
-        // Scroll to card
+        // Scroll to card with circular behavior
         const scrollToCard = (index) => {
-            if (cards[index]) {
-                const card = cards[index];
-                track.scrollLeft = card.offsetLeft - track.offsetLeft;
-                currentIndex = index;
-                updateButtons();
+            // Handle circular scrolling
+            if (index < 0) {
+                index = cards.length - 1;
+            } else if (index >= cards.length) {
+                index = 0;
             }
+
+            const card = cards[index];
+            track.scrollLeft = card.offsetLeft - track.offsetLeft;
+            currentIndex = index;
         };
 
         // Button click handlers
@@ -246,13 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         nextButton.addEventListener('click', () => {
-            if (currentIndex < cards.length - 1) {
-                const newIndex = currentIndex + 1;
-                const card = cards[newIndex];
-                track.scrollLeft = card.offsetLeft - track.offsetLeft;
-                currentIndex = newIndex;
-                updateButtons();
-            }
+            scrollToCard(currentIndex + 1);
         });
 
         // Initialize button states
