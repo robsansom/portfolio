@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
 
     if (track && prevButton && nextButton) {
-        // Update button states - always enabled for circular scrolling
+        // Update button states - always enabled for continuous scrolling
         const updateButtons = () => {
             prevButton.disabled = false;
             nextButton.disabled = false;
@@ -232,23 +232,32 @@ document.addEventListener('DOMContentLoaded', function() {
             nextButton.style.opacity = '1';
         };
 
-        // Scroll to card with auto-reset behavior
+        // Scroll to card with restart behavior
         const scrollToCard = (index) => {
-            // Auto reset to beginning when at or near the end (last or second-to-last card)
-            if (index >= cards.length - 1) {
-                // Reset to the first card immediately
-                const firstCard = cards[0];
-                track.scrollLeft = firstCard.offsetLeft - track.offsetLeft;
-                currentIndex = 0;
-                return;
-            }
-            
-            // Handle circular scrolling for back button
+            // Handle circular scrolling for both directions
             if (index < 0) {
                 index = cards.length - 1;
+            } else if (index >= cards.length - 1) {
+                // If we're at the last card, show it first, then reset to first after a short delay
+                if (index === cards.length - 1) {
+                    const lastCard = cards[cards.length - 1];
+                    track.scrollLeft = lastCard.offsetLeft - track.offsetLeft;
+                    currentIndex = cards.length - 1;
+                    
+                    // After showing the last card briefly, go back to the first
+                    setTimeout(() => {
+                        const firstCard = cards[0];
+                        track.scrollLeft = firstCard.offsetLeft - track.offsetLeft;
+                        currentIndex = 0;
+                    }, 500);
+                    return;
+                } else {
+                    // We're past the last card, reset to first
+                    index = 0;
+                }
             }
 
-            // Normal scrolling for all other cases
+            // Regular scrolling
             const card = cards[index];
             track.scrollLeft = card.offsetLeft - track.offsetLeft;
             currentIndex = index;
@@ -263,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollToCard(currentIndex + 1);
         });
 
-        // Initialize button states
+        // Initialize
         updateButtons();
     }
     
