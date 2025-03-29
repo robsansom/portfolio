@@ -757,7 +757,7 @@ section {
     }
 
     .hero {
-        padding: 120px 0 72px !important;
+        padding: 120px 0 72px;
     }
 }
 
@@ -1506,7 +1506,7 @@ section {
     }
 }
 
-/* Project CTA Section for project pages */
+/* Project CTA Section */
 .project-cta {
     padding: 180px 0 240px;
     text-align: left;
@@ -1535,17 +1535,16 @@ section {
 }
 
 @media (max-width: 768px) {
-    .project-cta {
-        padding: 80px 0 250px;
-        text-align: left;
-    }
-
-    .project-cta h1 {
+    .hero-title-dark {
         font-size: 3rem;
     }
 
-    .project-cta p {
+    .hero-text {
         font-size: 1.2rem;
+    }
+
+    .hero-title-light {
+        font-size: 3rem;
     }
 }
 
@@ -2267,7 +2266,7 @@ To use this approach:
 
 @media (max-width: 768px) {
     .hero {
-        padding: 120px 0 72px !important;
+        padding: 120px 0 72px;
     }
 
     .hero-title-dark {
