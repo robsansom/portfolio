@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
             nextButton.style.opacity = '1';
         };
 
-        // Scroll to card with circular behavior
+        // Scroll to card with auto-reset behavior
         const scrollToCard = (index) => {
             // Handle circular scrolling
             if (index < 0) {
@@ -241,8 +241,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 index = 0;
             }
 
+            // Get the target card
             const card = cards[index];
-            track.scrollLeft = card.offsetLeft - track.offsetLeft;
+            
+            // Add transition effect for auto-reset
+            if (index === 0 && currentIndex === cards.length - 1) {
+                // We're resetting to the beginning - animate with a brief delay
+                setTimeout(() => {
+                    track.scrollLeft = card.offsetLeft - track.offsetLeft;
+                }, 50);
+            } else {
+                // Normal scrolling
+                track.scrollLeft = card.offsetLeft - track.offsetLeft;
+            }
+            
             currentIndex = index;
         };
 
