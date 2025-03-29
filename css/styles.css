@@ -763,7 +763,7 @@ section {
 
 @media (max-width: 480px) {
     .hero {
-        padding: 10px 0 40px !important;
+        padding: 20px 0 40px !important;
         position: relative;
         z-index: 3;
         background-color: var(--background-light);
