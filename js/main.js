@@ -234,27 +234,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Scroll to card with auto-reset behavior
         const scrollToCard = (index) => {
-            // Handle circular scrolling
+            // Auto reset to beginning when at or near the end (last or second-to-last card)
+            if (index >= cards.length - 1) {
+                // Reset to the first card immediately
+                const firstCard = cards[0];
+                track.scrollLeft = firstCard.offsetLeft - track.offsetLeft;
+                currentIndex = 0;
+                return;
+            }
+            
+            // Handle circular scrolling for back button
             if (index < 0) {
                 index = cards.length - 1;
-            } else if (index >= cards.length) {
-                index = 0;
             }
 
-            // Get the target card
+            // Normal scrolling for all other cases
             const card = cards[index];
-            
-            // Add transition effect for auto-reset
-            if (index === 0 && currentIndex === cards.length - 1) {
-                // We're resetting to the beginning - animate with a brief delay
-                setTimeout(() => {
-                    track.scrollLeft = card.offsetLeft - track.offsetLeft;
-                }, 50);
-            } else {
-                // Normal scrolling
-                track.scrollLeft = card.offsetLeft - track.offsetLeft;
-            }
-            
+            track.scrollLeft = card.offsetLeft - track.offsetLeft;
             currentIndex = index;
         };
 
