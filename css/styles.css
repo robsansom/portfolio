@@ -895,6 +895,15 @@ section {
         margin-top: 16px;
         margin-bottom: 40px;
     }
+
+    .view-label-text {
+        display: none; /* Hide 'View' text on small mobile */
+    }
+
+    /* Adjust gap for icon-only on mobile */
+    .view-project {
+        gap: 0; /* Remove gap when text is hidden */
+    }
 }
 
 /* Reputation Section */
@@ -1396,6 +1405,15 @@ section {
         font-size: 1.2rem; /* Updated mobile size */
         margin-top: 16px;
         margin-bottom: 40px;
+    }
+
+    .view-label-text {
+        display: none; /* Hide 'View' text on small mobile */
+    }
+
+    /* Adjust gap for icon-only on mobile */
+    .view-project {
+        gap: 0; /* Remove gap when text is hidden */
     }
 }
 
