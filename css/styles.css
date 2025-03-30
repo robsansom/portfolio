@@ -792,14 +792,14 @@ section {
         font-weight: 600; /* Added rule, increased from inherited 500 */
     }
 
-    /* Apply consistent heading style on mobile */
+    /* Re-applying consistent heading style on mobile cleanly */
     .testimonials h1,
     .project-cta h1 {
-        font-size: 2.8rem; /* Match hero title size */
-        font-weight: 600; /* Match hero title weight */
-        color: var(--primary-color); /* Ensure color consistency */
-        line-height: 1.2; /* Match hero title line-height */
-        letter-spacing: -0.02em; /* Match hero h1 letter-spacing */
+        font-size: 2.8rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        line-height: 1.2;
+        letter-spacing: -0.02em;
     }
 
     .hero-text {
@@ -1354,14 +1354,14 @@ section {
         font-weight: 600; /* Added rule, increased from inherited 500 */
     }
 
-    /* Apply consistent heading style on mobile */
+    /* Re-applying consistent heading style on mobile cleanly */
     .testimonials h1,
     .project-cta h1 {
-        font-size: 2.8rem; /* Match hero title size */
-        font-weight: 600; /* Match hero title weight */
-        color: var(--primary-color); /* Ensure color consistency */
-        line-height: 1.2; /* Match hero title line-height */
-        letter-spacing: -0.02em; /* Match hero h1 letter-spacing */
+        font-size: 2.8rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        line-height: 1.2;
+        letter-spacing: -0.02em;
     }
 
     .hero-text {
