@@ -429,6 +429,10 @@ section {
         grid-template-columns: repeat(2, 1fr);
         gap: 32px;
     }
+
+    .hero-text-linebreak {
+        display: block; /* Force line break for the second part of hero text */
+    }
 }
 
 .portfolio-item {
