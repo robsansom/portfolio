@@ -785,7 +785,19 @@ section {
     }
 
     .hero-title-dark {
-        font-weight: 700;
+        font-weight: 800; /* Increased from 700 */
+    }
+
+    .hero-title-light {
+        font-weight: 600; /* Added rule, increased from inherited 500 */
+    }
+
+    /* Apply consistent heading style on mobile */
+    .testimonials h1,
+    .project-cta h1 {
+        font-size: 2.8rem; /* Match hero title size */
+        font-weight: 800; /* Match updated hero-title-dark weight */
+        color: var(--primary-color); /* Ensure color consistency */
     }
 
     .hero-text {
@@ -793,7 +805,7 @@ section {
         margin-top: 20px;
         margin-bottom: 28px;
     }
-
+    
     .hero-buttons {
         margin: 40px 0 0 0;
         width: 100%;
@@ -803,33 +815,10 @@ section {
         padding-bottom: 20px;
     }
 
-    .hero-buttons .btn {
-        width: 100%;
-        margin: 0;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-        pointer-events: none;
-    }
-
-    .hero-buttons .btn.visible {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
-    }
-
-    .portfolio {
-        position: relative;
-        z-index: 1;
-        margin-top: 0;
-        padding-top: 20px !important;
-        background-color: var(--background-light);
-    }
-
     .portfolio-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
-        margin-top: 32px;
+        gap: 40px;
+        margin-top: 40px;
     }
 
     .portfolio-item {
@@ -837,21 +826,50 @@ section {
     }
 
     .portfolio-image {
-        padding-bottom: 177.78%; /* Maintaining 16:9 aspect ratio for smaller screens */
-        border-radius: 16px;
-    }
-
-    .portfolio-image img {
-        border-radius: 16px;
+        padding-bottom: 177.78%; /* Changed to 16:9 aspect ratio (9/16 * 100) */
     }
 
     .portfolio-footer {
-        margin-top: 12px;
-        padding: 0 4px;
+        margin-top: 16px;
     }
 
-    .portfolio-title {
-        font-size: 1.25rem;
+    .hero .container {
+        padding-bottom: 12px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 50px;
+        width: fit-content;
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .portfolio-item {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Hide navigation elements on mobile */
+    .nav-links,
+    .footer-nav {
+        display: none;
+    }
+
+    /* Ensure logo remains visible and centered */
+    .header .container {
+        justify-content: center;
+    }
+
+    .footer-content {
+        justify-content: center;
+    }
+
+    /* Preserve logo visibility */
+    .logo,
+    .footer-logo {
+        display: block;
     }
 }
 
@@ -1328,6 +1346,24 @@ section {
 
     .portfolio-title {
         font-size: 1.25rem;
+    }
+
+    .hero-title-light {
+        font-weight: 600; /* Added rule, increased from inherited 500 */
+    }
+
+    /* Apply consistent heading style on mobile */
+    .testimonials h1,
+    .project-cta h1 {
+        font-size: 2.8rem; /* Match hero title size */
+        font-weight: 800; /* Match updated hero-title-dark weight */
+        color: var(--primary-color); /* Ensure color consistency */
+    }
+
+    .hero-text {
+        font-size: 1.2rem;
+        margin-top: 20px;
+        margin-bottom: 28px;
     }
 }
 
