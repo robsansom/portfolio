@@ -771,6 +771,7 @@ section {
 
     .hero-title-light {
         font-size: 2.8rem;
+        font-weight: 500;
     }
 }
 
@@ -1559,6 +1560,7 @@ section {
 
     .hero-title-light {
         font-size: 2.8rem;
+        font-weight: 500;
     }
 }
 
@@ -2294,5 +2296,6 @@ To use this approach:
 
     .hero-title-light {
         font-size: 2.8rem;
+        font-weight: 500;
     }
 }
