@@ -796,8 +796,10 @@ section {
     .testimonials h1,
     .project-cta h1 {
         font-size: 2.8rem; /* Match hero title size */
-        font-weight: 800; /* Match updated hero-title-dark weight */
+        font-weight: 600; /* Match hero title weight */
         color: var(--primary-color); /* Ensure color consistency */
+        line-height: 1.2; /* Match hero title line-height */
+        letter-spacing: -0.02em; /* Match hero h1 letter-spacing */
     }
 
     .hero-text {
@@ -1356,8 +1358,10 @@ section {
     .testimonials h1,
     .project-cta h1 {
         font-size: 2.8rem; /* Match hero title size */
-        font-weight: 800; /* Match updated hero-title-dark weight */
+        font-weight: 600; /* Match hero title weight */
         color: var(--primary-color); /* Ensure color consistency */
+        line-height: 1.2; /* Match hero title line-height */
+        letter-spacing: -0.02em; /* Match hero h1 letter-spacing */
     }
 
     .hero-text {
