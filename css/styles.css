@@ -766,7 +766,7 @@ section {
     }
 
     .hero-text {
-        font-size: 1.1rem;
+        font-size: 1.2rem; /* Updated mobile size */
         line-height: 1.7;
     }
 
@@ -861,10 +861,6 @@ section {
         display: block;
     }
 
-    .hero .container {
-        padding-bottom: 12px;
-    }
-
     .testimonials h1,
     .project-cta h1,
     .hero-title-dark,
@@ -886,7 +882,7 @@ section {
     }
 
     .hero-text {
-        font-size: 1.1rem;
+        font-size: 1.2rem; /* Updated mobile size */
         margin-top: 16px;
         margin-bottom: 40px;
     }
@@ -1388,7 +1384,7 @@ section {
     }
 
     .hero-text {
-        font-size: 1.1rem;
+        font-size: 1.2rem; /* Updated mobile size */
         margin-top: 16px;
         margin-bottom: 40px;
     }
@@ -1619,7 +1615,7 @@ section {
     }
 
     .hero-text {
-        font-size: 1.1rem;
+        font-size: 1.2rem; /* Updated mobile size */
     }
 
     .hero-title-light {
@@ -2355,7 +2351,7 @@ To use this approach:
     }
 
     .hero-text {
-        font-size: 1.1rem;
+        font-size: 1.2rem; /* Updated mobile size */
     }
 
     .hero-title-light {
