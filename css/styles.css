@@ -433,6 +433,10 @@ section {
     .hero-text-linebreak {
         display: block; /* Force line break for the second part of hero text */
     }
+
+    .view-project {
+        font-size: 0.85rem; /* Updated base size for all viewports */
+    }
 }
 
 .portfolio-item {
@@ -478,7 +482,7 @@ section {
 .portfolio-footer {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     margin-top: 12px;
     background: transparent;
     padding: 0 8px;
@@ -495,8 +499,8 @@ section {
 .view-project {
     display: flex;
     align-items: center;
-    gap: 4px;
-    font-size: 1rem;
+    gap: 2px;
+    font-size: 0.85rem; /* Updated base size for all viewports */
     font-weight: 500;
     color: var(--primary-color);
     transition: opacity 0.3s ease;
@@ -504,8 +508,8 @@ section {
 }
 
 .view-project img {
-    width: 24px;
-    height: 24px;
+    width: 20px; /* Adjusted arrow size */
+    height: 20px; /* Adjusted arrow size */
 }
 
 .view-project svg {
