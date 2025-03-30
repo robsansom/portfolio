@@ -482,7 +482,7 @@ section {
 .portfolio-footer {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     margin-top: 12px;
     background: transparent;
     padding: 0 8px;
@@ -496,10 +496,15 @@ section {
     font-family: var(--font-display);
 }
 
+/* Hide the text label part of the view link globally */
+.view-label-text {
+    display: none;
+}
+
 .view-project {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 2px;
+    gap: 0;
     font-size: 1rem;
     font-weight: 500;
     color: var(--primary-color);
@@ -508,8 +513,10 @@ section {
 }
 
 .view-project img {
-    width: 22px;
-    height: 22px;
+    height: 1.4rem;
+    width: auto;
+    position: relative;
+    top: 2px;
 }
 
 .view-project svg {
