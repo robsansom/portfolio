@@ -2360,3 +2360,10 @@ To use this approach:
         font-weight: 500;
     }
 }
+
+/* Desktop specific styles for testimonials */
+@media (min-width: 992px) {
+    .testimonial-card {
+        flex-basis: 450px; /* Increase width slightly for desktop */
+    }
+}
