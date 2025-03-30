@@ -500,7 +500,7 @@ section {
     display: flex;
     align-items: center;
     gap: 2px;
-    font-size: 0.85rem; /* Updated base size for all viewports */
+    font-size: 1rem;
     font-weight: 500;
     color: var(--primary-color);
     transition: opacity 0.3s ease;
@@ -508,8 +508,8 @@ section {
 }
 
 .view-project img {
-    width: 20px; /* Adjusted arrow size */
-    height: 20px; /* Adjusted arrow size */
+    width: 24px;
+    height: 24px;
 }
 
 .view-project svg {
