@@ -784,73 +784,60 @@ section {
         background-color: var(--background-light);
     }
 
-    .hero-title-dark {
-        font-weight: 600; /* Changed back from 800 for consistency */
+    .container,
+    .header .container,
+    .hero .container,
+    .text-reveal .container,
+    .portfolio .container {
+        width: 90% !important;
+        max-width: 1044px;
+        margin: 0 auto;
+        padding: 0;
     }
 
-    .hero-title-light {
-        font-weight: 600; /* Added rule, increased from inherited 500 */
-    }
-
-    /* Re-applying consistent heading style on mobile cleanly */
-    .testimonials h1,
-    .project-cta h1 {
-        font-size: 2.8rem;
-        font-weight: 600;
-        color: var(--primary-color);
-        line-height: 1.2;
-        letter-spacing: -0.02em;
-    }
-
-    .hero-text {
-        font-size: 1.2rem;
-        margin-top: 20px;
-        margin-bottom: 28px;
-    }
-    
     .hero-buttons {
-        margin: 40px 0 0 0;
         width: 100%;
-        position: relative;
-        z-index: 3;
-        background-color: var(--background-light);
-        padding-bottom: 20px;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        margin-top: 40px;
-    }
-
-    .portfolio-item {
-        margin-bottom: 0;
-    }
-
-    .portfolio-image {
-        padding-bottom: 177.78%; /* Changed to 16:9 aspect ratio (9/16 * 100) */
-    }
-
-    .portfolio-footer {
-        margin-top: 16px;
-    }
-
-    .hero .container {
-        padding-bottom: 12px;
-    }
-
-    .hero-buttons {
         flex-direction: column;
         gap: 15px;
         margin-top: 50px;
         width: fit-content;
         margin-left: 0;
         margin-right: auto;
+        margin: 40px 0 0 0;
+        position: relative;
+        z-index: 3;
+        background-color: var(--background-light);
+        padding-bottom: 20px;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-top: 32px;
     }
 
     .portfolio-item {
+        margin-bottom: 0;
         width: 100%;
         margin: 0;
+    }
+
+    .portfolio-image {
+        padding-bottom: 177.78%; /* Maintaining 16:9 aspect ratio for smaller screens */
+        border-radius: 16px;
+    }
+
+    .portfolio-image img {
+        border-radius: 16px;
+    }
+
+    .portfolio-footer {
+        margin-top: 12px;
+        padding: 0 4px;
+    }
+
+    .portfolio-title {
+        font-size: 1.25rem;
     }
 
     /* Hide navigation elements on mobile */
@@ -872,6 +859,39 @@ section {
     .logo,
     .footer-logo {
         display: block;
+    }
+
+    .hero .container {
+        padding-bottom: 12px;
+    }
+
+    /* Consistent heading style for all major headings on mobile */
+    .testimonials h1,
+    .project-cta h1,
+    .hero-title-dark,
+    .hero-title-light {
+        font-size: 2.8rem;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+    }
+
+    /* Keep hero-title-light color unchanged */
+    .hero-title-light {
+        color: inherit;
+    }
+
+    /* Set color for other headings */
+    .testimonials h1,
+    .project-cta h1,
+    .hero-title-dark {
+        color: var(--primary-color);
+    }
+
+    .hero-text {
+        font-size: 1.2rem;
+        margin-top: 20px;
+        margin-bottom: 28px;
     }
 }
 
@@ -1350,18 +1370,27 @@ section {
         font-size: 1.25rem;
     }
 
-    .hero-title-light {
-        font-weight: 600; /* Added rule, increased from inherited 500 */
-    }
-
-    /* Re-applying consistent heading style on mobile cleanly */
+    /* Consistent heading style for all major headings on mobile */
     .testimonials h1,
-    .project-cta h1 {
+    .project-cta h1,
+    .hero-title-dark,
+    .hero-title-light {
         font-size: 2.8rem;
         font-weight: 600;
-        color: var(--primary-color);
         line-height: 1.2;
         letter-spacing: -0.02em;
+    }
+
+    /* Keep hero-title-light color unchanged */
+    .hero-title-light {
+        color: inherit;
+    }
+
+    /* Set color for other headings */
+    .testimonials h1,
+    .project-cta h1,
+    .hero-title-dark {
+        color: var(--primary-color);
     }
 
     .hero-text {
