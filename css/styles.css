@@ -767,6 +767,7 @@ section {
 
     .hero-text {
         font-size: 1.1rem;
+        line-height: 1.7;
     }
 
     .hero-title-light {
