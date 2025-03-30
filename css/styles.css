@@ -865,33 +865,30 @@ section {
         padding-bottom: 12px;
     }
 
-    /* Consistent heading style for all major headings on mobile */
     .testimonials h1,
     .project-cta h1,
     .hero-title-dark,
     .hero-title-light {
-        font-size: 2.8rem;
-        font-weight: 600;
+        font-size: 2.8rem !important;
+        font-weight: 600 !important;
         line-height: 1.2;
         letter-spacing: -0.02em;
     }
 
-    /* Keep hero-title-light color unchanged */
-    .hero-title-light {
-        color: inherit;
-    }
-
-    /* Set color for other headings */
     .testimonials h1,
     .project-cta h1,
     .hero-title-dark {
         color: var(--primary-color);
     }
 
+    .hero-title-light {
+        color: inherit; /* Keep light title color distinct */
+    }
+
     .hero-text {
-        font-size: 1.2rem;
-        margin-top: 20px;
-        margin-bottom: 28px;
+        font-size: 1.1rem;
+        margin-top: 16px;
+        margin-bottom: 40px;
     }
 }
 
@@ -1370,33 +1367,30 @@ section {
         font-size: 1.25rem;
     }
 
-    /* Consistent heading style for all major headings on mobile */
     .testimonials h1,
     .project-cta h1,
     .hero-title-dark,
     .hero-title-light {
-        font-size: 2.8rem;
-        font-weight: 600;
+        font-size: 2.8rem !important;
+        font-weight: 600 !important;
         line-height: 1.2;
         letter-spacing: -0.02em;
     }
 
-    /* Keep hero-title-light color unchanged */
-    .hero-title-light {
-        color: inherit;
-    }
-
-    /* Set color for other headings */
     .testimonials h1,
     .project-cta h1,
     .hero-title-dark {
         color: var(--primary-color);
     }
 
+    .hero-title-light {
+        color: inherit; /* Keep light title color distinct */
+    }
+
     .hero-text {
-        font-size: 1.2rem;
-        margin-top: 20px;
-        margin-bottom: 28px;
+        font-size: 1.1rem;
+        margin-top: 16px;
+        margin-bottom: 40px;
     }
 }
 
