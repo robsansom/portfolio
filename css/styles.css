@@ -759,6 +759,19 @@ section {
     .hero {
         padding: 120px 0 72px;
     }
+
+    .hero-title-dark {
+        font-size: 2.8rem;
+        font-weight: 500;
+    }
+
+    .hero-text {
+        font-size: 1.15rem;
+    }
+
+    .hero-title-light {
+        font-size: 2.8rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1536,15 +1549,16 @@ section {
 
 @media (max-width: 768px) {
     .hero-title-dark {
-        font-size: 3rem;
+        font-size: 2.8rem;
+        font-weight: 500;
     }
 
     .hero-text {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
     }
 
     .hero-title-light {
-        font-size: 3rem;
+        font-size: 2.8rem;
     }
 }
 
@@ -2270,14 +2284,15 @@ To use this approach:
     }
 
     .hero-title-dark {
-        font-size: 3rem;
+        font-size: 2.8rem;
+        font-weight: 500;
     }
 
     .hero-text {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
     }
 
     .hero-title-light {
-        font-size: 3rem;
+        font-size: 2.8rem;
     }
 }
