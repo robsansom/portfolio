@@ -14,14 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const pauseDuration = 2000; // Pause time after word is typed (ms)
 
     function typeAndDeleteAnimation() {
-        // Stop if element doesn't exist or not on desktop
-        if (!flickerElement || window.innerWidth < desktopBreakpoint) {
+        // Stop if element doesn't exist
+        if (!flickerElement) {
             clearTimeout(animationTimeout);
             animationTimeout = null;
-            if (flickerElement) {
-                flickerElement.textContent = words[0]; // Reset to 'for'
-            }
-            // Reset state for next time desktop is reached
+            // Reset state if element disappears unexpectedly
             currentWordIndex = 0;
             charIndex = 0;
             isDeleting = false;
@@ -77,10 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
        isDeleting = false;
        isPaused = true;
 
-        // Restart animation chain if on desktop
-        if (window.innerWidth >= desktopBreakpoint) {
-            typeAndDeleteAnimation();
-        }
+        // Restart animation chain regardless of width
+        typeAndDeleteAnimation();
     }
 
     // Initial setup
