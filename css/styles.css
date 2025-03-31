@@ -753,7 +753,7 @@ section {
 
 @media (max-width: 768px) {
     .testimonial-card {
-        flex: 0 0 85vw;
+        flex: 0 0 80vw; /* Slightly reduced from 85vw to allow peek of next card */
         padding: 30px;
     }
 
@@ -767,7 +767,8 @@ section {
 
     .testimonials-track {
         gap: 16px;
-        padding-right: 15%;
+        padding-left: 5%; /* Align with container margin */
+        padding-right: 5%; /* Reduced to ensure next card peek */
     }
 
     .testimonials h1 {
