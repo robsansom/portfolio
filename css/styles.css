@@ -767,10 +767,10 @@ section {
 
     .testimonials-track {
         gap: 16px;
-        padding-left: 0; /* Align start with container edge */
-        padding-right: 16px; /* Ensure space for scroll peek, matching gap */
-        margin-left: 0; /* Remove previous margin calculation */
-        scroll-padding-left: 0; /* Override base style for correct mobile snap alignment */
+        padding-left: 5%; /* Match container's 5% margin */
+        padding-right: 16px; /* Ensure space for scroll peek */
+        margin-left: 0;
+        scroll-padding-left: 5%; /* Match container's 5% margin for snap alignment */
     }
 
     .testimonials h1 {
