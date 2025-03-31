@@ -754,7 +754,7 @@ body.dark-mode .slider:before {
 }
 
 .load-more {
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 /* Testimonials Section */
@@ -1041,6 +1041,28 @@ body.dark-mode .slider:before {
         font-size: 2.8rem;
         font-weight: 500;
     }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    .portfolio-item {
+        margin-bottom: 0;
+    }
+
+    .portfolio-image {
+        padding-bottom: 177.78%; /* Changed to 16:9 aspect ratio (9/16 * 100) */
+    }
+
+    .portfolio-footer {
+        margin-top: 16px;
+    }
+
+    .load-more {
+        margin-top: 60px; /* Added specific mobile spacing */
+    }
 }
 
 @media (max-width: 480px) {
@@ -1101,10 +1123,6 @@ body.dark-mode .slider:before {
     .portfolio-footer {
         margin-top: 12px;
         padding: 0 4px;
-    }
-
-    .portfolio-title {
-        font-size: 1.25rem;
     }
 
     /* Hide navigation elements on mobile */
@@ -1943,19 +1961,19 @@ body.dark-mode {
 
 @media (max-width: 768px) {
     .project-cta {
-        padding: 80px 0 120px; /* Reduced padding */
+        padding: 60px 0 80px; /* Mobile-specific reduced padding */
     }
 
     .project-cta h1 {
         font-size: 2.8rem;
         font-weight: 500;
-        margin-bottom: 1.5rem; /* Reduced margin */
+        margin-bottom: 1.5rem;
     }
 
     .project-cta .hero-text {
         font-size: 1.2rem;
         margin-top: 16px;
-        margin-bottom: 40px; /* Reduced margin */
+        margin-bottom: 40px;
     }
 }
 
