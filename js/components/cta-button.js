@@ -71,21 +71,25 @@ class CTAButton extends HTMLElement {
             currentTheme: document.body.classList.contains('dark-mode') ? 'dark' : 'light'
         });
 
-        const href = this.getAttribute('href') || '#';
+        const href = this.getAttribute('href');
         const text = this.getAttribute('text') || 'Click Me';
         const buttonClass = this.getAttribute('button-class') || 'btn-dark';
         const pulseAnimation = this.hasAttribute('pulse');
 
+        // Use button element if no href is provided, otherwise use anchor
+        const elementType = href ? 'a' : 'button';
+        const hrefAttr = href ? `href="${href}"` : '';
+
         this.innerHTML = `
             <div class="cta-button-wrapper">
-                <a href="${href}" class="btn ${buttonClass}">
+                <${elementType} ${hrefAttr} class="btn ${buttonClass}">
                     ${text}
                     ${pulseAnimation ? `
                     <div class="cta-pulse-dot is-large">
                         <div class="cta-pulse"></div>
                     </div>
                     ` : ''}
-                </a>
+                </${elementType}>
             </div>
         `;
 

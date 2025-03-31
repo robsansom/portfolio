@@ -28,7 +28,8 @@ class CTATextAnimation extends HTMLElement {
             'website',
             'SaaS',
             'data',
-            'business'
+            'business',
+            'platform'
         ];
         this.currentWordIndex = 0;
         this.charIndex = 0;
