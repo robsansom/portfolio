@@ -88,41 +88,94 @@ document.addEventListener('DOMContentLoaded', () => {
             resizeTimeoutDebounce = setTimeout(handleResize, 250); // Debounce resize check
         });
     }
-});
 
-/* Removing Mobile Testimonial Scroll Hint Animation
+    // Dark Mode Implementation
+    console.log('DOM Content Loaded'); // Initial load check
 
-document.addEventListener('DOMContentLoaded', () => {
-    const testimonialsSection = document.getElementById('testimonials');
-    const firstTestimonialCard = document.querySelector('.testimonials-track .testimonial-card:first-child');
+    // --- Helper Function to Update Project Images ---
+    const updateProjectImages = (theme) => {
+        const projectImages = document.querySelectorAll('.portfolio-image img');
+        console.log(`Updating ${projectImages.length} project images for theme: ${theme}`);
 
-    if (!testimonialsSection || !firstTestimonialCard) {
-        console.log('Testimonial elements not found for animation.');
-        return; 
-    }
+        projectImages.forEach(img => {
+            let currentSrc = img.src;
+            let newSrc = currentSrc; // Default to current src
 
-    const observerOptions = {
-        root: null, 
-        rootMargin: '0px',
-        threshold: 0.1 
-    };
+            // Ensure we're working with relative paths if possible for consistency
+            // This part might need adjustment based on how src is resolved by the browser
+            const url = new URL(currentSrc);
+            const filename = url.pathname.substring(url.pathname.lastIndexOf('/') + 1);
 
-    const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && window.innerWidth <= 768) {
-                console.log('Testimonials in view on mobile, animating first card.');
-                firstTestimonialCard.classList.add('animate-bounce-right');
-                
-                observer.unobserve(testimonialsSection);
+            if (theme === 'dark') {
+                // Change to dark version if not already dark
+                if (!filename.includes('_dark.png') && filename.includes('.png')) {
+                    newSrc = currentSrc.replace('.png', '_dark.png');
+                    console.log(`Changing ${filename} to ${newSrc}`);
+                }
+            } else {
+                // Change to light version if currently dark
+                if (filename.includes('_dark.png')) {
+                    newSrc = currentSrc.replace('_dark.png', '.png');
+                    console.log(`Changing ${filename} back to ${newSrc}`);
+                }
+            }
+
+            // Update src only if it changed
+            if (newSrc !== currentSrc) {
+                img.src = newSrc;
             }
         });
     };
 
-    const intersectionObserver = new IntersectionObserver(observerCallback, observerOptions);
+    // --- Dark Mode Toggle Logic (Android Style) ---
+    const themeToggleCheckbox = document.getElementById('theme-toggle-checkbox');
+    const body = document.body;
 
-    setTimeout(() => {
-        intersectionObserver.observe(testimonialsSection);
-    }, 100);
-}); 
+    // Function to apply theme and update toggle/images
+    const applyTheme = (theme) => {
+        if (theme === 'dark') {
+            body.classList.add('dark-mode');
+            if (themeToggleCheckbox) themeToggleCheckbox.checked = true;
+        } else {
+            body.classList.remove('dark-mode');
+            if (themeToggleCheckbox) themeToggleCheckbox.checked = false;
+        }
+        // Update project images based on the applied theme
+        updateProjectImages(theme);
+    };
 
-*/ 
+    if (themeToggleCheckbox) {
+        console.log('Theme toggle checkbox found:', themeToggleCheckbox);
+
+        // Determine initial theme
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        console.log('Initial theme determined:', savedTheme);
+        applyTheme(savedTheme); // Apply initial theme and update images
+
+        // Listener for toggle changes
+        themeToggleCheckbox.addEventListener('change', () => {
+            console.log('Theme toggle changed!');
+            const isDarkMode = themeToggleCheckbox.checked;
+            const newTheme = isDarkMode ? 'dark' : 'light';
+            console.log('New theme determined:', newTheme);
+
+            // Save theme preference
+            localStorage.setItem('theme', newTheme);
+            console.log('Theme preference saved:', newTheme);
+
+            // Apply the new theme
+            applyTheme(newTheme);
+        });
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {  // Only auto-switch if user hasn't manually set a preference
+                const newTheme = e.matches ? 'dark' : 'light';
+                console.log('System theme changed to:', newTheme);
+                applyTheme(newTheme);
+            }
+        });
+    } else {
+        console.warn('Theme toggle checkbox not found!');
+    }
+});

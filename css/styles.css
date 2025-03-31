@@ -20,6 +20,123 @@
     --container-padding-mobile: 15px;
     --container-max-width: 1280px;
     --container-width: 100%;
+
+    /* Gradient colors */
+    --gradient-start: rgba(242, 242, 242, 0);
+    --gradient-mid: rgba(242, 242, 242, 0.8);
+    --gradient-end: rgba(242, 242, 242, 1);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    --primary-color: #fff;
+    --secondary-color: #1a1a1a;
+    --accent-color: #2a2a2a;
+    --text-color: #e0e0e0;
+    --border-color: #333;
+    --light-gray: #222;
+    --medium-gray: #aaa;
+    --dark-gray: #bbb;
+    --background-light: #121212;
+    /* --green remains the same, unless a different shade is desired */
+
+    /* Dark mode gradient colors */
+    --gradient-start: rgba(18, 18, 18, 0);
+    --gradient-mid: rgba(18, 18, 18, 0.8);
+    --gradient-end: rgba(18, 18, 18, 1);
+
+    /* --- Dark Mode Card Overrides --- */
+
+    /* Project Cards */
+    .portfolio-image {
+        background-color: var(--secondary-color);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Testimonial Cards */
+    .testimonial-card {
+        background: var(--secondary-color);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .testimonial-text {
+        color: var(--text-color);
+    }
+    .testimonial-author h3 {
+        color: var(--primary-color);
+    }
+    .testimonial-author p {
+        color: var(--medium-gray);
+    }
+    .testimonial-text::before {
+        filter: brightness(0) invert(1);
+        opacity: 0.6;
+    }
+
+    /* Testimonial Navigation Buttons */
+    .testimonial-button {
+        background: var(--primary-color); /* White background */
+        color: var(--secondary-color); /* Black base color */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for light button on dark */
+    }
+    .testimonial-button img {
+        filter: none; /* Black icon */
+        opacity: 1;
+    }
+    .testimonial-button:disabled {
+        background: #dddddd; /* Light gray disabled background */
+        opacity: 1;
+        cursor: not-allowed;
+        box-shadow: none;
+    }
+    /* Override for DARK MODE disabled icon */
+    .testimonial-button:disabled img {
+        filter: none; /* Black icon */
+        opacity: 1; /* Fully opaque */
+    }
+
+    /* General Card Adjustments (If needed) */
+    /* Add any other general card adjustments for dark mode here */
+
+    /* Project footer link arrow */
+    .view-project img {
+        filter: invert(1); /* Make arrow white */
+    }
+
+    /* Project Navigation Arrows (Prev/Next) */
+    .project-nav-link img {
+         filter: invert(1); /* Make arrow white */
+    }
+
+    /* Testimonial Cards */
+    .testimonial-card {
+        background: var(--secondary-color);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Testimonial Navigation Buttons */
+    .testimonial-button {
+        background: var(--primary-color); /* White background */
+        color: var(--secondary-color); /* Black base color */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for light button on dark */
+    }
+    .testimonial-button img {
+        filter: none; /* Black icon */
+        opacity: 1;
+    }
+    .testimonial-button:disabled {
+        background: #dddddd; /* Light gray disabled background */
+        opacity: 1;
+        cursor: not-allowed;
+        box-shadow: none;
+    }
+    /* Override for DARK MODE disabled icon */
+    .testimonial-button:disabled img {
+        filter: none; /* Black icon */
+        opacity: 1; /* Fully opaque */
+    }
+
+    /* General Card Adjustments (If needed) */
+    /* Add any other general card adjustments for dark mode here */
 }
 
 * {
@@ -287,6 +404,104 @@ section {
     transform-origin: left;
 }
 
+/* Theme Toggle Button Styles */
+.theme-toggle-button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 5px;
+    margin-left: 40px;
+    line-height: 1;
+    transition: opacity 0.2s ease;
+}
+
+.theme-toggle-button:hover {
+    opacity: 0.7;
+}
+
+/* Android-style Theme Toggle Switch Styles */
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+    margin-left: 40px;
+    vertical-align: middle;
+}
+
+/* Hide default HTML checkbox */
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider track */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    transition: .4s;
+}
+
+/* The slider knob */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+/* Styles when toggle is checked (ON state) */
+input:checked + .slider {
+    background-color: #fff;
+}
+
+input:checked + .slider:before {
+    background-color: #000;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary-color);
+}
+
+/* Move knob to the right when checked */
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 28px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Dark mode adjustments for the toggle */
+body.dark-mode .slider {
+    background-color: #fff;
+}
+
+body.dark-mode input:checked + .slider:before {
+    background-color: #000;
+}
+
+body.dark-mode .slider:before {
+    background-color: #000;
+}
+
 /* CTA Pulse Animation */
 .cta-pulse-dot.is-large {
     position: relative;
@@ -517,6 +732,7 @@ section {
     width: auto;
     position: relative;
     top: 2px;
+    transition: filter 0.3s ease; /* Add transition for filter */
 }
 
 .view-project svg {
@@ -572,10 +788,10 @@ section {
     width: 40%;
     pointer-events: none;
     background: linear-gradient(to right, 
-        rgba(242, 242, 242, 0) 0%,
-        rgba(242, 242, 242, 0) 20%,
-        rgba(242, 242, 242, 0.8) 65%,
-        rgba(242, 242, 242, 1) 100%
+        var(--gradient-start) 0%,
+        var(--gradient-start) 20%,
+        var(--gradient-mid) 65%,
+        var(--gradient-end) 100%
     );
     z-index: 1;
 }
@@ -614,15 +830,15 @@ section {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: var(--primary-color);
+    background: var(--primary-color); /* BASE: Black background */
     border: none;
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* BASE: White text/icon */
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* BASE: Original shadow */
     padding: 0;
     z-index: 2;
     user-select: none;
@@ -633,7 +849,9 @@ section {
     width: 24px;
     height: 24px;
     position: relative;
-    filter: invert(1);
+    filter: invert(1); /* BASE: White icon */
+    opacity: 1;
+    transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
 .testimonial-button.prev {
@@ -645,10 +863,18 @@ section {
 }
 
 .testimonial-button:disabled {
-    opacity: 0.15;
+    background: #888888; /* Medium-dark gray for disabled */
+    opacity: 1;
     cursor: not-allowed;
     box-shadow: none;
     pointer-events: none;
+}
+
+/* Target the image specifically for disabled state in BASE (Light Mode) styles */
+.testimonial-button:disabled img {
+    filter: invert(1); /* BASE: White icon */
+    opacity: 1; /* BASE: Fully opaque */
+    /* Dark mode rule will override filter and opacity as needed */
 }
 
 .testimonial-button:not(:disabled):hover {
@@ -705,6 +931,7 @@ section {
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.8;
+    transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
 .testimonial-author {
@@ -1438,11 +1665,13 @@ section {
     background-color: var(--background-light);
 }
 
-.project-header h1 {
+section.project-header h1 {
     font-size: 4rem;
     margin-bottom: 20px;
     font-weight: 600;
     line-height: 1.2;
+    color: var(--primary-color); /* Explicitly set color */
+    opacity: 1 !important; /* Ensure it's not hidden by opacity */
 }
 
 /* Project content styles */
@@ -1474,12 +1703,12 @@ section {
 /* Text fade-in animation for project page */
 .project-content .word {
     display: inline-block;
-    color: #d1d1d1;
+    /* color: #d1d1d1; */ /* REMOVED: Initial light gray color causing invisibility */
     transition: color 0.5s ease;
 }
 
 .project-content .word.visible {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Animation target color */
 }
 
 .project-info {
@@ -1494,20 +1723,20 @@ section {
 .project-description {
     padding-right: 60px;
     max-width: 760px;
-    margin-bottom: 12px; /* Reduced spacing */
+    margin-bottom: 12px;
 }
 
 .project-metadata {
     position: absolute;
     right: 0;
     width: 280px !important;
-    margin-top: 4px; /* Reduced spacing */
+    margin-top: 4px;
 }
 
 .metadata-item {
     display: block;
     width: auto !important;
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
     padding: 0;
     text-align: right;
     margin-right: 0 !important;
@@ -1521,7 +1750,7 @@ section {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 1.2rem;
+    font-size: 0.85rem;
     color: #777;
     text-align: right;
 }
@@ -1531,7 +1760,7 @@ section {
     width: auto !important;
     margin: 0;
     padding: 0;
-    font-size: 1.6rem;
+    font-size: 1.0rem;
     line-height: 1.4;
     font-family: var(--font-display);
     text-align: right;
@@ -1589,497 +1818,6 @@ section {
         transform: none;
     }
 
-    .project-image img {
-        width: 100% !important;
-        height: auto;
-    }
-
-    .project-image:hover img {
-        transform: none;
-    }
-
-    .project-info {
-        flex-direction: column;
-    }
-
-    .project-description {
-        padding-right: 0;
-        max-width: 100%;
-        margin-bottom: 12px; /* Reduced from 16px */
-    }
-
-    .project-metadata {
-        position: relative;
-        width: 100% !important;
-        display: block;
-        margin-top: 4px; /* Reduced from 8px */
-    }
-}
-
-@media (max-width: 480px) {
-    .project-metadata {
-        margin-top: 4px; /* Reduced from 8px */
-    }
-}
-
-/* Project CTA Section */
-.project-cta {
-    padding: 180px 0 240px;
-    text-align: left;
-}
-
-.project-cta h1 {
-    font-size: 4rem;
-    margin-bottom: 24px;
-    font-weight: 600;
-    line-height: 1.2;
-}
-
-.project-cta p {
-    font-size: 1.3rem;
-    line-height: 1.6;
-    color: var(--dark-gray);
-    max-width: 760px;
-    margin: 0 0 80px;
-    font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-}
-
-.project-cta-text-inter {
-    font-family: var(--font-primary) !important;
-}
-
-@media (max-width: 768px) {
-    .hero-title-dark {
-        font-size: 2.8rem;
-        font-weight: 500;
-    }
-
-    .hero-text {
-        font-size: 1.2rem; /* Updated mobile size */
-    }
-
-    .hero-title-light {
-        font-size: 2.8rem;
-        font-weight: 500;
-    }
-}
-
-/* Modal Styles */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100%;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.modal.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    cursor: pointer;
-}
-
-/* APPROACH 1: Hidden scrollbar (active by default) */
-.modal-container {
-    position: relative;
-    background-color: #fff;
-    width: 90%;
-    max-width: 1200px;
-    max-height: 90vh;
-    overflow-y: auto;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-    padding: 40px;
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
-    z-index: 1001;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.modal-container::-webkit-scrollbar {
-    display: none;
-}
-
-/* Remove the custom scrollbar indicator since we're using the arrow instead */
-.modal-container::after {
-    display: none;
-}
-
-.modal-container.scrollable::after {
-    display: none;
-}
-
-.modal-container:hover::after {
-    display: none;
-}
-
-.modal.active .modal-container {
-    transform: translateY(0);
-}
-
-.modal-close {
-    position: sticky;
-    top: 0;
-    right: 0;
-    float: right;
-    font-size: 30px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--text-color);
-    z-index: 1002;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: -10px -10px 0 auto;
-    transition: opacity 0.2s ease;
-}
-
-.modal-close:hover {
-    opacity: 0.7;
-}
-
-.modal-content {
-    width: 100% !important;
-}
-
-.modal-loader {
-    text-align: center;
-    padding: 40px;
-    font-size: 18px;
-    color: #666;
-}
-
-body.modal-open {
-    overflow: hidden;
-}
-
-/* Modal title styling */
-.modal-title-wrapper {
-    margin-bottom: 40px;
-    display: block !important;
-}
-
-.modal-title {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 500;
-    color: var(--primary-color);
-    margin: 0;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    display: block !important;
-}
-
-/* Modal content styling */
-.modal-project-content {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.modal-project-text {
-    width: 100% !important;
-    font-family: var(--font-display);
-    letter-spacing: -0.01em;
-    line-height: 1.6;
-}
-
-.modal-project-text p {
-    font-size: 1.2rem !important;
-    line-height: 1.8 !important;
-    color: var(--dark-gray);
-    margin-bottom: 20px;
-    font-family: var(--font-display);
-    letter-spacing: -0.02em;
-}
-
-/* Metadata styling */
-.modal-project-metadata {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-    padding-bottom: 0; /* Removed padding */
-    border-bottom: none; /* Removed border */
-}
-
-.metadata-item {
-    margin-right: 80px;
-    margin-bottom: 15px;
-}
-
-.metadata-label {
-    font-size: 0.85rem;
-    color: var(--medium-gray);
-    margin-bottom: 8px;
-    font-family: var(--font-display);
-}
-
-.metadata-value {
-    font-size: 0.95rem;
-    color: var(--text-color);
-    font-weight: 500;
-    line-height: 1.5;
-    font-family: var(--font-display);
-}
-
-/* Images container */
-.modal-project-images {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    width: 100% !important;
-}
-
-.modal-project-image {
-    position: relative;
-    width: 100% !important;
-    height: 0;
-    padding-bottom: 66.67%; /* 3:2 aspect ratio */
-    overflow: hidden;
-    background-color: var(--light-gray);
-    border-radius: 20px;
-}
-
-.modal-project-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    transition: transform 0.3s ease;
-}
-
-/* Optional: Add hover effect on images */
-.modal-project-image:hover img {
-    transform: scale(1.02);
-}
-
-/* Text Reveal Section */
-.text-reveal {
-    display: none;
-}
-
-/* Scroll indicator arrow */
-.scroll-indicator {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
-    z-index: 1002;
-    pointer-events: none;
-    animation: bounce 1.5s ease infinite;
-    transition: opacity 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.scroll-indicator svg {
-    width: 20px;
-    height: 20px;
-    fill: none;
-    stroke: var(--primary-color, #000);
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transform: translateY(-1px); /* Optical adjustment */
-    margin-top: 2px; /* Additional optical adjustment */
-}
-
-.scroll-indicator.hidden {
-    opacity: 0;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    40% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-    60% {
-        transform: translateX(-50%) translateY(-5px);
-    }
-}
-
-/* APPROACH 2: Custom scrollbar (commented out) 
-   To use this approach:
-   1. Comment out APPROACH 1 above
-   2. Uncomment this entire section below
-*/
-/*
-.modal-container {
-    position: relative;
-    background-color: #fff;
-    width: 90%;
-    max-width: 1200px;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 40px;
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
-    z-index: 1001;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.modal-container::-webkit-scrollbar {
-    width: 8px;
-    background-color: transparent;
-}
-
-.modal-container::-webkit-scrollbar-track {
-    background-color: transparent;
-    margin: 20px 0;
-}
-
-.modal-container::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-}
-
-.modal-container::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 0, 0, 0.4);
-}
-*/
-
-/* APPROACH 3: Nested container (commented out) */
-/* 
-To use this approach:
-1. Comment out APPROACH 1 above
-2. Uncomment this entire section below
-3. Update the HTML structure to add an inner container
-*/
-/*
-.modal-container {
-    position: relative;
-    background-color: #fff;
-    width: 90%;
-    max-width: 1200px;
-    max-height: 90vh;
-    padding: 0;
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
-    z-index: 1001;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-}
-
-.modal-inner-container {
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 40px;
-}
-
-.modal-inner-container::-webkit-scrollbar {
-    width: 8px;
-}
-
-.modal-inner-container::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-}
-
-.modal-inner-container::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
-}
-
-.modal-inner-container::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-}
-*/
-
-.modal.active .modal-container {
-    transform: translateY(0);
-}
-
-.modal.active .modal-container .modal-project-content .modal-project-text p,
-.modal-project-text p,
-.modal-container .modal-project-text p {
-    font-size: 1.2rem !important;
-    line-height: 1.8 !important;
-    color: var(--dark-gray);
-    margin-bottom: 20px;
-    font-family: var(--font-display);
-    letter-spacing: -0.02em;
-}
-
-/* Future Improvement Note:
-   Consider converting this CSS file into SCSS to utilize mixins and partials for breakpoint management and component styling, which will help avoid duplicate rules and ensure consistency across breakpoints. This can further improve maintainability and scalability of the codebase. */
-
-.project-navigation {
-    padding: 8px 0 60px;
-    background-color: var(--background-light);
-    border-top: 0px solid rgba(0, 0, 0, 0.1);
-}
-
-.project-navigation .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90% !important;
-    max-width: 1044px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.project-nav-link {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--primary-color);
-    transition: opacity 0.3s ease;
-    gap: 4px;
-}
-
-.project-nav-link:hover {
-    opacity: 0.8;
-}
-
-.project-nav-link.prev img {
-    transform: rotate(180deg);
-}
-
-.project-nav-link img {
-    width: 24px;
-    height: 24px;
-}
-
-@media (max-width: 768px) {
     .project-info {
         flex-direction: column;
     }
@@ -2096,281 +1834,33 @@ To use this approach:
         display: block;
         margin-top: 4px;
     }
+}
 
-    .metadata-item {
-        text-align: left;
-        margin-bottom: 20px;
+@media (max-width: 480px) {
+    .project-metadata {
+        margin-top: 4px; /* Reduced from 8px */
     }
-
-    .metadata-label {
-        text-align: left;
-    }
-
-    .metadata-value {
-        text-align: left;
-    }
-
-    .project-navigation {
-        padding: 8px 0 60px; /* Match desktop padding */
-    }
-}
-
-/* Portfolio Load More Styles */
-.portfolio-item.hidden {
-    display: none;
-}
-
-.portfolio-item.loading {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.btn-load-more {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    transform: scale(0.85); /* Add scale transform to make button smaller while keeping proportions */
-}
-
-.btn-show-more {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    border: 1px solid var(--border-color);
-    border-radius: 100px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: 12px 24px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-    font-family: var(--font-display);
-    margin-top: 20px; /* Increased from 10px */
-}
-
-.btn-show-more:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
-    transform: translateY(-2px);
-}
-
-/* Company Logos Section */
-.company-logos {
-    padding: 80px 0;  /* Increased padding */
-    background: var(--background-light);
-    overflow: hidden;
-    position: relative;
-    margin-top: 0;  /* Removed negative margin */
-    border-top: 0px solid var(--border-color);  /* Set border to 0px */
-}
-
-/* Hide logos but preserve implementation */
-.logos-container {
-    display: none; /* Hide the logos container */
-    width: 100%;
-    overflow: hidden;
-    padding: 20px 0;  /* Added padding */
-}
-
-/* Add class to show logos when needed */
-.logos-container.show {
-    display: block;
-}
-
-.logos-track {
-    display: flex;
-    gap: 48px;
-    animation: scroll 50s linear infinite;
-    width: fit-content;  /* Added to ensure proper width */
-}
-
-.logo-item {
-    flex: 0 0 auto;
-    height: 32px;
-    max-width: 140px;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-    display: flex;
-    align-items: center;
-}
-
-.logo-item:hover {
-    opacity: 1;
-}
-
-.logo-item img {
-    height: 100%;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
-}
-
-.logo-item:hover img {
-    filter: grayscale(0%);
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-50% - 24px));
-    }
-}
-
-/* Remove all pagination dot styles */
-.testimonial-pagination,
-.pagination-dot,
-.pagination-dot.active {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .testimonial-pagination {
-        margin-top: 24px; /* Slightly reduced margin on mobile */
-    }
-}
-
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, auto);
-    gap: 24px;
-    margin: 48px 0;
-}
-
-.bento-item {
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: var(--background-light);
-    transition: transform 0.3s ease;
-}
-
-.bento-item:hover {
-    transform: scale(1.02);
-}
-
-.bento-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Bento grid layout */
-.bento-item.featured {
-    grid-column: span 2;
-    grid-row: span 2;
-    aspect-ratio: 1.5;
-}
-
-.bento-item.wide {
-    grid-column: span 2;
-    aspect-ratio: 2;
-}
-
-.bento-item.tall {
-    grid-row: span 2;
-    aspect-ratio: 0.8;
-}
-
-.bento-item.standard {
-    aspect-ratio: 1;
-}
-
-@media (max-width: 1024px) {
-    .bento-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    .bento-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .bento-item.featured,
-    .bento-item.wide,
-    .bento-item.tall,
-    .bento-item.standard {
-        grid-column: 1;
-        grid-row: auto;
-        aspect-ratio: 1.2;
-    }
-}
-
-/* Full-width Gallery Layout */
-.project-gallery.fullwidth {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin: 48px 0;
-}
-
-.project-gallery.fullwidth .gallery-item {
-    position: relative;
-    width: 100%;
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: var(--background-light);
-    transition: transform 0.3s ease;
-}
-
-.project-gallery.fullwidth .gallery-item:hover {
-    transform: scale(1.02);
-}
-
-.project-gallery.fullwidth .gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-}
-
-@media (max-width: 768px) {
-    .project-gallery.fullwidth {
-        gap: 24px;
-        margin: 32px 0;
-    }
-}
-
-@media (max-width: 768px) {
-    .project-navigation {
-        padding: 8px 0 60px; /* Match desktop padding */
-    }
-    
-    .project-gallery {
-        margin: 40px 0 24px; /* Reduced margins on mobile */
-    }
-}
-
-/* Add fade-in animation styles */
-.portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn, .pricing-features li,
-.testimonial-card, .hero-text, .project-cta p, .btn-show-more {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    pointer-events: none;
-}
-
-.fade-in {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    pointer-events: auto !important;
 }
 
 /* Project CTA Section */
 .project-cta {
     padding: 180px 0 240px;
     text-align: left;
+    background-color: var(--background-light);
+}
+
+.project-cta h1 {
+    font-size: 4rem;
+    margin-bottom: 24px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--primary-color);
 }
 
 .project-cta p {
     font-size: 1.3rem;
     line-height: 1.6;
-    color: var(--dark-gray);
+    color: var(--text-color) !important;
     max-width: 760px;
     margin: 0 0 80px;
     font-family: var(--font-display);
@@ -2378,8 +1868,13 @@ To use this approach:
     letter-spacing: -0.02em;
 }
 
+.project-cta .cta-buttons {
+    display: initial;
+}
+
 .project-cta-text-inter {
     font-family: var(--font-primary) !important;
+    color: var(--text-color) !important;
 }
 
 @media (max-width: 768px) {
@@ -2407,4 +1902,61 @@ To use this approach:
     .testimonial-card {
         flex-basis: 450px; /* Increase width slightly for desktop */
     }
+}
+
+/* Increased Specificity for Project Navigation */
+main > nav.project-navigation {
+    padding: 8px 0 60px;
+    background-color: var(--background-light);
+    border-top: 0px solid rgba(0, 0, 0, 0.1);
+}
+
+main > nav.project-navigation .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90% !important;
+    max-width: 1044px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+main > nav.project-navigation .project-nav-link {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    transition: opacity 0.3s ease;
+    gap: 4px;
+}
+
+main > nav.project-navigation .project-nav-link:hover {
+    opacity: 0.8;
+}
+
+main > nav.project-navigation .project-nav-link.prev img {
+    transform: rotate(180deg);
+}
+
+main > nav.project-navigation .project-nav-link img {
+    width: 24px;
+    height: 24px;
+    transition: filter 0.3s ease;
+}
+
+/* Portfolio Load More Styles */
+.portfolio-item.hidden {
+    display: none;
+}
+
+.portfolio-item.loading {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Force visibility of Project CTA text on index page (override fade-in) */
+.project-cta p.project-cta-text-inter {
+    opacity: 1 !important;
+    transform: none !important;
 }
