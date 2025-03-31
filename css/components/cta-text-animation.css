@@ -1,0 +1,41 @@
+.cta-content {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cta-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    line-height: 1.2;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+#cta-flicker-word {
+    display: inline-block;
+    min-width: 60px;
+    font-weight: 600;
+    color: var(--dark-gray);
+    opacity: 0.6;
+    border-right: 2px solid transparent;
+    padding-right: 4px;
+    animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: var(--accent-color) }
+}
+
+@media (max-width: 768px) {
+    .cta-content {
+        min-height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-content {
+        min-height: 200px;
+    }
+} 

@@ -15,6 +15,12 @@
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --font-display: 'Poppins', 'Inter', sans-serif;
     
+    /* Project placeholder colors */
+    --placeholder-1: #FFE5E5;
+    --placeholder-2: #E5FFE5;
+    --placeholder-3: #E5E5FF;
+    --placeholder-4: #FFFFE5;
+    
     /* Container variables for standardized spacing */
     --container-padding-desktop: 40px;
     --container-padding-mobile: 15px;
@@ -137,6 +143,12 @@ body.dark-mode {
 
     /* General Card Adjustments (If needed) */
     /* Add any other general card adjustments for dark mode here */
+
+    /* Project placeholder colors */
+    --placeholder-1: #FFD6D6;
+    --placeholder-2: #D6FFD6;
+    --placeholder-3: #D6D6FF;
+    --placeholder-4: #FFFFD6;
 }
 
 * {
@@ -1769,8 +1781,8 @@ section.project-header h1 {
 
 .project-gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 40px;
     margin: 60px 0 32px;
 }
 
@@ -1779,6 +1791,22 @@ section.project-header h1 {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: var(--placeholder-1);
+}
+
+.project-image:nth-child(2) {
+    background-color: var(--placeholder-2);
+}
+
+.project-image:nth-child(3) {
+    background-color: var(--placeholder-3);
+}
+
+.project-image:nth-child(4) {
+    background-color: var(--placeholder-4);
 }
 
 .project-image:hover {
@@ -1786,21 +1814,15 @@ section.project-header h1 {
 }
 
 .project-image img {
-    width: 100% !important;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
+    display: none; /* Hide all images */
 }
 
-.project-image:hover img {
-    transform: scale(1.03);
-}
-
-.project-gallery img {
-    width: 100% !important;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
+/* Dark mode adjustments for placeholders */
+body.dark-mode {
+    --placeholder-1: #FFD6D6;
+    --placeholder-2: #D6FFD6;
+    --placeholder-3: #D6D6FF;
+    --placeholder-4: #FFFFD6;
 }
 
 @media (max-width: 768px) {
@@ -1844,56 +1866,79 @@ section.project-header h1 {
 
 /* Project CTA Section */
 .project-cta {
-    padding: 180px 0 240px;
-    text-align: left;
+    padding: 150px 0 120px;
     background-color: var(--background-light);
+    position: relative;
+    z-index: 3;
+}
+
+.project-cta .container {
+    width: 90% !important;
+    max-width: 1044px;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    z-index: 3;
 }
 
 .project-cta h1 {
     font-size: 4rem;
-    margin-bottom: 24px;
     font-weight: 600;
-    line-height: 1.2;
-    color: var(--primary-color);
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+    line-height: 1.1;
 }
 
-.project-cta p {
+.project-cta .hero-title-dark {
+    color: var(--primary-color);
+    display: block;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.project-cta .hero-title-light {
+    color: var(--dark-gray);
+    opacity: 0.6;
+    display: block;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.project-cta .hero-text {
     font-size: 1.3rem;
-    line-height: 1.6;
-    color: var(--text-color) !important;
-    max-width: 760px;
-    margin: 0 0 80px;
+    line-height: 1.7;
+    color: var(--dark-gray);
+    margin-top: 24px;
+    margin-bottom: 80px;
     font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: -0.02em;
+    max-width: 760px;
 }
 
-.project-cta .cta-buttons {
-    display: initial;
-}
-
-.project-cta-text-inter {
+.project-cta .hero-text-inter {
     font-family: var(--font-primary) !important;
-    color: var(--text-color) !important;
+}
+
+.project-cta .hero-buttons {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 3;
 }
 
 @media (max-width: 768px) {
-    .hero {
+    .project-cta {
         padding: 120px 0 72px;
     }
 
-    .hero-title-dark {
+    .project-cta h1 {
         font-size: 2.8rem;
         font-weight: 500;
     }
 
-    .hero-text {
-        font-size: 1.2rem; /* Updated mobile size */
-    }
-
-    .hero-title-light {
-        font-size: 2.8rem;
-        font-weight: 500;
+    .project-cta .hero-text {
+        font-size: 1.2rem;
     }
 }
 
