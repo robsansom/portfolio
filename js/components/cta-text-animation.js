@@ -7,7 +7,7 @@ class CTATextAnimation extends HTMLElement {
             'designs',
             'product',
             'brand',
-            'UI',
+            'interface',
             'UX',
             'research',
             'journeys',
