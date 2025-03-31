@@ -91,16 +91,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
+            const hash = this.getAttribute('href');
+            // Skip empty hash or just "#"
+            if (hash === '#') return;
             
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 100,
+            const target = document.querySelector(hash);
+            if (target) {
+                target.scrollIntoView({
                     behavior: 'smooth'
                 });
             }
@@ -248,19 +247,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
     // Testimonial slider functionality
     const track = document.querySelector('.testimonials-track');
     const prevButton = document.querySelector('.testimonial-button.prev');
@@ -368,8 +354,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const addAnimationStyles = () => {
         const style = document.createElement('style');
         style.textContent = `
-            .portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn, .pricing-features li,
-            .testimonial-card, .hero-text, .project-cta p, .footer-brand, .footer-links, .footer-contact {
+            .portfolio-item, 
+            .pricing-card, 
+            .faq-item, 
+            h1, h2, h3, 
+            .btn:not(.btn-load-more .btn), 
+            .pricing-features li,
+            .testimonial-card, 
+            .hero-text, 
+            .project-cta p, 
+            .footer-brand, 
+            .footer-links, 
+            .footer-contact {
                 opacity: 0;
                 transform: translateY(20px);
                 transition: opacity 0.6s ease, transform 0.6s ease;
@@ -380,20 +376,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 transform: translateY(0);
             }
             
-            @keyframes pulse-glow {
-                0% {
-                    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
-                }
-                70% {
-                    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-                }
-                100% {
-                    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-                }
-            }
-            
-            .btn-primary {
-                animation: pulse-glow 2s infinite;
+            /* Ensure Show More button and CTA buttons are always visible */
+            .btn-load-more .btn,
+            .hero-buttons .btn,
+            .cta-buttons .btn {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: transform 0.25s ease, box-shadow 0.25s ease !important;
             }
         `;
         document.head.appendChild(style);
@@ -482,150 +471,6 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(faqStyles);
     
-    // Initialize portfolio load more functionality
-    function initPortfolioLoadMore() {
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        const loadMoreBtn = document.querySelector('.btn-load-more');
-        
-        // Function to determine how many items to show based on screen width
-        function getItemsToShow() {
-            return window.innerWidth <= 768 ? 2 : 4;
-        }
-
-        let itemsToShow = getItemsToShow();
-        let visibleItems = itemsToShow;
-
-        // Function to update visible items
-        function updateVisibleItems() {
-            portfolioItems.forEach((item, index) => {
-                if (index >= visibleItems) {
-                    item.classList.add('hidden');
-                } else {
-                    item.classList.remove('hidden');
-                }
-            });
-
-            // Hide load more button if there are no more items to show
-            if (visibleItems >= portfolioItems.length) {
-                loadMoreBtn.style.display = 'none';
-            } else {
-                loadMoreBtn.style.display = 'block';
-            }
-        }
-
-        // Initially hide items beyond the initial count
-        updateVisibleItems();
-
-        // Show next set of items when clicking load more
-        function showNextItems() {
-            visibleItems += getItemsToShow();
-            updateVisibleItems();
-        }
-
-        loadMoreBtn.addEventListener('click', showNextItems);
-
-        // Update visible items when screen size changes
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                const newItemsToShow = getItemsToShow();
-                if (newItemsToShow !== itemsToShow) {
-                    itemsToShow = newItemsToShow;
-                    visibleItems = Math.min(visibleItems, itemsToShow);
-                    updateVisibleItems();
-                }
-            }, 250);
-        });
-    }
-    
-    // Initialize testimonials carousel
-    function initTestimonialsCarousel() {
-        const track = document.querySelector('.testimonials-track');
-        const cards = Array.from(track.querySelectorAll('.testimonial-card'));
-        const prevButton = document.querySelector('.testimonial-button.prev');
-        const nextButton = document.querySelector('.testimonial-button.next');
-        let currentIndex = 0;
-
-        if (!track || !cards.length || !prevButton || !nextButton) return;
-
-        function updateButtons() {
-            prevButton.disabled = currentIndex <= 0;
-            nextButton.disabled = currentIndex >= cards.length - 1;
-            prevButton.style.opacity = currentIndex <= 0 ? '0.15' : '1';
-            nextButton.style.opacity = currentIndex >= cards.length - 1 ? '0.15' : '1';
-        }
-
-        function scrollToCard(index) {
-            currentIndex = Math.max(0, Math.min(index, cards.length - 1));
-            const card = cards[currentIndex];
-            const trackRect = track.getBoundingClientRect();
-            const cardRect = card.getBoundingClientRect();
-            const scrollLeft = track.scrollLeft + (cardRect.left - trackRect.left);
-            
-            track.scrollTo({
-                left: scrollLeft,
-                behavior: 'smooth'
-            });
-            
-            updateButtons();
-        }
-
-        // Handle button clicks
-        prevButton.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                scrollToCard(currentIndex - 1);
-            }
-        });
-
-        nextButton.addEventListener('click', () => {
-            if (currentIndex < cards.length - 1) {
-                const newIndex = currentIndex + 1;
-                const card = cards[newIndex];
-                track.scrollLeft = card.offsetLeft - track.offsetLeft;
-                currentIndex = newIndex;
-                updateButtons();
-            }
-        });
-
-        // Handle scroll events
-        let scrollTimeout;
-        track.addEventListener('scroll', () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => {
-                const trackRect = track.getBoundingClientRect();
-                let nearestIndex = 0;
-                let minDistance = Infinity;
-
-                cards.forEach((card, index) => {
-                    const cardRect = card.getBoundingClientRect();
-                    const distance = Math.abs(cardRect.left - trackRect.left);
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        nearestIndex = index;
-                    }
-                });
-
-                if (nearestIndex !== currentIndex) {
-                    currentIndex = nearestIndex;
-                    updateButtons();
-                }
-            }, 100);
-        });
-
-        // Handle window resize
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                scrollToCard(currentIndex);
-            }, 100);
-        });
-
-        // Initialize
-        updateButtons();
-    }
-    
     // Initialize everything
     const init = () => {
         createMobileNav();
@@ -638,9 +483,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Setup the original text reveal animation
         initOriginalTextReveal();
 
-        // Initialize portfolio load more functionality
-        initPortfolioLoadMore();
-        initTestimonialsCarousel();
+        // Initialize testimonials carousel only if the container exists
+        const testimonialsContainer = document.querySelector('.testimonials .container .testimonials-container');
+        if (testimonialsContainer) {
+            initTestimonialsCarousel();
+        }
     };
     
     // Initialize original text reveal animation - restoring the original behavior

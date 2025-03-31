@@ -255,43 +255,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Portfolio Show More Logic ---
     const showMoreButton = document.getElementById('btn-show-more');
-    const initialHiddenCount = document.querySelectorAll('.portfolio-item.hidden').length;
+    const portfolioItems = Array.from(document.querySelectorAll('.portfolio-item'));
     const itemsToShowPerClick = 4; // How many items to reveal each time
+    const totalItems = portfolioItems.length;
 
-    if (showMoreButton && initialHiddenCount > 0) {
-        console.log('Show More button and hidden items found.');
-        // Ensure button is visible initially if there are hidden items
-        showMoreButton.style.display = 'inline-flex'; // Use appropriate display value for cta-button
+    if (showMoreButton && totalItems > 0) {
+        console.log('Portfolio initialization...', `Total items: ${totalItems}`);
+        
+        // First, hide all items
+        portfolioItems.forEach(item => item.classList.add('hidden'));
+        
+        // Then show first 4 items
+        portfolioItems.slice(0, itemsToShowPerClick).forEach(item => {
+            item.classList.remove('hidden');
+        });
+
+        // Show button only if there are more than 4 items
+        const buttonWrapper = showMoreButton.closest('.btn-load-more');
+        if (totalItems > itemsToShowPerClick) {
+            if (buttonWrapper) {
+                buttonWrapper.style.display = 'flex';
+                buttonWrapper.style.justifyContent = 'center';
+                buttonWrapper.style.marginTop = '2rem';
+            }
+            console.log(`Initially showing ${itemsToShowPerClick} items, ${totalItems - itemsToShowPerClick} items hidden`);
+        } else {
+            if (buttonWrapper) buttonWrapper.style.display = 'none';
+            console.log('All items visible initially, hiding button');
+        }
+
+        let currentlyShown = itemsToShowPerClick;
 
         showMoreButton.addEventListener('click', () => {
             console.log('Show More button clicked.');
-            const currentlyHiddenItems = document.querySelectorAll('.portfolio-item.hidden');
             
-            // Reveal the next batch
-            for (let i = 0; i < itemsToShowPerClick && i < currentlyHiddenItems.length; i++) {
-                currentlyHiddenItems[i].classList.remove('hidden');
-                console.log('Revealed item:', currentlyHiddenItems[i]);
-            }
-
-            // Check again if any items are still hidden
-            const remainingHidden = document.querySelectorAll('.portfolio-item.hidden');
-            if (remainingHidden.length === 0) {
-                // Hide the button after showing all items
-                showMoreButton.style.display = 'none'; 
-                console.log('All hidden items shown, button hidden.');
+            // Calculate start and end indices for next batch
+            const start = currentlyShown;
+            const end = Math.min(currentlyShown + itemsToShowPerClick, totalItems);
+            
+            console.log(`Revealing items ${start} to ${end}`);
+            
+            // Reveal next batch of items
+            portfolioItems.slice(start, end).forEach(item => {
+                item.classList.remove('hidden');
+            });
+            
+            // Update count of shown items
+            currentlyShown = end;
+            
+            // Hide button if we've shown all items
+            if (currentlyShown >= totalItems) {
+                if (buttonWrapper) buttonWrapper.style.display = 'none';
+                console.log('All items shown, hiding button');
             } else {
-                 // Ensure opacity remains 1 after a short delay (using setTimeout)
-                 setTimeout(() => {
-                    showMoreButton.style.setProperty('opacity', '1', 'important');
-                    console.log('Forcing opacity after delay');
-                 }, 50); // 50ms delay
+                console.log(`${totalItems - currentlyShown} items still hidden`);
             }
         });
-    } else if (showMoreButton) {
-        // If button exists but no hidden items initially, hide the button
-        showMoreButton.style.display = 'none'; 
-        console.log('No hidden portfolio items found initially, hiding Show More button.');
     } else {
-         console.log('Show More button not found.');
+        console.log('Portfolio initialization skipped - missing button or no items');
+        const buttonWrapper = showMoreButton?.closest('.btn-load-more');
+        if (buttonWrapper) buttonWrapper.style.display = 'none';
     }
 }); 

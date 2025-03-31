@@ -1847,7 +1847,7 @@ section.project-header h1 {
 .project-cta {
     padding: 180px 0 240px;
     text-align: left;
-    background-color: var(--background-light); /* Restore theme background */
+    background-color: var(--background-light);
 }
 
 .project-cta h1 {
@@ -1855,13 +1855,13 @@ section.project-header h1 {
     margin-bottom: 24px;
     font-weight: 600;
     line-height: 1.2;
-    color: var(--primary-color); /* Keep theme color */
+    color: var(--primary-color);
 }
 
 .project-cta p {
     font-size: 1.3rem;
     line-height: 1.6;
-    color: var(--dark-gray);
+    color: var(--text-color) !important;
     max-width: 760px;
     margin: 0 0 80px;
     font-family: var(--font-display);
@@ -1870,11 +1870,12 @@ section.project-header h1 {
 }
 
 .project-cta .cta-buttons {
-    display: initial; 
+    display: initial;
 }
 
 .project-cta-text-inter {
     font-family: var(--font-primary) !important;
+    color: var(--text-color) !important;
 }
 
 @media (max-width: 768px) {
@@ -1953,4 +1954,10 @@ main > nav.project-navigation .project-nav-link img {
 .portfolio-item.loading {
     opacity: 0;
     transform: translateY(20px);
+}
+
+/* Force visibility of Project CTA text on index page (override fade-in) */
+.project-cta p.project-cta-text-inter {
+    opacity: 1 !important;
+    transform: none !important;
 }
