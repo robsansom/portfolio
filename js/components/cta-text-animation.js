@@ -55,20 +55,27 @@ class CTATextAnimation extends HTMLElement {
         window.removeEventListener('resize', this.handleResize);
     }
 
+    get showButton() {
+        return true;
+    }
+
     setupAnimation() {
-        // Create the HTML structure
+        const buttonHtml = this.showButton ? `
+            <div class="hero-buttons">
+                <cta-button 
+                    href="mailto:design@rsansom.co.uk" 
+                    text="Get in Touch" 
+                    button-class="btn-dark">
+                </cta-button>
+            </div>
+        ` : '';
+
         this.innerHTML = `
             <div class="cta-content">
                 <h1>
                     <span class="cta-title">Let's bring your <span id="cta-flicker-word">vision</span> to life</span>
                 </h1>
-                <div class="hero-buttons">
-                    <cta-button 
-                        href="mailto:design@rsansom.co.uk" 
-                        text="Get in Touch" 
-                        button-class="btn-dark">
-                    </cta-button>
-                </div>
+                ${buttonHtml}
             </div>
         `;
 

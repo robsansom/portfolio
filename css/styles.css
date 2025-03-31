@@ -16,10 +16,10 @@
     --font-display: 'Poppins', 'Inter', sans-serif;
     
     /* Project placeholder colors */
-    --placeholder-1: #FFE5E5;
-    --placeholder-2: #E5FFE5;
-    --placeholder-3: #E5E5FF;
-    --placeholder-4: #FFFFE5;
+    --placeholder-1: #FFFFFF;
+    --placeholder-2: #FFFFFF;
+    --placeholder-3: #FFFFFF;
+    --placeholder-4: #FFFFFF;
     
     /* Container variables for standardized spacing */
     --container-padding-desktop: 40px;
@@ -145,10 +145,10 @@ body.dark-mode {
     /* Add any other general card adjustments for dark mode here */
 
     /* Project placeholder colors */
-    --placeholder-1: #FFD6D6;
-    --placeholder-2: #D6FFD6;
-    --placeholder-3: #D6D6FF;
-    --placeholder-4: #FFFFD6;
+    --placeholder-1: #FFFFFF;
+    --placeholder-2: #FFFFFF;
+    --placeholder-3: #FFFFFF;
+    --placeholder-4: #FFFFFF;
 }
 
 * {
@@ -1819,10 +1819,10 @@ section.project-header h1 {
 
 /* Dark mode adjustments for placeholders */
 body.dark-mode {
-    --placeholder-1: #FFD6D6;
-    --placeholder-2: #D6FFD6;
-    --placeholder-3: #D6D6FF;
-    --placeholder-4: #FFFFD6;
+    --placeholder-1: #FFFFFF;
+    --placeholder-2: #FFFFFF;
+    --placeholder-3: #FFFFFF;
+    --placeholder-4: #FFFFFF;
 }
 
 @media (max-width: 768px) {
