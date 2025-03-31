@@ -773,7 +773,7 @@ section {
 
     /* Increase specificity to ensure mobile override applies */
     .testimonials .container .testimonials-container .testimonials-track {
-        gap: 16px;
+        gap: 8px; /* Reduced gap for mobile */
         margin-left: 0;
         scroll-padding-left: 0 !important; /* Align snap point flush with track start */
         overflow-x: auto; /* Ensure track itself is scrollable */
