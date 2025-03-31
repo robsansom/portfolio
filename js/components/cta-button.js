@@ -18,6 +18,7 @@ class CTAButton extends HTMLElement {
     }
 
     render() {
+        console.log('cta-button rendering...');
         const href = this.getAttribute('href') || '#';
         const text = this.getAttribute('text') || 'Click Me';
         const buttonClass = this.getAttribute('button-class') || 'btn-dark';

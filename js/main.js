@@ -1,6 +1,51 @@
 // Main JavaScript file for portfolio site animations and interactions
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Dark Mode Toggle Logic (Android Style) ---
+    const themeToggleCheckbox = document.getElementById('theme-toggle-checkbox');
+    console.log('Theme toggle checkbox found:', themeToggleCheckbox);
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        if (themeToggleCheckbox) themeToggleCheckbox.checked = true;
+    }
+
+    // Function to set the toggle state based on current theme
+    const setToggleState = () => {
+        if (document.body.classList.contains('dark-mode')) {
+            themeToggleCheckbox.checked = true;
+        } else {
+            themeToggleCheckbox.checked = false;
+        }
+    };
+
+    if (themeToggleCheckbox) {
+        // Set initial toggle state on load based on body class
+        setToggleState(); 
+        console.log('Initial theme toggle state set.');
+
+        themeToggleCheckbox.addEventListener('change', () => {
+            console.log('Theme toggle changed!');
+
+            console.log('Body classes BEFORE toggle:', document.body.className);
+            // Toggle the .dark-mode class on the <body> element
+            document.body.classList.toggle('dark-mode');
+            console.log('Body classes AFTER toggle:', document.body.className);
+
+            // Determine the new theme state based on body class
+            let newTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+            console.log('New theme saved:', newTheme);
+
+            // Save the new theme preference to localStorage
+            localStorage.setItem('theme', newTheme);
+        });
+    } else {
+        console.error('Theme toggle checkbox element not found!');
+    }
+    // --- End Dark Mode Toggle Logic ---
+
     // Add a subtle parallax effect to the hero section
     const hero = document.querySelector('.hero');
     const heroButtons = document.querySelectorAll('.hero-buttons .btn');
@@ -359,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animate elements on scroll
     const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn:not(.btn-show-more), .testimonial-card, .hero-text, .project-cta p, .footer-brand, .footer-links, .footer-contact');
+        const elements = document.querySelectorAll('.portfolio-item, .pricing-card, .faq-item, h1, h2, h3, .btn:not(.btn-load-more):not(.btn-show-more), .testimonial-card, .hero-text, .project-cta p, .footer-brand, .footer-links, .footer-contact');
         
         elements.forEach(element => {
             const position = element.getBoundingClientRect();
@@ -623,10 +668,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add to scroll event
     window.addEventListener('scroll', () => {
-        handleHeroButtonsVisibility();
         animateOnScroll();
     });
 
     // Handle resize for responsive changes
-    window.addEventListener('resize', handleHeroButtonsVisibility);
+    window.addEventListener('resize', () => {
+        animateOnScroll();
+    });
 });
