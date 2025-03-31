@@ -765,12 +765,20 @@ section {
         display: none;
     }
 
-    .testimonials-track {
+    /* Mobile-specific rules for testimonials-container */
+    .testimonials-container {
+        margin-right: 0; /* Reset negative margin */
+        overflow: hidden; /* Contain the track */
+    }
+
+    /* Increase specificity to ensure mobile override applies */
+    .testimonials .container .testimonials-container .testimonials-track {
         gap: 16px;
         padding-left: 5%; /* Match container's 5% margin */
         padding-right: 16px; /* Ensure space for scroll peek */
         margin-left: 0;
-        scroll-padding-left: 5%; /* Match container's 5% margin for snap alignment */
+        scroll-padding-left: 5% !important; /* Use !important as a final measure to force override */
+        overflow-x: auto; /* Ensure track itself is scrollable */
     }
 
     .testimonials h1 {
@@ -1387,10 +1395,6 @@ section {
     .portfolio-footer {
         margin-top: 12px;
         padding: 0 4px;
-    }
-
-    .portfolio-title {
-        font-size: 1.25rem;
     }
 
     .testimonials h1,
