@@ -178,4 +178,73 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.warn('Theme toggle checkbox not found!');
     }
+
+    // Portfolio Show More Logic
+    const showMoreButton = document.getElementById('btn-show-more');
+    const portfolioItems = Array.from(document.querySelectorAll('.portfolio-item'));
+    const itemsToShowPerClick = 4; // Show 4 items at a time
+    const totalItems = portfolioItems.length;
+
+    if (showMoreButton && portfolioItems.length > 0) {
+        console.log('Portfolio initialization...', `Total items: ${totalItems}`);
+        
+        // First, hide all items
+        portfolioItems.forEach(item => {
+            item.style.display = 'none';
+            item.classList.add('hidden');
+        });
+        
+        // Then show first 4 items
+        portfolioItems.slice(0, itemsToShowPerClick).forEach(item => {
+            item.style.display = '';
+            item.classList.remove('hidden');
+        });
+
+        // Show button only if there are more than 4 items
+        const buttonWrapper = showMoreButton.closest('.btn-load-more');
+        if (totalItems > itemsToShowPerClick) {
+            if (buttonWrapper) {
+                buttonWrapper.style.display = 'flex';
+                buttonWrapper.style.justifyContent = 'center';
+                buttonWrapper.style.marginTop = '2rem';
+            }
+            console.log(`Initially showing ${itemsToShowPerClick} items, ${totalItems - itemsToShowPerClick} items hidden`);
+        } else {
+            if (buttonWrapper) buttonWrapper.style.display = 'none';
+            console.log('All items visible initially, hiding button');
+        }
+
+        let currentlyShown = itemsToShowPerClick;
+
+        showMoreButton.addEventListener('click', () => {
+            console.log('Show More button clicked.');
+            
+            // Calculate start and end indices for next batch
+            const start = currentlyShown;
+            const end = Math.min(currentlyShown + itemsToShowPerClick, totalItems);
+            
+            console.log(`Revealing items ${start} to ${end}`);
+            
+            // Reveal next batch of items
+            portfolioItems.slice(start, end).forEach(item => {
+                item.style.display = '';
+                item.classList.remove('hidden');
+            });
+            
+            // Update count of shown items
+            currentlyShown = end;
+            
+            // Hide button if we've shown all items
+            if (currentlyShown >= totalItems) {
+                if (buttonWrapper) buttonWrapper.style.display = 'none';
+                console.log('All items shown, hiding button');
+            } else {
+                console.log(`${totalItems - currentlyShown} items still hidden`);
+            }
+        });
+    } else {
+        console.log('Portfolio initialization skipped - missing button or no items');
+        const buttonWrapper = showMoreButton?.closest('.btn-load-more');
+        if (buttonWrapper) buttonWrapper.style.display = 'none';
+    }
 });
