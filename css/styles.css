@@ -770,7 +770,7 @@ section {
         padding-left: 0; /* Align start with container edge */
         padding-right: 16px; /* Ensure space for scroll peek, matching gap */
         margin-left: 0; /* Remove previous margin calculation */
-        /* scroll-padding-left: 0; /* Ensure snap aligns correctly - already 0 */
+        scroll-padding-left: 0; /* Override base style for correct mobile snap alignment */
     }
 
     .testimonials h1 {
