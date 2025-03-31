@@ -247,4 +247,81 @@ document.addEventListener('DOMContentLoaded', () => {
         const buttonWrapper = showMoreButton?.closest('.btn-load-more');
         if (buttonWrapper) buttonWrapper.style.display = 'none';
     }
+
+    // --- Testimonial Carousel Logic ---
+    const testimonialsTrack = document.querySelector('.testimonials-track');
+    const prevButton = document.querySelector('.testimonial-button.prev');
+    const nextButton = document.querySelector('.testimonial-button.next');
+    let testimonialCards = []; // Initialize as empty array
+
+    if (testimonialsTrack) {
+        testimonialCards = Array.from(testimonialsTrack.children); // Populate cards if track exists
+        console.log(`Found ${testimonialCards.length} testimonial cards.`);
+    }
+
+    let currentScroll = 0;
+
+    function updateButtons() {
+        if (!prevButton || !nextButton || !testimonialsTrack) return;
+        // Disable prev if at the beginning
+        prevButton.disabled = currentScroll <= 0;
+        // Disable next if at the end (or very close to it)
+        // Add a small buffer (e.g., 5px) to account for fractional pixel values
+        nextButton.disabled = currentScroll >= testimonialsTrack.scrollWidth - testimonialsTrack.clientWidth - 5;
+        console.log(`Scroll: ${currentScroll}, Max: ${testimonialsTrack.scrollWidth - testimonialsTrack.clientWidth}, Prev: ${prevButton.disabled}, Next: ${nextButton.disabled}`);
+    }
+
+    if (prevButton && nextButton && testimonialsTrack && testimonialCards.length > 0) {
+        console.log('Carousel buttons and track found.');
+        prevButton.addEventListener('click', () => {
+            // Calculate scroll amount based on the width of the first card + gap
+            const cardWidth = testimonialCards[0].offsetWidth;
+            const gap = parseInt(window.getComputedStyle(testimonialsTrack).gap) || 24; // Get gap or default
+            const scrollAmount = cardWidth + gap;
+            currentScroll = Math.max(0, currentScroll - scrollAmount);
+            testimonialsTrack.scrollTo({
+                left: currentScroll,
+                behavior: 'smooth'
+            });
+            console.log('Prev button clicked, scrolling left.');
+        });
+
+        nextButton.addEventListener('click', () => {
+            const cardWidth = testimonialCards[0].offsetWidth;
+            const gap = parseInt(window.getComputedStyle(testimonialsTrack).gap) || 24;
+            const scrollAmount = cardWidth + gap;
+            const maxScroll = testimonialsTrack.scrollWidth - testimonialsTrack.clientWidth;
+            currentScroll = Math.min(maxScroll, currentScroll + scrollAmount);
+            testimonialsTrack.scrollTo({
+                left: currentScroll,
+                behavior: 'smooth'
+            });
+            console.log('Next button clicked, scrolling right.');
+        });
+
+        // Update buttons on scroll end (using a timeout to approximate)
+        let scrollTimeout;
+        testimonialsTrack.addEventListener('scroll', () => {
+            currentScroll = testimonialsTrack.scrollLeft; // Update current scroll position
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                console.log('Scroll finished, updating buttons.');
+                updateButtons();
+            }, 150); // Adjust timeout as needed
+        });
+
+        // Initial button state update and on resize
+        updateButtons();
+        window.addEventListener('resize', () => {
+            console.log('Window resized, updating buttons.');
+            // Recalculate max scroll on resize might be needed if layout changes significantly
+            updateButtons();
+        });
+
+    } else {
+        console.warn('Testimonial carousel elements not found or no cards present.');
+        // Optionally hide buttons if carousel isn't fully set up
+        if (prevButton) prevButton.style.display = 'none';
+        if (nextButton) nextButton.style.display = 'none';
+    }
 });
