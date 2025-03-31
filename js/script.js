@@ -182,7 +182,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Portfolio Show More Logic
     const showMoreButton = document.getElementById('btn-show-more');
     const portfolioItems = Array.from(document.querySelectorAll('.portfolio-item'));
-    const itemsToShowPerClick = 4; // Show 4 items at a time
+    const isMobile = () => window.innerWidth <= 768;
+    const getItemsToShow = () => isMobile() ? 2 : 4; // Show 2 on mobile, 4 on desktop
     const totalItems = portfolioItems.length;
 
     if (showMoreButton && portfolioItems.length > 0) {
@@ -194,34 +195,35 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.add('hidden');
         });
         
-        // Then show first 4 items
-        portfolioItems.slice(0, itemsToShowPerClick).forEach(item => {
+        let currentlyShown = getItemsToShow();
+        
+        // Show initial items based on device
+        portfolioItems.slice(0, currentlyShown).forEach(item => {
             item.style.display = '';
             item.classList.remove('hidden');
         });
 
-        // Show button only if there are more than 4 items
+        // Show button only if there are more items to show
         const buttonWrapper = showMoreButton.closest('.btn-load-more');
-        if (totalItems > itemsToShowPerClick) {
+        if (totalItems > currentlyShown) {
             if (buttonWrapper) {
                 buttonWrapper.style.display = 'flex';
                 buttonWrapper.style.justifyContent = 'center';
                 buttonWrapper.style.marginTop = '2rem';
             }
-            console.log(`Initially showing ${itemsToShowPerClick} items, ${totalItems - itemsToShowPerClick} items hidden`);
+            console.log(`Initially showing ${currentlyShown} items, ${totalItems - currentlyShown} items hidden`);
         } else {
             if (buttonWrapper) buttonWrapper.style.display = 'none';
             console.log('All items visible initially, hiding button');
         }
 
-        let currentlyShown = itemsToShowPerClick;
-
         showMoreButton.addEventListener('click', () => {
             console.log('Show More button clicked.');
             
             // Calculate start and end indices for next batch
+            const itemsPerBatch = getItemsToShow(); // Get current batch size based on device
             const start = currentlyShown;
-            const end = Math.min(currentlyShown + itemsToShowPerClick, totalItems);
+            const end = Math.min(currentlyShown + itemsPerBatch, totalItems);
             
             console.log(`Revealing items ${start} to ${end}`);
             
@@ -240,6 +242,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('All items shown, hiding button');
             } else {
                 console.log(`${totalItems - currentlyShown} items still hidden`);
+            }
+        });
+
+        // Handle resize events to adjust visible items
+        window.addEventListener('resize', () => {
+            const newBatchSize = getItemsToShow();
+            console.log(`Window resized, new batch size: ${newBatchSize}`);
+            
+            // Only readjust if we're showing the initial batch
+            if (currentlyShown <= newBatchSize) {
+                currentlyShown = newBatchSize;
+                
+                // Hide all items first
+                portfolioItems.forEach(item => {
+                    item.style.display = 'none';
+                    item.classList.add('hidden');
+                });
+                
+                // Show the correct number of items
+                portfolioItems.slice(0, currentlyShown).forEach(item => {
+                    item.style.display = '';
+                    item.classList.remove('hidden');
+                });
+                
+                // Update button visibility
+                if (buttonWrapper) {
+                    buttonWrapper.style.display = totalItems > currentlyShown ? 'flex' : 'none';
+                }
             }
         });
     } else {
