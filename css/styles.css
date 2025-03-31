@@ -777,7 +777,7 @@ section {
         margin-left: 0;
         scroll-padding-left: 0 !important; /* Align snap point flush with track start */
         overflow-x: auto; /* Ensure track itself is scrollable */
-        scroll-snap-type: none; /* Disable scroll snapping on mobile to test animation conflict */
+        /* Scroll snapping is now controlled by the base rule */
     }
 
     .testimonials h1 {
@@ -2407,19 +2407,4 @@ To use this approach:
     .testimonial-card {
         flex-basis: 450px; /* Increase width slightly for desktop */
     }
-}
-
-@keyframes bounce-right {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(15px); /* Adjust bounce distance */
-  }
-}
-
-/* Apply bounce animation class only on mobile (768px and below) */
-.testimonial-card.animate-bounce-right {
-  animation: bounce-right 0.8s ease-out;
-  /* animation-delay: 0.2s; */ /* Optional: Add a small delay */
 }

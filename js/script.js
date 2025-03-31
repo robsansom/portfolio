@@ -90,36 +90,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Mobile Testimonial Scroll Hint Animation
+/* Removing Mobile Testimonial Scroll Hint Animation
+
 document.addEventListener('DOMContentLoaded', () => {
     const testimonialsSection = document.getElementById('testimonials');
     const firstTestimonialCard = document.querySelector('.testimonials-track .testimonial-card:first-child');
 
     if (!testimonialsSection || !firstTestimonialCard) {
         console.log('Testimonial elements not found for animation.');
-        return; // Exit if elements aren't found
+        return; 
     }
 
     const observerOptions = {
-        root: null, // relative to the viewport
+        root: null, 
         rootMargin: '0px',
-        threshold: 0.1 // Trigger when 10% of the section is visible
+        threshold: 0.1 
     };
 
     const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
-            // Check if the section is intersecting and if we're on a mobile screen (<= 768px)
             if (entry.isIntersecting && window.innerWidth <= 768) {
                 console.log('Testimonials in view on mobile, animating first card.');
                 firstTestimonialCard.classList.add('animate-bounce-right');
                 
-                // Optional: Remove class after animation completes to allow re-triggering if needed,
-                // or keep it to only run once ever per page load.
-                // setTimeout(() => {
-                //     firstTestimonialCard.classList.remove('animate-bounce-right');
-                // }, 800); // Match animation duration
-
-                // Stop observing after the first time it triggers
                 observer.unobserve(testimonialsSection);
             }
         });
@@ -127,8 +120,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const intersectionObserver = new IntersectionObserver(observerCallback, observerOptions);
 
-    // Delay observation slightly to ensure layout is stable
     setTimeout(() => {
         intersectionObserver.observe(testimonialsSection);
     }, 100);
 }); 
+
+*/ 
