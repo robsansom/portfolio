@@ -36,7 +36,7 @@ class CTATextAnimation extends HTMLElement {
         this.animationTimeout = null;
         this.typingSpeed = 100;
         this.deletingSpeed = 60;
-        this.pauseDuration = 2000;
+        this.pauseDuration = 1000;
     }
 
     connectedCallback() {
