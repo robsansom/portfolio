@@ -2408,3 +2408,18 @@ To use this approach:
         flex-basis: 450px; /* Increase width slightly for desktop */
     }
 }
+
+@keyframes bounce-right {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(15px); /* Adjust bounce distance */
+  }
+}
+
+/* Apply bounce animation class only on mobile (768px and below) */
+.testimonial-card.animate-bounce-right {
+  animation: bounce-right 0.8s ease-out;
+  /* animation-delay: 0.2s; */ /* Optional: Add a small delay */
+}
