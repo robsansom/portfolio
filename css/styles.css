@@ -776,7 +776,7 @@ section {
         gap: 16px;
         padding-right: 16px; /* Ensure space for scroll peek */
         margin-left: 0;
-        scroll-padding-left: 5% !important; /* Use !important as a final measure to force override */
+        scroll-padding-left: 0 !important; /* Align snap point flush with track start */
         overflow-x: auto; /* Ensure track itself is scrollable */
     }
 
