@@ -753,7 +753,7 @@ section {
 
 @media (max-width: 768px) {
     .testimonial-card {
-        flex: 0 0 80vw; /* Slightly reduced from 85vw to allow peek of next card */
+        flex: 0 0 85vw; /* Reverted to original width */
         padding: 30px;
     }
 
@@ -767,8 +767,10 @@ section {
 
     .testimonials-track {
         gap: 16px;
-        padding-left: 5%; /* Align with container margin */
-        padding-right: 5%; /* Reduced to ensure next card peek */
+        padding-left: 0; /* Align start with container edge */
+        padding-right: 16px; /* Ensure space for scroll peek, matching gap */
+        margin-left: 0; /* Remove previous margin calculation */
+        /* scroll-padding-left: 0; /* Ensure snap aligns correctly - already 0 */
     }
 
     .testimonials h1 {
