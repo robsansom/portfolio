@@ -1,7 +1,30 @@
 class CTATextAnimation extends HTMLElement {
     constructor() {
         super();
-        this.words = ['vision', 'concept', 'workflows', 'designs', 'product', 'brand', 'UI', 'research', 'brand', 'journeys', 'prototype'];
+        this.words = [
+            'vision',
+            'concept',
+            'designs',
+            'product',
+            'brand',
+            'UI',
+            'UX',
+            'research',
+            'journeys',
+            'prototype',
+            'apps',
+            'flows',
+            'sites',
+            'tools',
+            'code',
+            'style',
+            'plan',
+            'idea',
+            'brief',
+            'goals',
+            'needs',
+            'teams'
+        ];
         this.currentWordIndex = 0;
         this.charIndex = 0;
         this.isDeleting = false;
