@@ -588,6 +588,8 @@ section {
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 24px;
     padding-left: 0;
     padding-right: calc(50vw - 50%);
     margin: 0;

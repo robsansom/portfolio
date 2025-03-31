@@ -221,9 +221,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevButton = document.querySelector('.testimonial-button.prev');
     const nextButton = document.querySelector('.testimonial-button.next');
     const cards = document.querySelectorAll('.testimonial-card');
-    let currentIndex = 0;
+    // let currentIndex = 0; // Original state variable
 
     if (track && prevButton && nextButton) {
+
+        /* === START: ORIGINAL SCROLL LOGIC (Temporarily Commented Out) ===
+        // Original state variable
+        let currentIndex = 0;
+
         // Update button states - always enabled for continuous scrolling
         const updateButtons = () => {
             prevButton.disabled = false;
@@ -241,29 +246,36 @@ document.addEventListener('DOMContentLoaded', function() {
                 // If we're at the last card, show it first, then reset to first after a short delay
                 if (index === cards.length - 1) {
                     const lastCard = cards[cards.length - 1];
-                    track.scrollLeft = lastCard.offsetLeft - track.offsetLeft;
+                    track.scrollLeft = lastCard.offsetLeft - track.offsetLeft; // Scroll to last card
                     currentIndex = cards.length - 1;
-                    
+
                     // After showing the last card briefly, go back to the first
                     setTimeout(() => {
                         const firstCard = cards[0];
-                        track.scrollLeft = firstCard.offsetLeft - track.offsetLeft;
+                        track.scrollLeft = firstCard.offsetLeft - track.offsetLeft; // Scroll to first card
                         currentIndex = 0;
-                    }, 500);
-                    return;
-                } else {
-                    // We're past the last card, reset to first
+                        updateButtons();
+                    }, 1500); // Delay before looping back
+
+                } else { // index > cards.length -1, loop back to start immediately
                     index = 0;
+                    const firstCard = cards[0];
+                     track.scrollLeft = firstCard.offsetLeft - track.offsetLeft; // Scroll to first card
+                     currentIndex = 0;
+                }
+
+            } else {
+                // Scroll to the target card
+                const targetCard = cards[index];
+                if (targetCard) {
+                     track.scrollLeft = targetCard.offsetLeft - track.offsetLeft;
+                     currentIndex = index;
                 }
             }
-
-            // Regular scrolling
-            const card = cards[index];
-            track.scrollLeft = card.offsetLeft - track.offsetLeft;
-            currentIndex = index;
+             updateButtons(); // Update buttons after scroll action
         };
 
-        // Button click handlers
+        // Event listeners for buttons
         prevButton.addEventListener('click', () => {
             scrollToCard(currentIndex - 1);
         });
@@ -272,8 +284,39 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollToCard(currentIndex + 1);
         });
 
-        // Initialize
+        // Initial button state
         updateButtons();
+        === END: ORIGINAL SCROLL LOGIC === */
+
+        // === START: SIMPLIFIED SCROLL LOGIC (For Testing CSS Snapping) ===
+        function updateSimpleButtons() {
+            const scrollLeft = track.scrollLeft;
+            const scrollWidth = track.scrollWidth;
+            const clientWidth = track.clientWidth;
+            
+            prevButton.disabled = scrollLeft <= 0;
+            nextButton.disabled = scrollLeft >= (scrollWidth - clientWidth - 1); // Allow for rounding errors
+
+            prevButton.style.opacity = prevButton.disabled ? '0.15' : '1';
+            nextButton.style.opacity = nextButton.disabled ? '0.15' : '1';
+        }
+
+        prevButton.addEventListener('click', () => {
+            const cardWidth = cards[0] ? cards[0].offsetWidth : 400; // Get width or fallback
+            const gap = 24; // Match CSS gap
+            track.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+        });
+
+        nextButton.addEventListener('click', () => {
+            const cardWidth = cards[0] ? cards[0].offsetWidth : 400;
+            const gap = 24;
+            track.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+        });
+
+        // Update buttons initially and on scroll
+        track.addEventListener('scroll', updateSimpleButtons, { passive: true });
+        updateSimpleButtons();
+        // === END: SIMPLIFIED SCROLL LOGIC ===
     }
     
     // Add fade-in animation styles
