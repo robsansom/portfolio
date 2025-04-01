@@ -1103,7 +1103,7 @@ body.dark-mode .slider:before {
         grid-template-columns: 1fr;
         gap: 32px;
         margin-top: 32px;
-        margin-bottom: 4rem; /* Add space after the grid */
+        margin-bottom: 6rem !important; /* Increase space after portfolio grid */
     }
 
     .portfolio-item {
@@ -1183,32 +1183,11 @@ body.dark-mode .slider:before {
     }
 
     .btn-load-more {
-        margin-bottom: 6rem; /* Increased from 4rem to 6rem */
-    }
-
-    .portfolio-title {
-        font-size: 1.15rem; /* Reduced from 1.35rem */
-    }
-
-    .testimonials h1 {
-        margin-bottom: 2rem; /* Reduce space between title and testimonial cards */
-    }
-
-    .portfolio {
-        padding-bottom: 0 !important; /* Remove bottom padding from portfolio section */
-    }
-
-    .load-more {
-        margin-top: 0; /* Remove top margin since we added it to grid */
-        margin-bottom: 3rem; /* Reduce space after Show More button */
+        margin: 0; /* Reset all margins */
     }
 
     .testimonials {
-        padding-top: 0; /* Remove top padding since we control space with margin-bottom above */
-    }
-
-    .cta-content {
-        margin-bottom: 8rem; /* Increase space above footer */
+        padding-top: 3rem; /* Add some padding to testimonials section */
     }
 }
 
@@ -1663,7 +1642,7 @@ body.dark-mode .slider:before {
         grid-template-columns: 1fr;
         gap: 32px;
         margin-top: 32px;
-        margin-bottom: 4rem; /* Add space after the grid */
+        margin-bottom: 6rem !important; /* Increase space after portfolio grid */
     }
 
     .portfolio-item {
@@ -1720,32 +1699,11 @@ body.dark-mode .slider:before {
     }
 
     .btn-load-more {
-        margin-bottom: 6rem; /* Increased from 4rem to 6rem */
-    }
-
-    .portfolio-title {
-        font-size: 1.15rem; /* Reduced from 1.35rem */
-    }
-
-    .testimonials h1 {
-        margin-bottom: 2rem; /* Reduce space between title and testimonial cards */
-    }
-
-    .portfolio {
-        padding-bottom: 0 !important; /* Remove bottom padding from portfolio section */
-    }
-
-    .load-more {
-        margin-top: 0; /* Remove top margin since we added it to grid */
-        margin-bottom: 3rem; /* Reduce space after Show More button */
+        margin: 0; /* Reset all margins */
     }
 
     .testimonials {
-        padding-top: 0; /* Remove top padding since we control space with margin-bottom above */
-    }
-
-    .cta-content {
-        margin-bottom: 8rem; /* Increase space above footer */
+        padding-top: 3rem; /* Add some padding to testimonials section */
     }
 }
 
