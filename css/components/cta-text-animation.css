@@ -37,9 +37,14 @@
 @media (max-width: 480px) {
     .cta-content {
         min-height: unset;
-        height: 150px;
-        gap: 1.5rem;
-        justify-content: center;
-        padding: 0;
+        height: unset;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .cta-title {
+        margin-bottom: 0;
     }
 } 
