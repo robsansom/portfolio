@@ -1103,7 +1103,7 @@ body.dark-mode .slider:before {
         grid-template-columns: 1fr;
         gap: 32px;
         margin-top: 32px;
-        margin-bottom: 4rem !important; /* Reduced from 6rem to 4rem */
+        margin-bottom: 2rem !important; /* Reduced from 4rem to 2rem */
     }
 
     .portfolio-item {
@@ -1646,7 +1646,7 @@ body.dark-mode .slider:before {
         grid-template-columns: 1fr;
         gap: 32px;
         margin-top: 32px;
-        margin-bottom: 4rem !important; /* Reduced from 6rem to 4rem */
+        margin-bottom: 2rem !important; /* Reduced from 4rem to 2rem */
     }
 
     .portfolio-item {
