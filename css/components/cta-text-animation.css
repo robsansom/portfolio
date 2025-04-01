@@ -36,6 +36,6 @@
 
 @media (max-width: 480px) {
     .cta-content {
-        min-height: 200px;
+        min-height: auto;
     }
 } 
