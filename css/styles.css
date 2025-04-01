@@ -1536,12 +1536,12 @@ body.dark-mode .slider:before {
     .footer-mobile .social-icon {
         width: 40px;
         height: 40px;
-        background: #000;
+        background: var(--primary-color);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #fff !important;
+        color: var(--secondary-color) !important;
         transition: transform 0.3s ease;
     }
 
