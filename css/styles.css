@@ -1103,6 +1103,7 @@ body.dark-mode .slider:before {
         grid-template-columns: 1fr;
         gap: 32px;
         margin-top: 32px;
+        margin-bottom: 4rem; /* Add space after the grid */
     }
 
     .portfolio-item {
@@ -1198,8 +1199,12 @@ body.dark-mode .slider:before {
     }
 
     .load-more {
-        margin-top: 40px;
-        margin-bottom: 6rem; /* Add significant space after Show More button */
+        margin-top: 0; /* Remove top margin since we added it to grid */
+        margin-bottom: 3rem; /* Reduce space after Show More button */
+    }
+
+    .testimonials {
+        padding-top: 0; /* Remove top padding since we control space with margin-bottom above */
     }
 
     .cta-content {
@@ -1658,6 +1663,7 @@ body.dark-mode .slider:before {
         grid-template-columns: 1fr;
         gap: 32px;
         margin-top: 32px;
+        margin-bottom: 4rem; /* Add space after the grid */
     }
 
     .portfolio-item {
@@ -1730,8 +1736,12 @@ body.dark-mode .slider:before {
     }
 
     .load-more {
-        margin-top: 40px;
-        margin-bottom: 6rem; /* Add significant space after Show More button */
+        margin-top: 0; /* Remove top margin since we added it to grid */
+        margin-bottom: 3rem; /* Reduce space after Show More button */
+    }
+
+    .testimonials {
+        padding-top: 0; /* Remove top padding since we control space with margin-bottom above */
     }
 
     .cta-content {
