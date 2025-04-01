@@ -1198,6 +1198,10 @@ body.dark-mode .slider:before {
     .testimonials h1 {
         margin-bottom: 2rem !important; /* Force smaller gap between title and cards */
     }
+
+    .portfolio-title {
+        font-size: 1.15rem; /* Reduced from default 1.35rem */
+    }
 }
 
 /* Reputation Section */
@@ -1717,6 +1721,10 @@ body.dark-mode .slider:before {
 
     .testimonials h1 {
         margin-bottom: 2rem !important; /* Force smaller gap between title and cards */
+    }
+
+    .portfolio-title {
+        font-size: 1.15rem; /* Reduced from default 1.35rem */
     }
 }
 
