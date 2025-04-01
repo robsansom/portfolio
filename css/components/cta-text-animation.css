@@ -37,5 +37,8 @@
 @media (max-width: 480px) {
     .cta-content {
         min-height: auto;
+        gap: 2rem;
+        justify-content: flex-start;
+        padding-top: 2rem;
     }
 } 
