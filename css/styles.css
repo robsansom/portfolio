@@ -1502,7 +1502,7 @@ body.dark-mode .slider:before {
         display: flex;
         flex-direction: column;
         gap: 24px;
-        width: calc(100% - (var(--container-padding-mobile) * 2)) !important;
+        width: calc(100% - 48px) !important;  /* 24px padding on each side */
         max-width: 1044px;
         margin: 0 auto;
         padding: 0;
