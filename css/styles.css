@@ -1180,6 +1180,14 @@ body.dark-mode .slider:before {
     .view-project {
         gap: 0; /* Remove gap when text is hidden */
     }
+
+    .btn-load-more {
+        margin-bottom: 4rem; /* Add more space below Show More button */
+    }
+
+    .testimonials h1 {
+        margin-bottom: 2rem; /* Reduce space between title and testimonial cards */
+    }
 }
 
 /* Reputation Section */
@@ -1686,6 +1694,14 @@ body.dark-mode .slider:before {
     /* Adjust gap for icon-only on mobile */
     .view-project {
         gap: 0; /* Remove gap when text is hidden */
+    }
+
+    .btn-load-more {
+        margin-bottom: 4rem; /* Add more space below Show More button */
+    }
+
+    .testimonials h1 {
+        margin-bottom: 2rem; /* Reduce space between title and testimonial cards */
     }
 }
 
