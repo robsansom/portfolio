@@ -1182,7 +1182,11 @@ body.dark-mode .slider:before {
     }
 
     .btn-load-more {
-        margin-bottom: 4rem; /* Add more space below Show More button */
+        margin-bottom: 6rem; /* Increased from 4rem to 6rem */
+    }
+
+    .portfolio-title {
+        font-size: 1.15rem; /* Reduced from 1.35rem */
     }
 
     .testimonials h1 {
@@ -1697,7 +1701,11 @@ body.dark-mode .slider:before {
     }
 
     .btn-load-more {
-        margin-bottom: 4rem; /* Add more space below Show More button */
+        margin-bottom: 6rem; /* Increased from 4rem to 6rem */
+    }
+
+    .portfolio-title {
+        font-size: 1.15rem; /* Reduced from 1.35rem */
     }
 
     .testimonials h1 {
