@@ -14,7 +14,6 @@ class CTATextAnimation extends HTMLElement {
             'prototype',
             'apps',
             'flows',
-            'sites',
             'tools',
             'code',
             'style',
