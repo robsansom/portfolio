@@ -1192,6 +1192,19 @@ body.dark-mode .slider:before {
     .testimonials h1 {
         margin-bottom: 2rem; /* Reduce space between title and testimonial cards */
     }
+
+    .portfolio {
+        padding-bottom: 0 !important; /* Remove bottom padding from portfolio section */
+    }
+
+    .load-more {
+        margin-top: 40px;
+        margin-bottom: 6rem; /* Add significant space after Show More button */
+    }
+
+    .cta-content {
+        margin-bottom: 8rem; /* Increase space above footer */
+    }
 }
 
 /* Reputation Section */
@@ -1710,6 +1723,19 @@ body.dark-mode .slider:before {
 
     .testimonials h1 {
         margin-bottom: 2rem; /* Reduce space between title and testimonial cards */
+    }
+
+    .portfolio {
+        padding-bottom: 0 !important; /* Remove bottom padding from portfolio section */
+    }
+
+    .load-more {
+        margin-top: 40px;
+        margin-bottom: 6rem; /* Add significant space after Show More button */
+    }
+
+    .cta-content {
+        margin-bottom: 8rem; /* Increase space above footer */
     }
 }
 
