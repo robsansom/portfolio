@@ -1987,7 +1987,7 @@ body.dark-mode {
 
 @media (max-width: 768px) {
     .project-cta {
-        padding: 60px 0 80px; /* Mobile-specific reduced padding */
+        padding: 100px 0 120px; /* Increased from 60px 0 80px */
     }
 
     .project-cta h1 {
