@@ -1067,10 +1067,15 @@ body.dark-mode .slider:before {
 
 @media (max-width: 480px) {
     .hero {
-        padding: 30px 0 40px !important;
-        position: relative;
-        z-index: 3;
-        background-color: var(--background-light);
+        padding: 30px 0 20px !important; /* Reduced from 30px 0 40px */
+    }
+
+    .portfolio {
+        padding: 40px 0 96px !important; /* Reduced top padding from 72px */
+    }
+
+    .hero-buttons {
+        margin: 30px 0 0 0; /* Reduced from 40px */
     }
 
     .container,
