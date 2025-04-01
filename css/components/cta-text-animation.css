@@ -36,18 +36,20 @@
 
 @media (max-width: 480px) {
     .cta-content {
+        position: relative;
         min-height: unset;
         height: auto;
-        max-height: 200px;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        margin: 1rem 0;
-        padding: 1rem 0;
-        justify-content: flex-start;
+        max-height: unset;
+        display: block;
+        margin: 0;
+        padding: 0;
     }
 
     .cta-title {
-        margin-bottom: 0;
+        margin-bottom: 2rem;
+    }
+
+    .cta-content .hero-buttons {
+        margin-top: 1rem;
     }
 } 
