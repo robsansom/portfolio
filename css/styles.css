@@ -1103,7 +1103,7 @@ body.dark-mode .slider:before {
         grid-template-columns: 1fr;
         gap: 32px;
         margin-top: 32px;
-        margin-bottom: 6rem !important; /* Increase space after portfolio grid */
+        margin-bottom: 4rem !important; /* Reduced from 6rem to 4rem */
     }
 
     .portfolio-item {
@@ -1183,11 +1183,15 @@ body.dark-mode .slider:before {
     }
 
     .btn-load-more {
-        margin: 0; /* Reset all margins */
+        margin: 0 0 2rem 0; /* Add bottom margin */
     }
 
     .testimonials {
-        padding-top: 3rem; /* Add some padding to testimonials section */
+        padding-top: 2rem; /* Reduced from 3rem */
+    }
+
+    .testimonials h1 {
+        margin-bottom: 2rem !important; /* Force smaller gap between title and cards */
     }
 }
 
@@ -1642,7 +1646,7 @@ body.dark-mode .slider:before {
         grid-template-columns: 1fr;
         gap: 32px;
         margin-top: 32px;
-        margin-bottom: 6rem !important; /* Increase space after portfolio grid */
+        margin-bottom: 4rem !important; /* Reduced from 6rem to 4rem */
     }
 
     .portfolio-item {
@@ -1699,11 +1703,15 @@ body.dark-mode .slider:before {
     }
 
     .btn-load-more {
-        margin: 0; /* Reset all margins */
+        margin: 0 0 2rem 0; /* Add bottom margin */
     }
 
     .testimonials {
-        padding-top: 3rem; /* Add some padding to testimonials section */
+        padding-top: 2rem; /* Reduced from 3rem */
+    }
+
+    .testimonials h1 {
+        margin-bottom: 2rem !important; /* Force smaller gap between title and cards */
     }
 }
 
