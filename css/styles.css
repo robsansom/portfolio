@@ -1984,45 +1984,71 @@ body.dark-mode {
     }
 }
 
-/* Increased Specificity for Project Navigation */
-main > nav.project-navigation {
+/* Project Navigation Styles */
+.project-navigation {
     padding: 8px 0 60px;
     background-color: var(--background-light);
     border-top: 0px solid rgba(0, 0, 0, 0.1);
 }
 
-main > nav.project-navigation .container {
+.project-navigation .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     width: 90% !important;
     max-width: 1044px;
     margin: 0 auto;
     padding: 0;
+    gap: 16px;
 }
 
-main > nav.project-navigation .project-nav-link {
+.project-nav-link {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: none;
+    color: var(--secondary-color);
+    cursor: pointer;
     display: flex;
     align-items: center;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--primary-color);
-    transition: opacity 0.3s ease;
-    gap: 4px;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    z-index: 2;
+    text-decoration: none;
 }
 
-main > nav.project-navigation .project-nav-link:hover {
-    opacity: 0.8;
+.project-nav-link img {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    filter: invert(1);
+    opacity: 1;
+    transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
-main > nav.project-navigation .project-nav-link.prev img {
+.project-nav-link.prev img {
     transform: rotate(180deg);
 }
 
-main > nav.project-navigation .project-nav-link img {
-    width: 24px;
-    height: 24px;
-    transition: filter 0.3s ease;
+.project-nav-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .project-nav-link {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .project-nav-link img {
+    filter: none;
+    opacity: 1;
 }
 
 /* Portfolio Load More Styles */
