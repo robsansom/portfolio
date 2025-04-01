@@ -37,11 +37,14 @@
 @media (max-width: 480px) {
     .cta-content {
         min-height: unset;
-        height: unset;
+        height: auto;
+        max-height: 200px;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
-        margin: 2rem 0;
+        gap: 1.5rem;
+        margin: 1rem 0;
+        padding: 1rem 0;
+        justify-content: flex-start;
     }
 
     .cta-title {
