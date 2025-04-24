@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+Local Server 
+To start a local development server for this project from the root directory (`/Users/MummyDaddy/My Projects/Code Projects/Portfolio`), run the following command in your terminal: python3 -m http.server 8000 
+This command uses Python 3's built-in `http.server` module to serve the files in the current directory. You can then access the site at `http://localhost:8000` in your browser.
