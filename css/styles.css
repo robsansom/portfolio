@@ -1771,7 +1771,7 @@ section.project-header h1 {
     font-weight: 400;
     letter-spacing: -0.02em;
     color: var(--dark-gray);
-    max-width: 760px;
+    max-width: 800px;
 }
 
 /* Text fade-in animation for project page */
@@ -1796,7 +1796,7 @@ section.project-header h1 {
 
 .project-description {
     padding-right: 60px;
-    max-width: 760px;
+    max-width: 800px;
     margin-bottom: 12px;
 }
 
@@ -1991,7 +1991,7 @@ body.dark-mode {
     font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: -0.02em;
-    max-width: 760px;
+    max-width: 800px;
 }
 
 .project-cta .hero-text-inter {
