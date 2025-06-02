@@ -1881,6 +1881,18 @@ section.project-header h1 {
     transform: scale(1.02);
 }
 
+@media (max-width: 768px) {
+    .project-gallery {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    .project-image:hover, .project-video:hover {
+        transform: none;
+    }
+}
+
 /* Dark mode adjustments for placeholders */
 body.dark-mode {
     --placeholder-1: #FFFFFF;
@@ -1893,7 +1905,7 @@ body.dark-mode {
     .project-gallery {
         grid-template-columns: 1fr;
         gap: 24px;
-        margin: 40px 0 24px;
+        margin-top: 40px;
     }
 
     .project-image {
