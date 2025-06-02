@@ -572,8 +572,8 @@ body.dark-mode .slider:before {
 }
 
 .hero-text {
-    font-size: 1.3rem;
-    line-height: 1.7;
+    font-size: 1.35rem;
+    line-height: 1.6;
     color: var(--dark-gray);
     margin-top: 24px;
     margin-bottom: 80px;
@@ -584,7 +584,7 @@ body.dark-mode .slider:before {
 }
 
 .hero-text-inter {
-    font-family: var(--font-primary) !important;
+    font-family: var(--font-display) !important;
 }
 
 .hero-buttons {
@@ -2007,7 +2007,7 @@ body.dark-mode {
 }
 
 .project-cta .hero-text-inter {
-    font-family: var(--font-primary) !important;
+    font-family: var(--font-display) !important;
 }
 
 .project-cta .hero-buttons {
