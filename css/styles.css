@@ -1035,7 +1035,12 @@ body.dark-mode .slider:before {
 
     .hero-text {
         font-size: 1.2rem; /* Updated mobile size */
-        line-height: 1.7;
+        margin-top: 16px;
+        margin-bottom: 40px;
+    }
+
+    .hero-mobile-break {
+        display: block; /* Force line break on mobile */
     }
 
     .hero-title-light {
@@ -1177,6 +1182,10 @@ body.dark-mode .slider:before {
         font-size: 1.2rem; /* Updated mobile size */
         margin-top: 16px;
         margin-bottom: 40px;
+    }
+
+    .hero-mobile-break {
+        display: block; /* Force line break on mobile */
     }
 
     .view-label-text {
@@ -1707,6 +1716,10 @@ body.dark-mode .slider:before {
         margin-bottom: 40px;
     }
 
+    .hero-mobile-break {
+        display: block; /* Force line break on mobile */
+    }
+
     .view-label-text {
         display: none; /* Hide 'View' text on small mobile */
     }
@@ -2123,4 +2136,9 @@ body.dark-mode .project-nav-link img {
 .project-cta p.project-cta-text-inter {
     opacity: 1 !important;
     transform: none !important;
+}
+
+/* Hero mobile break - default inline for desktop */
+.hero-mobile-break {
+    display: inline;
 }
