@@ -1868,8 +1868,6 @@ section.project-header h1 {
     transition: transform 0.3s ease;
     position: relative;
     width: 100%;
-    background-color: var(--placeholder-1);
-    min-height: 200px;  /* Added minimum height */
 }
 
 .project-image img {
