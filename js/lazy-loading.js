@@ -60,20 +60,21 @@ class LazyLoader {
         // Observe lazy images
         const lazyImages = document.querySelectorAll('img[data-src]');
         lazyImages.forEach(img => {
+            // Add loading class immediately to show loading state
+            img.classList.add('loading');
             this.imageObserver.observe(img);
         });
 
         // Observe lazy videos
         const lazyVideos = document.querySelectorAll('video[data-src]');
         lazyVideos.forEach(video => {
+            // Add loading class immediately to show loading state
+            video.classList.add('loading');
             this.videoObserver.observe(video);
         });
     }
 
-    loadImage(img) {
-        // Add loading class for potential styling
-        img.classList.add('loading');
-        
+    loadImage(img) {        
         // Create new image to preload
         const imageLoader = new Image();
         
@@ -108,14 +109,17 @@ class LazyLoader {
     }
 
     loadVideo(video) {
-        // Add loading class
-        video.classList.add('loading');
-        
         // Load video source
         const source = video.querySelector('source[data-src]');
         if (source) {
             source.src = source.dataset.src;
             delete source.dataset.src;
+        }
+        
+        // Set video src if it has data-src directly
+        if (video.dataset.src) {
+            video.src = video.dataset.src;
+            delete video.dataset.src;
         }
         
         // Load the video
@@ -137,7 +141,7 @@ class LazyLoader {
         video.addEventListener('error', () => {
             video.classList.remove('loading');
             video.classList.add('error');
-            console.warn('Failed to load video:', source?.dataset.src || 'unknown source');
+            console.warn('Failed to load video:', source?.dataset.src || video.dataset.src || 'unknown source');
         }, { once: true });
     }
 
@@ -149,6 +153,8 @@ class LazyLoader {
         lazyImages.forEach(img => {
             img.src = img.dataset.src;
             delete img.dataset.src;
+            img.classList.remove('loading');
+            img.classList.add('loaded');
         });
         
         lazyVideos.forEach(video => {
@@ -156,8 +162,14 @@ class LazyLoader {
             if (source) {
                 source.src = source.dataset.src;
                 delete source.dataset.src;
-                video.load();
             }
+            if (video.dataset.src) {
+                video.src = video.dataset.src;
+                delete video.dataset.src;
+            }
+            video.load();
+            video.classList.remove('loading');
+            video.classList.add('loaded');
         });
     }
 }
