@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/styles.css?v=1.8.8">
     <link rel="stylesheet" href="../css/components/cta-button.css">
     <link rel="stylesheet" href="../css/components/footer.css">
+    <link rel="stylesheet" href="../css/components/lazy-loading.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
@@ -77,37 +78,43 @@
                         <img src="../images/Remix_0.png" alt="Telefónica Remix platform overview">
                     </div>
                     <div class="project-image">
-                        <video src="../images/Remix_1.mp4" alt="Telefónica Remix interactive demo" autoplay loop muted playsinline></video>
+                        <video data-src="../images/Remix_1.mp4" alt="Telefónica Remix interactive demo" autoplay loop muted playsinline>
+                            <source data-src="../images/Remix_1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class="project-image">
-                        <img src="../images/Remix_2.png" alt="Telefónica Remix mobile app onboarding flow showing account creation and consent screens">
+                        <img data-src="../images/Remix_2.png" alt="Telefónica Remix mobile app onboarding flow showing account creation and consent screens">
                     </div>
                     <div class="project-image">
-                        <img src="../images/Remix_3.png" alt="Telefónica Remix mobile app user profile setup with personalization and interest selection">
+                        <img data-src="../images/Remix_3.png" alt="Telefónica Remix mobile app user profile setup with personalization and interest selection">
                     </div>
                     <div class="project-image">
-                        <img src="../images/Remix_4.png" alt="Telefónica Remix mobile app wellness features showing mood tracking and activity recommendations">
+                        <img data-src="../images/Remix_4.png" alt="Telefónica Remix mobile app wellness features showing mood tracking and activity recommendations">
                     </div>
                     <div class="project-image">
-                        <img src="../images/Remix_5.0.png" alt="Telefónica Remix mobile app additional features and functionality screens">
+                        <img data-src="../images/Remix_5.0.png" alt="Telefónica Remix mobile app additional features and functionality screens">
                     </div>
                     <div class="project-image">
-                        <img src="../images/Remix_5.1.png" alt="Telefónica Remix mobile app experience cards featuring personalized activity recommendations with colorful UI">
+                        <img data-src="../images/Remix_5.1.png" alt="Telefónica Remix mobile app experience cards featuring personalized activity recommendations with colorful UI">
                     </div>
                     <div class="project-image">
-                        <img src="../images/Remix_5.2.png" alt="Telefónica Remix mobile app benefits and steps interface showing guided user experience flow">
+                        <img data-src="../images/Remix_5.2.png" alt="Telefónica Remix mobile app benefits and steps interface showing guided user experience flow">
                     </div>
                     <div class="project-image">
-                        <img src="../images/Remix_5.3.png" alt="Telefónica Remix mobile app activity discovery screens with customizable experience cards and filtering options">
+                        <img data-src="../images/Remix_5.3.png" alt="Telefónica Remix mobile app activity discovery screens with customizable experience cards and filtering options">
                     </div>
                     <div class="project-image">
-                        <video src="../images/Remix_5.4.mp4" alt="Telefónica Remix mobile app interaction demo showing seamless user experience flow and animation transitions" autoplay loop muted playsinline></video>
+                        <video data-src="../images/Remix_5.4.mp4" alt="Telefónica Remix mobile app interaction demo showing seamless user experience flow and animation transitions" autoplay loop muted playsinline>
+                            <source data-src="../images/Remix_5.4.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class="project-image">
-                        <img src="../images/Remix_6.png" alt="Telefónica Remix brand identity and logo variations in colorful block design">
+                        <img data-src="../images/Remix_6.png" alt="Telefónica Remix brand identity and logo variations in colorful block design">
                     </div>
                     <div class="project-image">
-                        <img src="../images/Remix_7.png" alt="Telefónica Remix dynamic logo system with color-coded activity categories">
+                        <img data-src="../images/Remix_7.png" alt="Telefónica Remix dynamic logo system with color-coded activity categories">
                     </div>
                     <!-- Temporarily hidden images -->
                     <!--
@@ -140,16 +147,16 @@
                     </div>
                     -->
                     <div class="project-image">
-                        <img src="../images/Remix_17.png" alt="Telefónica Remix branded merchandise including canvas tote bags with logo variations">
+                        <img data-src="../images/Remix_17.png" alt="Telefónica Remix branded merchandise including canvas tote bags with logo variations">
                     </div>
                     <div class="project-image">
-                        <img src="../images/Remix_18.png" alt="Telefónica Remix retro-style cassette tape design showcasing brand identity and messaging">
+                        <img data-src="../images/Remix_18.png" alt="Telefónica Remix retro-style cassette tape design showcasing brand identity and messaging">
                     </div>
                     <div class="project-image">
-                        <img src="../images/Remix_19.png" alt="Telefónica Remix comprehensive brand system overview showing logo applications and color variations">
+                        <img data-src="../images/Remix_19.png" alt="Telefónica Remix comprehensive brand system overview showing logo applications and color variations">
                     </div>
                     <div class="project-image">
-                        <img src="../images/Remix_20.png" alt="Telefónica Remix complete brand identity system with multiple logo treatments and applications">
+                        <img data-src="../images/Remix_20.png" alt="Telefónica Remix complete brand identity system with multiple logo treatments and applications">
                     </div>
                 </div>
             </div>
@@ -218,6 +225,7 @@
     <script src="../js/script.js"></script>
     <script src="../js/components/cta-button.js"></script>
     <script src="../js/components/cta-text-animation.js"></script>
+    <script src="../js/lazy-loading.js"></script>
     <link rel="stylesheet" href="../css/components/cta-text-animation.css">
 </body>
 </html> 

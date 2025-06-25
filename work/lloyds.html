@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/styles.css?v=1.8.8">
     <link rel="stylesheet" href="../css/components/cta-button.css">
     <link rel="stylesheet" href="../css/components/footer.css">
+    <link rel="stylesheet" href="../css/components/lazy-loading.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
@@ -77,22 +78,22 @@
                         <img src="../images/Lloyds_0.png" alt="Lloyds Bank logo">
                     </div>
                     <div class="project-image">
-                        <video autoplay muted loop playsinline>
-                            <source src="../images/Lloyds_1.mp4" type="video/mp4">
+                        <video autoplay muted loop playsinline data-src="../images/Lloyds_1.mp4">
+                            <source data-src="../images/Lloyds_1.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="project-image">
-                        <img src="../images/Lloyds_2.png" alt="Lloyds Bank mobile app login and authentication screens">
+                        <img data-src="../images/Lloyds_2.png" alt="Lloyds Bank mobile app login and authentication screens">
                     </div>
                     <div class="project-image">
-                        <img src="../images/Lloyds_3.png" alt="Lloyds Bank account overview and transaction history">
+                        <img data-src="../images/Lloyds_3.png" alt="Lloyds Bank account overview and transaction history">
                     </div>
                     <div class="project-image">
-                        <img src="../images/Lloyds_4.png" alt="Lloyds Bank product exploration and financial planning interface">
+                        <img data-src="../images/Lloyds_4.png" alt="Lloyds Bank product exploration and financial planning interface">
                     </div>
                     <div class="project-image">
-                        <img src="../images/Lloyds_5.png" alt="Lloyds Bank payment and transfer flow screens">
+                        <img data-src="../images/Lloyds_5.png" alt="Lloyds Bank payment and transfer flow screens">
                     </div>
                 </div>
             </div>
@@ -161,6 +162,7 @@
     <script src="../js/script.js"></script>
     <script src="../js/components/cta-button.js"></script>
     <script src="../js/components/cta-text-animation.js"></script>
+    <script src="../js/lazy-loading.js"></script>
     <link rel="stylesheet" href="../css/components/cta-text-animation.css">
 </body>
 </html> 
